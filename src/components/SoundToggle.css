@@ -1,0 +1,105 @@
+.audio-controls {
+  position: relative;
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: rgba(243, 240, 232, 0.5);
+  pointer-events: auto;
+  isolation: isolate;
+}
+
+.audio-control {
+  position: relative;
+  display: grid;
+  place-items: center;
+  inline-size: 40px;
+  block-size: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 150ms ease-out, transform 120ms ease-out;
+}
+
+.audio-control::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(249, 247, 241, 0.075), rgba(249, 247, 241, 0.025));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease-out;
+}
+
+.audio-control:focus-visible::before { opacity: 1; }
+.audio-control:active { transform: scale(0.96); }
+
+.audio-control:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.82);
+  outline-offset: -3px;
+}
+
+.audio-control svg {
+  position: relative;
+  z-index: 1;
+  inline-size: 18px;
+  block-size: 18px;
+  overflow: visible;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.audio-control[aria-pressed="false"] { color: rgba(243, 240, 232, 0.3); }
+
+.audio-control::after {
+  content: attr(data-label);
+  position: absolute;
+  top: calc(100% + 11px);
+  right: 0;
+  padding: 6px 8px 5px;
+  border-radius: 7px;
+  background: rgba(13, 16, 17, 0.68);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 8px 22px rgba(0, 0, 0, 0.16);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: rgba(243, 240, 232, 0.82);
+  font-size: 10px;
+  font-weight: 450;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-3px);
+  transition: opacity 140ms ease-out, transform 180ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .audio-control:hover { color: rgba(243, 240, 232, 0.76); }
+  .audio-control:hover::before { opacity: 1; }
+  .audio-control:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (pointer: coarse) {
+  .audio-control {
+    inline-size: 44px;
+    block-size: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audio-control,
+  .audio-control::before,
+  .audio-control::after { transition: none; }
+}

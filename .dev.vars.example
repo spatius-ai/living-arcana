@@ -1,0 +1,6 @@
+# Copy to .dev.vars for local Wrangler development. Never commit credentials.
+SPATIUS_APP_ID=""
+SPATIUS_API_KEY=""
+OPENROUTER_API_KEY=""
+ELEVENLABS_API_KEY=""
+ELEVENLABS_VOICE_MAP={}

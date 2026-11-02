@@ -1,0 +1,34 @@
+.shimmer-text {
+  --shimmer-text-base: rgba(243, 240, 232, 0.38);
+  --shimmer-text-highlight: rgba(255, 253, 247, 0.96);
+  display: inline-block;
+  color: var(--shimmer-text-base);
+  font-family: var(--sans);
+  font-style: normal;
+  font-weight: 400;
+  background-image: linear-gradient(
+    105deg,
+    var(--shimmer-text-base) 30%,
+    var(--shimmer-text-highlight) 47%,
+    var(--shimmer-text-base) 64%
+  );
+  background-position: 115% 50%;
+  background-size: 240% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-text-sweep 1.7s linear infinite;
+}
+
+@keyframes shimmer-text-sweep {
+  to { background-position: -115% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-text {
+    color: var(--shimmer-text-base);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    animation: none;
+  }
+}

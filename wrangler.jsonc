@@ -1,0 +1,38 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "living-arcana",
+  "main": "worker.js",
+  "compatibility_date": "2026-08-11",
+  "workers_dev": true,
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "THREE_CARD_QUESTION_QUOTA",
+        "class_name": "ThreeCardQuestionQuota"
+      }
+    ]
+  },
+  "exports": {
+    "ThreeCardQuestionQuota": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    }
+  },
+  "vars": {
+    "SPATIUS_REGION": "ap-northeast",
+    "THREE_CARD_DAILY_QUESTION_LIMIT": "3",
+    "THREE_CARD_QUOTA_TIME_ZONE": "Asia/Singapore",
+    "DAILY_CARD_DAILY_QUESTION_LIMIT": "3",
+    "DAILY_CARD_QUOTA_TIME_ZONE": "Asia/Singapore",
+    "OPENROUTER_MODEL": "openai/gpt-5.6-luna",
+    "OPENROUTER_VOICE_MODEL": "openai/gpt-5.4-mini",
+    "TTS_PROVIDER": "elevenlabs",
+    "ELEVENLABS_MODEL": "eleven_flash_v2_5",
+    "ELEVENLABS_STT_MODEL": "scribe_v2_realtime"
+  },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  }
+}

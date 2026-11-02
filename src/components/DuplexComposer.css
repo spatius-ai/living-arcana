@@ -1,0 +1,591 @@
+.duplex-composer {
+  /* Keep the SVG source opaque so the gooey alpha-threshold can retain the
+     silhouette. Translucency is applied to the rendered group below. */
+  --duplex-liquid-fill: rgb(18, 22, 23);
+  --duplex-liquid-opacity: 0.24;
+  --duplex-glass-background:
+    linear-gradient(
+      180deg,
+      rgba(28, 31, 33, 0.32) 0%,
+      rgba(23, 26, 28, 0.26) 38%,
+      rgba(18, 21, 22, 0.17) 72%,
+      rgba(15, 18, 19, 0.08) 100%
+    );
+  --duplex-glass-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.17),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.1),
+    0 10px 32px rgba(0, 0, 0, 0.12);
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.duplex-composer .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.duplex-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 33px;
+}
+
+.duplex-heading-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.duplex-heading-speaker,
+.duplex-heading-actions {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.duplex-heading-speaker { gap: 10px; }
+.duplex-heading-actions { justify-content: flex-end; gap: 10px; }
+
+.duplex-speaker-card { display: none; }
+
+.duplex-heading b {
+  color: rgba(243, 240, 232, 0.92);
+  font-size: 14px;
+  font-weight: 560;
+  letter-spacing: -0.01em;
+}
+
+.duplex-heading small {
+  overflow: hidden;
+  color: rgba(243, 240, 232, 0.52);
+  font-size: 10px;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.duplex-heading em {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  color: rgba(243, 240, 232, 0.56);
+  font-size: 9px;
+  font-style: normal;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.duplex-heading em::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.62;
+}
+
+.qa-form.duplex-form {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 100%;
+  height: 76px;
+}
+
+.duplex-liquid {
+  position: absolute !important;
+  inset: 0;
+  width: 100%;
+  height: 76px;
+  pointer-events: none;
+}
+
+.duplex-liquid-mic,
+.duplex-liquid-composer {
+  position: absolute;
+  top: 13px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background: transparent;
+}
+
+.duplex-liquid-mic { left: 0; }
+.duplex-liquid-composer { left: 65px; }
+.duplex-liquid-composer[data-open] { width: calc(100% - 65px); }
+
+.duplex-composer .duplex-liquid svg[data-gooey-svg] > g > rect:first-child {
+  transition: opacity 130ms ease-out;
+}
+
+.duplex-composer .duplex-liquid svg[data-gooey-svg] > g {
+  opacity: var(--duplex-liquid-opacity);
+}
+
+.duplex-composer:is([data-orb="active"], [data-orb="exiting"]) .duplex-liquid svg[data-gooey-svg] > g > rect:first-child {
+  opacity: 0;
+}
+
+.duplex-field {
+  position: absolute;
+  top: 13px;
+  right: 0;
+  left: 65px;
+  z-index: 2;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 25px;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.duplex-field::before,
+.duplex-action::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: var(--duplex-glass-background);
+  box-shadow: var(--duplex-glass-shadow);
+  -webkit-backdrop-filter: blur(16px) saturate(115%);
+  backdrop-filter: blur(16px) saturate(115%);
+  pointer-events: none;
+}
+
+.duplex-field::before {
+  opacity: 0;
+  transition: opacity 90ms ease-in;
+}
+
+.duplex-field:has(.duplex-input:focus-visible) {
+  outline: 2px solid rgba(199, 185, 255, 0.78);
+  outline-offset: 2px;
+}
+
+.duplex-composer .duplex-input {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: calc(100% - 100px);
+  height: 50px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 16px;
+  z-index: 1;
+  caret-color: #d7ceff;
+  touch-action: manipulation;
+  opacity: 0;
+  filter: blur(2px);
+  pointer-events: none;
+  transform: translateX(-6px);
+  transition: opacity 90ms ease-in, filter 110ms ease-in, transform 130ms ease-in;
+}
+
+.duplex-composer .duplex-input:focus-visible { outline: 0; }
+.duplex-composer .duplex-input::placeholder { color: rgba(243, 240, 232, 0.31); }
+
+.duplex-action,
+.duplex-composer .duplex-send {
+  position: absolute;
+  top: 13px;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(243, 240, 232, 0.7);
+  isolation: isolate;
+  touch-action: manipulation;
+  transition: color 150ms ease-out, opacity 120ms ease-out, transform 150ms var(--ease-out), visibility 0s linear 0s;
+}
+
+.duplex-mic { left: 0; }
+.duplex-keyboard { left: 65px; }
+
+.duplex-mic::before {
+  transition: opacity 170ms ease-out 100ms;
+}
+
+.duplex-keyboard::before {
+  transition: opacity 170ms ease-out 250ms;
+}
+
+.duplex-composer .duplex-send {
+  top: 0;
+  right: 0;
+  align-self: auto;
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(2px);
+  transform: translateX(-5px) scale(0.94);
+  pointer-events: none;
+  transition: color 150ms ease-out, opacity 90ms ease-in, filter 110ms ease-in, transform 130ms ease-in, visibility 0s linear 130ms;
+}
+
+.duplex-action svg,
+.duplex-composer .duplex-send svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: auto;
+  z-index: 1;
+  stroke-width: 1.45;
+}
+
+.duplex-action:active,
+.duplex-composer .duplex-send:active { transform: scale(0.94); }
+
+.duplex-action:focus-visible,
+.duplex-composer .duplex-send:focus-visible {
+  outline: 2px solid rgba(211, 202, 255, 0.88);
+  outline-offset: 2px;
+}
+
+.duplex-composer[data-composer="open"] .duplex-field { pointer-events: auto; }
+.duplex-composer[data-composer="open"] .duplex-field::before {
+  opacity: 1;
+  transition: opacity 170ms ease-out 230ms;
+}
+.duplex-composer[data-composer="open"] .duplex-keyboard::before {
+  opacity: 0;
+  transition: opacity 90ms ease-in;
+}
+.duplex-composer[data-composer="open"] .duplex-keyboard { color: rgba(240, 236, 255, 0.96); transition-delay: 55ms; }
+
+.duplex-composer[data-composer="open"] .duplex-input {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+  pointer-events: auto;
+  transition: opacity 170ms ease-out 175ms, filter 170ms ease-out 175ms, transform 210ms var(--ease-out) 165ms;
+}
+
+.duplex-composer[data-composer="open"] .duplex-send {
+  opacity: 0.28;
+  visibility: visible;
+  filter: blur(0);
+  transform: none;
+  transition: color 150ms ease-out, opacity 160ms ease-out 285ms, filter 160ms ease-out 275ms, transform 200ms var(--ease-out) 265ms, visibility 0s linear 0s;
+}
+
+.duplex-composer[data-composer="open"][data-has-value="true"] .duplex-send {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.duplex-composer[data-mic="live"] .duplex-mic { color: rgba(240, 236, 255, 0.96); }
+
+.duplex-composer:is([data-orb="active"], [data-orb="exiting"]) .duplex-mic::before {
+  opacity: 0;
+  transition: opacity 100ms ease-in;
+}
+
+.duplex-mic-icon {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+  transition: opacity 120ms ease-out, filter 150ms ease-out, transform 180ms var(--ease-out);
+}
+
+.duplex-composer:is([data-orb="active"], [data-orb="exiting"]) .duplex-mic-icon {
+  opacity: 0;
+  filter: blur(2.5px);
+  transform: scale(0.88);
+}
+
+.cosmic-mic-orb-root {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(5px);
+  transform: scale(0.96);
+  pointer-events: none;
+  transition: opacity 210ms ease-out, filter 210ms ease-out, transform 240ms cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: auto;
+}
+
+.cosmic-mic-orb-placeholder,
+.cosmic-mic-orb-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  overflow: visible;
+  border-radius: 50%;
+  isolation: isolate;
+}
+
+.cosmic-mic-aura {
+  position: absolute;
+  inset: -9px;
+  z-index: 0;
+  display: block;
+  border-radius: 50%;
+  background: radial-gradient(circle at 46% 43%, rgba(225,216,255,.36) 0%, rgba(160,128,255,.3) 20%, rgba(106,60,255,.22) 40%, rgba(60,224,255,.1) 57%, rgba(255,94,168,.045) 65%, transparent 76%);
+  filter: blur(3.5px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.cosmic-mic-orb,
+.cosmic-mic-orb canvas {
+  display: block;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+}
+
+.cosmic-mic-orb {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 4px rgba(215,201,255,.48)) drop-shadow(0 0 9px rgba(106,60,255,.28));
+  transform: scale(1);
+}
+
+.duplex-composer[data-orb="active"] .cosmic-mic-orb-root {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+  will-change: opacity, filter, transform;
+}
+
+.duplex-composer[data-orb="active"] .cosmic-mic-orb-visual {
+  animation: duplex-orb-breathe 1240ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.duplex-composer[data-orb="exiting"] .cosmic-mic-orb-root {
+  opacity: 0;
+  filter: blur(6px);
+  transform: scale(0.98);
+  will-change: opacity, filter, transform;
+  transition-duration: 170ms;
+}
+
+.duplex-answer {
+  min-height: 0;
+  margin: 0;
+  color: rgba(243, 240, 232, 0.68);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.duplex-answer:empty { display: none; }
+
+.duplex-composer[data-limit="reached"] .qa-form,
+.duplex-composer[data-limit="unavailable"] .qa-form {
+  opacity: 0.46;
+}
+
+.duplex-composer :is(button, input):disabled {
+  cursor: default;
+}
+
+.duplex-composer[data-limit="reached"] .duplex-heading em,
+.duplex-composer[data-limit="reached"] .duplex-heading small {
+  color: rgba(243, 240, 232, 0.62);
+}
+
+.duplex-composer[data-limit="reached"] .duplex-heading em::before {
+  background: rgba(190, 177, 255, 0.86);
+}
+
+@keyframes duplex-orb-breathe {
+  50% { transform: scale(0.93); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .duplex-action:hover,
+  .duplex-composer .duplex-send:hover { color: var(--ink); }
+}
+
+@media (max-width: 520px) {
+  .duplex-heading { gap: 10px; }
+  .duplex-heading small { max-width: 48vw; }
+}
+
+@media (max-width: 820px) {
+  .today-followup {
+    --three-card-panel-border: rgba(255, 255, 255, 0.13);
+    --three-card-panel-background: linear-gradient(180deg, rgba(30, 34, 32, 0.84), rgba(15, 18, 17, 0.78));
+    --three-card-panel-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 22px 70px rgba(0, 0, 0, 0.44);
+  }
+
+  .duplex-composer {
+    position: fixed;
+    right: 12px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    left: 12px;
+    z-index: 40;
+    gap: 8px;
+    width: auto;
+    padding: 11px;
+    border: 0;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(28, 33, 30, 0.92), rgba(17, 21, 19, 0.9));
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 22px 64px rgba(0, 0, 0, 0.34);
+    -webkit-backdrop-filter: blur(20px) saturate(112%);
+    backdrop-filter: blur(20px) saturate(112%);
+    will-change: transform, opacity;
+  }
+
+  .variant-app[data-card-state="returning"] .reading-copy .duplex-composer {
+    animation: today-composer-out 180ms cubic-bezier(0.4, 0, 1, 1) both;
+    pointer-events: none;
+  }
+
+  .duplex-heading { min-height: 44px; }
+  .duplex-heading-copy { gap: 0; }
+  .duplex-heading-copy b {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .duplex-heading-copy small,
+  .duplex-heading-actions > em { display: none; }
+
+  .duplex-speaker-card {
+    display: block;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+  }
+
+  .duplex-speaker-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .reading-log-trigger.today-log-trigger {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: auto;
+    height: auto;
+    min-width: 0;
+    min-height: 44px;
+    padding: 0 11px 0 10px;
+    border-radius: 12px;
+  }
+
+  .reading-log-trigger.today-log-trigger span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-transform: none;
+  }
+
+  .reading-log-dialog.today-log-dialog {
+    position: fixed;
+    top: 88px;
+    right: 12px;
+    bottom: calc(176px + env(safe-area-inset-bottom));
+    left: 12px;
+    z-index: 55;
+  }
+
+  .qa-form.duplex-form,
+  .duplex-liquid { height: 64px; }
+  .duplex-liquid-mic,
+  .duplex-liquid-composer,
+  .duplex-action { top: 7px; }
+  .duplex-liquid-composer,
+  .duplex-liquid-composer[data-open] {
+    left: 58px;
+    width: calc(100% - 58px);
+  }
+
+  /* The mobile composer is the primary control, so its text field is always
+     present. The desktop keyboard-to-expand choreography only added an
+     unnecessary extra tap here and visually collapsed the input to an icon. */
+  .duplex-keyboard { display: none; }
+  .duplex-field {
+    top: 7px;
+    left: 58px;
+    pointer-events: auto;
+  }
+  .duplex-field::before { opacity: 1; }
+  .duplex-composer .duplex-input {
+    left: 0;
+    width: calc(100% - 50px);
+    opacity: 1;
+    filter: none;
+    pointer-events: auto;
+    transform: none;
+  }
+  .duplex-composer .duplex-send {
+    opacity: 0.28;
+    visibility: visible;
+    filter: none;
+    transform: none;
+  }
+  .duplex-composer[data-has-value="true"] .duplex-send {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .today-followup .duplex-answer { display: none; }
+}
+
+@keyframes today-composer-out {
+  from { opacity: 1; transform: translate3d(0, 0, 0); }
+  to { opacity: 0; transform: translate3d(0, 8px, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .variant-app[data-card-state="returning"] .reading-copy .duplex-composer {
+    animation: none;
+    opacity: 0;
+    transform: none;
+  }
+  .duplex-composer[data-orb="active"] .cosmic-mic-orb-visual { animation: none; }
+  .cosmic-mic-orb-root { will-change: auto; }
+}

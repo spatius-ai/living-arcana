@@ -1,0 +1,12 @@
+title = "Living Arcana secret scanning"
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Public localStorage preference names, not service credentials"
+regexTarget = "secret"
+regexes = [
+  '^living-arcana\.ui-sfx\.v1$',
+  '^living-arcana\.daily-draw\.v1$',
+  '^living-arcana\.collection\.v1$',
+]

@@ -1,0 +1,82 @@
+.celestial-seal-cta {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 1fr 16px;
+  align-items: center;
+  gap: 11px;
+  width: 228px;
+  min-height: 52px;
+  padding: 5px 14px 5px 5px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(28,31,33,.48), rgba(15,18,19,.28));
+  color: rgba(243,240,232,.9);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.11), inset 0 1px 0 rgba(255,255,255,.17), inset 0 -1px 0 rgba(0,0,0,.2), inset 0 -2px 3px rgba(0,0,0,.1), 0 10px 32px rgba(0,0,0,.16);
+  -webkit-backdrop-filter: blur(16px) saturate(115%);
+  backdrop-filter: blur(16px) saturate(115%);
+  isolation: isolate;
+  font-family: var(--sans, var(--proto-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif));
+  text-align: left;
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 150ms var(--ease-out, var(--proto-ease, cubic-bezier(.23,1,.32,1))), background-color 150ms ease-out, box-shadow 170ms ease-out;
+}
+
+.seal-refraction-canvas { position: absolute; z-index: 0; inset: 0; display: block; width: 100%; height: 100%; border-radius: inherit; pointer-events: none; }
+.seal-emblem { position: relative; z-index: 1; display: grid; place-items: center; width: 40px; aspect-ratio: 1; overflow: hidden; border-radius: 8px; background: linear-gradient(180deg, rgba(249,247,241,.095), rgba(249,247,241,.035)); box-shadow: inset 0 1px 0 rgba(255,255,255,.09), 0 0 0 1px rgba(255,255,255,.035), 0 3px 10px rgba(0,0,0,.13); transition: transform 220ms var(--ease-out, var(--proto-ease, cubic-bezier(.23,1,.32,1))), box-shadow 180ms ease-out, background-color 150ms ease-out; }
+.seal-diffraction-ring { position: absolute; z-index: 0; inset: -4px; border-radius: 50%; background: conic-gradient(from 214deg, transparent 0 15%, rgba(255,76,133,.56) 22%, rgba(255,191,93,.38) 28%, rgba(154,255,214,.38) 34%, rgba(81,202,255,.58) 41%, rgba(152,105,255,.52) 47%, transparent 56% 100%); opacity: .16; filter: blur(.5px) saturate(1.22); -webkit-mask: radial-gradient(circle, transparent 0 60%, #000 64% 69%, transparent 73%); mask: radial-gradient(circle, transparent 0 60%, #000 64% 69%, transparent 73%); transform: rotate(-18deg) scale(.88); transition: opacity 170ms ease-out, transform 280ms var(--ease-out, var(--proto-ease, cubic-bezier(.23,1,.32,1))); }
+.seal-orbit-ring,
+.seal-orbit-track { position: absolute; inset: 6px; border-radius: 50%; }
+.seal-orbit-ring { border: 1px solid rgba(236,228,255,.3); transition: transform 220ms var(--ease-out, var(--proto-ease, cubic-bezier(.23,1,.32,1))), opacity 150ms ease-out; }
+.seal-orbit-track { z-index: 2; animation: seal-orbit 4.6s linear infinite; will-change: transform; }
+.seal-orbit-track::before { content: ""; position: absolute; top: -3px; left: 50%; width: 6px; aspect-ratio: 1; translate: -50% 0; border-radius: 50%; background: #fffdf7; box-shadow: -4px 0 6px 1px rgba(255,54,126,.62), -2px 0 3px rgba(255,189,102,.55), 0 0 9px 2px rgba(248,240,255,.9), 4px 0 6px 1px rgba(44,205,255,.68), 6px 0 8px rgba(139,82,255,.42); }
+.seal-orbit-track::after { content: ""; position: absolute; top: -5px; left: 50%; width: 28px; height: 10px; translate: -88% 0; border-radius: 50%; background: linear-gradient(90deg, transparent 0 8%, rgba(255,64,129,.18) 28%, rgba(255,193,106,.25) 43%, rgba(251,248,255,.72) 60%, rgba(78,211,255,.36) 78%, transparent); filter: blur(2.8px); opacity: .22; transform: rotate(-3deg) scaleX(.62); transform-origin: right; mix-blend-mode: screen; transition: opacity 150ms ease-out, transform 220ms var(--ease-out, var(--proto-ease, cubic-bezier(.23,1,.32,1))); }
+.seal-orbit-glint { position: absolute; z-index: 3; top: -8px; left: 50%; width: 14px; height: 14px; translate: -50% 0; opacity: 0; transform: scale(.55); mix-blend-mode: screen; transition: opacity 150ms ease-out, transform 220ms var(--ease-out, var(--proto-ease, cubic-bezier(.23,1,.32,1))); }
+.seal-orbit-glint::before,
+.seal-orbit-glint::after { content: ""; position: absolute; top: 50%; left: 50%; background: linear-gradient(90deg, transparent, rgba(255,255,247,.86), transparent); translate: -50% -50%; }
+.seal-orbit-glint::before { width: 14px; height: 1px; }
+.seal-orbit-glint::after { width: 1px; height: 12px; background: linear-gradient(180deg, transparent, rgba(255,255,247,.78), transparent); }
+.seal-prismatic-flare { position: absolute; z-index: 0; inset: -12px; border-radius: 50%; background: radial-gradient(circle at 35% 46%, rgba(255,54,126,.3), transparent 25%), radial-gradient(circle at 66% 53%, rgba(45,211,255,.34), transparent 27%), radial-gradient(circle at 50% 50%, rgba(243,232,255,.24), transparent 55%); filter: blur(5px); opacity: .08; transform: scale(.72); mix-blend-mode: screen; transition: opacity 180ms ease-out, transform 260ms var(--ease-out, var(--proto-ease, cubic-bezier(.23,1,.32,1))); }
+.seal-star { position: relative; z-index: 4; color: rgba(246,241,255,.82); font-family: var(--serif, var(--proto-serif, "Instrument Serif", serif)); font-size: 15px; font-style: normal; transition: color 150ms ease-out, transform 220ms var(--ease-out, var(--proto-ease, cubic-bezier(.23,1,.32,1))), text-shadow 180ms ease-out; }
+.seal-copy { position: relative; z-index: 1; display: grid; }
+.seal-label { font-family: var(--sans, var(--proto-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif)); font-size: 13px; font-weight: 580; line-height: 1.1; letter-spacing: 0; white-space: nowrap; }
+.seal-arrow { position: relative; z-index: 2; justify-self: end; color: rgba(243,240,232,.5); font-size: 14px; transition: color 150ms ease-out; }
+
+.celestial-seal-cta:focus-visible { transform: translateY(-1px); background: linear-gradient(180deg, rgba(38,41,44,.56), rgba(18,21,23,.35)); box-shadow: 0 0 0 1px rgba(255,255,255,.16), inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 0 rgba(0,0,0,.2), 0 14px 36px rgba(0,0,0,.2), 0 0 24px rgba(155,132,221,.06); }
+.celestial-seal-cta:focus-visible .seal-emblem { transform: scale(1.035); background: linear-gradient(180deg, rgba(249,247,241,.12), rgba(249,247,241,.045)); box-shadow: inset 0 1px 0 rgba(255,255,255,.11), 0 0 0 1px rgba(255,255,255,.045), 0 0 16px rgba(151,126,225,.12); }
+.celestial-seal-cta:focus-visible .seal-diffraction-ring { opacity: .82; transform: rotate(10deg) scale(1); }
+.celestial-seal-cta:focus-visible .seal-orbit-ring { transform: scale(1.08); opacity: .9; }
+.celestial-seal-cta:focus-visible .seal-orbit-track::after { opacity: .75; transform: rotate(-3deg) scaleX(1); }
+.celestial-seal-cta:focus-visible .seal-orbit-glint { opacity: .78; transform: scale(1); animation: seal-glint 1.45s ease-in-out infinite alternate; }
+.celestial-seal-cta:focus-visible .seal-prismatic-flare { opacity: .9; transform: scale(1); }
+.celestial-seal-cta:focus-visible .seal-star { color: #fffdf8; transform: scale(1.22); text-shadow: -3px 0 8px rgba(255,61,128,.8), 0 0 8px #fff, 3px 0 8px rgba(41,206,255,.9), 0 0 18px rgba(182,148,255,.9); }
+.celestial-seal-cta:focus-visible .seal-arrow { color: rgba(243,240,232,.9); }
+.celestial-seal-cta:active { transform: translateY(0) scale(.975); box-shadow: 0 0 0 1px rgba(255,255,255,.13), inset 0 1px 0 rgba(255,255,255,.14), inset 0 -1px 0 rgba(0,0,0,.24), 0 6px 18px rgba(0,0,0,.16); transition-duration: 70ms; }
+.celestial-seal-cta:focus-visible { outline: 2px solid rgba(240,235,255,.9); outline-offset: 5px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .celestial-seal-cta:hover { transform: translateY(-1px); background: linear-gradient(180deg, rgba(38,41,44,.56), rgba(18,21,23,.35)); box-shadow: 0 0 0 1px rgba(255,255,255,.16), inset 0 1px 0 rgba(255,255,255,.2), inset 0 -1px 0 rgba(0,0,0,.2), 0 14px 36px rgba(0,0,0,.2), 0 0 24px rgba(155,132,221,.06); }
+  .celestial-seal-cta:hover .seal-emblem { transform: scale(1.035); background: linear-gradient(180deg, rgba(249,247,241,.12), rgba(249,247,241,.045)); box-shadow: inset 0 1px 0 rgba(255,255,255,.11), 0 0 0 1px rgba(255,255,255,.045), 0 0 16px rgba(151,126,225,.12); }
+  .celestial-seal-cta:hover .seal-diffraction-ring { opacity: .82; transform: rotate(10deg) scale(1); }
+  .celestial-seal-cta:hover .seal-orbit-ring { transform: scale(1.08); opacity: .9; }
+  .celestial-seal-cta:hover .seal-orbit-track::after { opacity: .75; transform: rotate(-3deg) scaleX(1); }
+  .celestial-seal-cta:hover .seal-orbit-glint { opacity: .78; transform: scale(1); animation: seal-glint 1.45s ease-in-out infinite alternate; }
+  .celestial-seal-cta:hover .seal-prismatic-flare { opacity: .9; transform: scale(1); }
+  .celestial-seal-cta:hover .seal-star { color: #fffdf8; transform: scale(1.22); text-shadow: -3px 0 8px rgba(255,61,128,.8), 0 0 8px #fff, 3px 0 8px rgba(41,206,255,.9), 0 0 18px rgba(182,148,255,.9); }
+  .celestial-seal-cta:hover .seal-arrow { color: rgba(243,240,232,.9); }
+}
+
+@keyframes seal-orbit { to { transform: rotate(360deg); } }
+@keyframes seal-glint {
+  0%, 45% { opacity: .38; transform: scale(.72); }
+  100% { opacity: .9; transform: scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seal-prismatic-flare,
+  .seal-diffraction-ring,
+  .seal-orbit-glint,
+  .seal-refraction-canvas { display: none; }
+  .seal-orbit-track { animation: none; }
+}

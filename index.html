@@ -1,0 +1,5109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#090b0b" />
+  <meta name="description" content="Living Arcana — a daily Major Arcana experience brought to life." />
+  <link rel="icon" type="image/png" sizes="100x100" href="/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Living Arcana" />
+  <meta property="og:title" content="Living Arcana — Daily Tarot" />
+  <meta property="og:description" content="A daily Major Arcana experience brought to life." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The Arcana wordmark over a halo rising above a night meadow." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Living Arcana — Daily Tarot" />
+  <meta name="twitter:description" content="A daily Major Arcana experience brought to life." />
+  <meta name="twitter:image" content="/og-image.jpg" />
+  <!-- Self-hosted fonts (public/assets/fonts). Only the faces the landing
+       screen paints with are preloaded; the rest load on demand by unicode-range. -->
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inclusive-sans-normal-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-serif-normal-latin.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-serif-italic-latin.woff2" crossorigin />
+  <title>Living Arcana — Daily Tarot</title>
+  <style>
+    /* Inclusive Sans (variable 300–700) and Instrument Serif, self-hosted.
+       Files and unicode-range subsets mirror the Google Fonts v5 build. */
+    /* vietnamese */
+    @font-face {
+      font-family: "Inclusive Sans";
+      font-style: italic;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url("/assets/fonts/inclusive-sans-italic-vietnamese.woff2") format("woff2");
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+      font-family: "Inclusive Sans";
+      font-style: italic;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url("/assets/fonts/inclusive-sans-italic-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+      font-family: "Inclusive Sans";
+      font-style: italic;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url("/assets/fonts/inclusive-sans-italic-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* vietnamese */
+    @font-face {
+      font-family: "Inclusive Sans";
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url("/assets/fonts/inclusive-sans-normal-vietnamese.woff2") format("woff2");
+      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+    }
+
+    /* latin-ext */
+    @font-face {
+      font-family: "Inclusive Sans";
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url("/assets/fonts/inclusive-sans-normal-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+      font-family: "Inclusive Sans";
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url("/assets/fonts/inclusive-sans-normal-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* latin-ext */
+    @font-face {
+      font-family: "Instrument Serif";
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url("/assets/fonts/instrument-serif-italic-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+      font-family: "Instrument Serif";
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url("/assets/fonts/instrument-serif-italic-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* latin-ext */
+    @font-face {
+      font-family: "Instrument Serif";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("/assets/fonts/instrument-serif-normal-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    /* latin */
+    @font-face {
+      font-family: "Instrument Serif";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("/assets/fonts/instrument-serif-normal-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    :root {
+      color-scheme: dark;
+      --ink: #f3f0e8;
+      --ink-muted: rgba(243, 240, 232, 0.58);
+      --line: rgba(243, 240, 232, 0.18);
+      --accent: #a68cff;
+      --accent-soft: rgba(166, 140, 255, 0.22);
+      --surface: #0b0e0d;
+      --serif: "Instrument Serif", "Iowan Old Style", "Baskerville", "Times New Roman", serif;
+      --sans: "Inclusive Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.86, 0, 0.07, 1);
+      --card-flip-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+      --ease-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+      --safe-x: max(24px, env(safe-area-inset-left));
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      background: #090b0b;
+    }
+
+    body {
+      overflow: hidden;
+      overflow: clip;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-synthesis: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: geometricPrecision;
+      /* Cards are pressed, held and dragged: on touch devices a long press
+         would otherwise start a text selection or the iOS callout menu. */
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Typing, and the text a person may want to copy, stay selectable. */
+    input,
+    textarea,
+    [contenteditable="true"],
+    .reading-log-scroll,
+    .legal-panel {
+      -webkit-user-select: text;
+      user-select: text;
+      -webkit-touch-callout: default;
+    }
+
+    button, input { font: inherit; }
+    button { color: inherit; }
+
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #c7b9ff;
+      outline-offset: 4px;
+    }
+
+    #stage,
+    .variant-app {
+      width: 100%;
+      height: 100dvh;
+      min-height: 620px;
+    }
+
+    .variant-app {
+      --card-radius-x: 13.4831%;
+      --card-radius-y: 8.427%;
+      --card-back-image: url("/assets/cards/card-back.webp");
+      --home-holographic-strength: 0.68;
+      --card-edge-outline: 0 0 0 1px rgba(0, 0, 0, 0.32);
+      --card-edge-bevel:
+        0 0 0 1px rgba(255, 255, 255, 0.09) inset,
+        0 0 0 4px rgba(3, 7, 8, 0.76) inset,
+        0 0 0 5px rgba(255, 255, 255, 0.035) inset,
+        0 2px 3px rgba(255, 255, 255, 0.045) inset,
+        0 -5px 9px rgba(0, 0, 0, 0.34) inset;
+      --card-edge-bevel-compact:
+        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+        0 0 0 2px rgba(3, 7, 8, 0.76) inset,
+        0 0 0 3px rgba(255, 255, 255, 0.03) inset,
+        0 -3px 5px rgba(0, 0, 0, 0.32) inset;
+      --card-edge-bevel-micro:
+        0 0 0 1px rgba(255, 255, 255, 0.07) inset,
+        0 0 0 2px rgba(3, 7, 8, 0.72) inset,
+        0 -2px 3px rgba(0, 0, 0, 0.3) inset;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      overflow: clip;
+      background: var(--surface);
+    }
+
+    .ambient {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      overflow: hidden;
+      background:
+        radial-gradient(70% 90% at 50% 42%, rgba(74, 80, 68, 0.26), transparent 68%),
+        linear-gradient(160deg, #101513, #070908 64%);
+    }
+
+    .ambient::before,
+    .ambient::after {
+      content: "";
+      position: absolute;
+      inset: -18%;
+      pointer-events: none;
+    }
+
+    .ambient::before {
+      opacity: 0.62;
+      background:
+        radial-gradient(42% 33% at 21% 18%, rgba(86, 105, 93, 0.22), transparent 100%),
+        radial-gradient(30% 50% at 77% 64%, rgba(74, 50, 100, 0.2), transparent 100%);
+      transform: rotate(-5deg);
+    }
+
+    .ambient::after {
+      inset: 0;
+      opacity: 0.12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+
+    .ambient[data-ambient="1"] {
+      background:
+        radial-gradient(55% 65% at 66% 34%, rgba(69, 72, 91, 0.3), transparent 72%),
+        linear-gradient(142deg, #101514, #09090c 67%);
+    }
+
+    .ambient[data-ambient="2"] {
+      background:
+        radial-gradient(52% 68% at 30% 63%, rgba(83, 60, 74, 0.25), transparent 72%),
+        linear-gradient(165deg, #131512, #080909 72%);
+    }
+
+    .background-video {
+      position: absolute;
+      top: -5%;
+      left: -5%;
+      width: 110%;
+      height: 110%;
+      object-fit: cover;
+      object-position: center center;
+      opacity: 0;
+      z-index: 1;
+      transform: translate3d(var(--ambient-parallax-x, 0px), var(--ambient-parallax-y, 0px), 0);
+      transition: none;
+      filter: saturate(0.9) contrast(1.03) brightness(0.735);
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .background-video[data-visible] { opacity: 1; }
+    .background-video[data-front] { z-index: 2; }
+    .background-video[data-fading] {
+      opacity: 0;
+      transition: opacity 360ms linear;
+    }
+
+    .video-scrim {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(4, 6, 5, 0.28), transparent 30%, transparent 68%, rgba(4, 6, 5, 0.42)),
+        radial-gradient(ellipse at center, transparent 22%, rgba(4, 6, 5, 0.28) 100%);
+    }
+
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      height: 92px;
+      padding: env(safe-area-inset-top) var(--safe-x) 0;
+      pointer-events: none;
+    }
+
+    .wordmark,
+    .icon-nav { pointer-events: auto; }
+
+    .wordmark {
+      grid-column: 1;
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      min-width: 44px;
+      min-height: 44px;
+      gap: 10px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      opacity: 0.82;
+      transition: opacity 150ms ease-out;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .wordmark:hover { opacity: 1; }
+    }
+
+    .wordmark-logo-viewport {
+      display: block;
+      width: 104px;
+      height: 28px;
+      overflow: hidden;
+      transform: translateY(-0.5px);
+    }
+
+    .wordmark-logo {
+      display: block;
+      width: 104px;
+      max-width: none;
+      height: auto;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .icon-nav {
+      --nav-item-size: 44px;
+      --nav-gap: 3px;
+      --nav-padding: 4px;
+      --nav-ease: cubic-bezier(0.77, 0, 0.175, 1);
+      grid-column: 2;
+      justify-self: center;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, var(--nav-item-size));
+      gap: var(--nav-gap);
+      padding: var(--nav-padding);
+      border-radius: 12px;
+      background:
+        linear-gradient(180deg, rgba(28, 31, 33, 0.48), rgba(15, 18, 19, 0.28));
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.17),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.1),
+        0 10px 32px rgba(0, 0, 0, 0.12);
+      -webkit-backdrop-filter: blur(16px) saturate(115%);
+      backdrop-filter: blur(16px) saturate(115%);
+      isolation: isolate;
+    }
+
+    .nav-selection {
+      position: absolute;
+      top: var(--nav-padding);
+      left: var(--nav-padding);
+      z-index: -1;
+      width: var(--nav-item-size);
+      height: var(--nav-item-size);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(249, 247, 241, 0.17), rgba(249, 247, 241, 0.08));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.07),
+        0 3px 10px rgba(0, 0, 0, 0.13);
+      transform: translateX(0);
+      transition: transform 180ms var(--nav-ease);
+      will-change: transform;
+    }
+
+    .icon-nav[data-instant] .nav-selection { transition: none; }
+
+    .variant-app[data-view="consultation"] .nav-selection {
+      transform: translateX(calc(var(--nav-item-size) + var(--nav-gap)));
+    }
+
+    .variant-app[data-view="archive"] .nav-selection {
+      transform: translateX(calc((var(--nav-item-size) + var(--nav-gap)) * 2));
+    }
+
+    .icon-button {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: var(--nav-item-size);
+      height: var(--nav-item-size);
+      padding: 0;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: rgba(243, 240, 232, 0.54);
+      cursor: pointer;
+      transition: color 120ms var(--ease-out), transform 120ms var(--ease-out);
+    }
+
+    .icon-button[data-current] { color: var(--ink); }
+
+    .icon-button:active { transform: scale(0.97); }
+    .icon-button svg { width: 18px; height: 18px; stroke-width: 1.35; }
+    .icon-button:focus-visible {
+      outline: 1px solid rgba(213, 204, 255, 0.88);
+      outline-offset: -3px;
+    }
+
+    .icon-button::after {
+      content: attr(data-label);
+      position: absolute;
+      top: calc(100% + 9px);
+      left: 50%;
+      padding: 6px 8px 5px;
+      border-radius: 7px;
+      background: rgba(13, 16, 17, 0.68);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.09),
+        0 8px 22px rgba(0, 0, 0, 0.16);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      color: rgba(243, 240, 232, 0.86);
+      font-size: 10px;
+      font-weight: 450;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -3px);
+      transition: opacity 140ms ease-out, transform 180ms var(--ease-out);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .icon-button:not([data-current]):hover { color: rgba(243, 240, 232, 0.78); }
+      .icon-button:hover::after {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    .icon-button[data-current]::after {
+      opacity: 0;
+      transform: translate(-50%, -3px);
+    }
+
+    .scene {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .scene[aria-hidden="true"] * {
+      pointer-events: none !important;
+    }
+
+    /* Hidden scenes are only visibility:hidden, so their looping animations
+       (card float, breathe, orbit, voice bars) kept ticking off-screen. */
+    .scene[aria-hidden="true"] *,
+    .scene[aria-hidden="true"] *::before,
+    .scene[aria-hidden="true"] *::after {
+      animation-play-state: paused !important;
+    }
+
+    .variant-app[data-view="today"] .scene:not(.today-view) *,
+    .variant-app[data-view="reading"] .scene:not(.reading-view) *,
+    .variant-app[data-view="consultation"] .scene:not(.consultation-view) *,
+    .variant-app[data-view="archive"] .scene:not(.archive-view) * {
+      pointer-events: none !important;
+    }
+
+    .variant-app[data-view="today"] .today-view,
+    .variant-app[data-view="reading"] .reading-view,
+    .variant-app[data-view="consultation"] .consultation-view,
+    .variant-app[data-view="archive"] .archive-view {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .variant-app[data-view="reading"][data-landing-exit="true"] .today-view {
+      z-index: 2;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: none;
+    }
+
+    .variant-app[data-view="reading"][data-landing-exit="true"] .reading-view {
+      z-index: 1;
+    }
+
+    .landing-view {
+      display: grid;
+      place-items: center;
+      padding: 96px 24px;
+    }
+
+    .today-fresh,
+    .today-drawn {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 96px 24px;
+    }
+
+    .today-fresh {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .today-drawn {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .variant-app[data-drawn="true"] .today-fresh {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .variant-app[data-drawn="true"] .today-drawn {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .landing-content {
+      display: grid;
+      justify-items: center;
+      gap: 34px;
+      width: min(100%, 840px);
+      min-width: 0;
+      text-align: center;
+    }
+
+    .hero-kicker,
+    .today-drawn-kicker {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 10px;
+      font-weight: 540;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .landing-cta {
+      margin: 0;
+      width: 100%;
+      max-width: 800px;
+      min-width: 0;
+      font-family: var(--serif);
+      font-size: clamp(48px, 7.3vw, 112px);
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: -0.052em;
+      text-wrap: balance;
+    }
+
+    .landing-cta [data-word-index="4"],
+    .landing-cta [data-word-index="5"] {
+      font-style: italic;
+    }
+
+    .landing-reveal-button {
+      opacity: 0;
+      filter: blur(var(--landing-button-blur, 6px));
+      transform: translate3d(0, 10px, 0) scale(0.985);
+    }
+
+    /* The button entrance is armed by the boot veil lifting; running it from
+       CSS load would finish invisibly beneath the veil. */
+    .variant-app[data-entered="true"] .landing-reveal-button {
+      animation: landing-button-reveal var(--landing-button-duration, 720ms) cubic-bezier(.23,1,.32,1) var(--landing-button-delay, 1.18s) forwards;
+    }
+
+    @keyframes landing-button-reveal {
+      to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+    }
+
+    .variant-app[data-landing-exit="true"] .landing-content {
+      pointer-events: none;
+      will-change: opacity, filter, transform;
+      animation: landing-content-exit 300ms cubic-bezier(.4,0,.2,1) forwards;
+    }
+
+    @keyframes landing-content-exit {
+      to {
+        opacity: 0;
+        filter: blur(3px);
+        transform: translate3d(0, -8px, 0) scale(0.99);
+      }
+    }
+
+    .today-drawn-content {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .today-drawn-heading {
+      position: absolute;
+      top: clamp(92px, 13vh, 132px);
+      left: 50%;
+      display: grid;
+      justify-items: center;
+      gap: 8px;
+      width: min(90vw, 720px);
+      translate: -50% 0;
+      text-align: center;
+    }
+
+    .today-drawn-title {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(36px, 4vw, 58px);
+      font-weight: 400;
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+    }
+
+    .today-card-stack {
+      display: grid;
+      justify-items: center;
+      gap: clamp(20px, 3vh, 30px);
+      transform: translateY(36px);
+    }
+
+    .today-card-button {
+      position: relative;
+      width: clamp(240px, 20vw, 270px);
+      aspect-ratio: 0.625;
+      padding: 0;
+      border: 0;
+      border-radius: var(--home-card-radius, var(--card-radius-x) / var(--card-radius-y));
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .today-card-button:focus { outline: none; }
+    .today-card-button:focus-visible {
+      outline: 1px solid rgba(243, 240, 232, 0.78);
+      outline-offset: 4px;
+    }
+
+    .today-card-tilt {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      transform: perspective(900px) rotateX(var(--home-rx, 0deg)) rotateY(var(--home-ry, 0deg)) scale(var(--home-hover-scale, 1));
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .today-card-shell {
+      position: absolute;
+      inset: 0;
+      isolation: isolate;
+      overflow: hidden;
+      border: 0;
+      border-radius: inherit;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% 31%, rgba(170, 148, 255, 0.34), transparent 28%),
+        linear-gradient(160deg, #192321, #0d1111 64%, #261c2c);
+      box-shadow:
+        0 44px 96px rgba(0, 0, 0, 0.45),
+        var(--card-edge-outline);
+      will-change: transform;
+    }
+
+    .today-live-source {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: var(--home-live-width, 356px);
+      height: var(--home-live-height, 569.6px);
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(var(--home-live-scale, 0.7584));
+      transform-origin: 50% 50%;
+      transition: opacity 300ms ease-out;
+      pointer-events: none;
+    }
+
+    .today-live-art.avatar-art {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .today-video-art {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 17px 15px 14px;
+      overflow: hidden;
+      opacity: 0;
+      transform: scale(1.025);
+      transition: opacity 300ms ease-out, transform 460ms var(--ease-out);
+      pointer-events: none;
+    }
+
+    .today-video-art::before,
+    .return-video-art::before {
+      /* The current card artwork is the poster: while its motion video is
+         still loading (restored boot, slow network, reduced motion) the card
+         shows this frame instead of the shell's bare violet backdrop, and the
+         playing video takes over seamlessly. Filter mirrors .today-card-video
+         so the handoff is invisible. */
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #0d1111 var(--active-card-motion-poster) center / cover no-repeat;
+      filter: saturate(0.96) contrast(1.02) brightness(0.92);
+    }
+
+    .today-card-video,
+    .today-video-veil {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .today-card-video {
+      object-fit: cover;
+      opacity: 0;
+      filter: saturate(0.96) contrast(1.02) brightness(0.92);
+      transition: opacity 260ms cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    .today-card-video[data-ready] { opacity: 1; }
+
+    .today-video-veil {
+      z-index: 1;
+      background:
+        radial-gradient(circle at 50% 40%, transparent 18%, rgba(5, 9, 9, 0.1) 58%),
+        linear-gradient(180deg, rgba(8, 12, 12, 0.38), transparent 28%, transparent 66%, rgba(8, 11, 11, 0.62));
+      box-shadow: 0 0 0 7px rgba(10, 14, 13, 0.22) inset;
+    }
+
+    .today-video-art .card-index,
+    .today-video-art .card-name {
+      z-index: 2;
+      color: rgba(243, 240, 232, 0.82);
+    }
+
+    .today-video-art .card-name {
+      grid-row: 3;
+      align-self: end;
+    }
+
+    .today-hover-material {
+      position: absolute;
+      inset: 0;
+      z-index: 7;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      mix-blend-mode: color-dodge;
+      pointer-events: none;
+    }
+
+    .today-transition-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      opacity: 0;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .variant-app[data-home-media="transition"] .today-live-source,
+    .variant-app[data-home-media="video"] .today-live-source,
+    .variant-app[data-home-media="reversing"] .today-video-art {
+      opacity: 0;
+    }
+
+    /* During a restored boot (daily draw already completed today) the drawn
+       card appears in its final resting state: suppress the media-layer
+       fades so an unrendered live layer never flashes before card motion. */
+    .variant-app[data-restore-boot] .today-live-source,
+    .variant-app[data-restore-boot] .today-video-art,
+    .variant-app[data-restore-boot] .today-card-video {
+      transition: none !important;
+    }
+
+    .variant-app[data-home-media="transition"] .today-video-art,
+    .variant-app[data-home-media="video"] .today-video-art {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .variant-app[data-home-media="transition"] .today-transition-canvas,
+    .variant-app[data-home-media="reversing"] .today-transition-canvas {
+      opacity: 1;
+    }
+
+    .variant-app[data-view="today"][data-drawn="true"][data-home-media="video"] .today-card-shell {
+      animation: today-card-float 5.6s ease-in-out infinite alternate;
+    }
+
+    @keyframes today-card-float {
+      from { transform: translateY(0) rotate(0deg); }
+      to { transform: translateY(6px) rotate(0.25deg); }
+    }
+
+    .today-date,
+    .today-note {
+      width: min(88vw, 520px);
+      margin: 0;
+      color: var(--ink-muted);
+      font-family: var(--serif);
+      font-size: 15px;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .site-footer {
+      position: absolute;
+      left: var(--safe-x);
+      right: var(--safe-x);
+      bottom: max(18px, env(safe-area-inset-bottom));
+      z-index: 30;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: rgba(243, 240, 232, 0.42);
+      font-size: 10px;
+      letter-spacing: 0.035em;
+      pointer-events: none;
+    }
+
+    .footer-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      pointer-events: auto;
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 8px;
+      margin-left: -8px;
+      border: 0;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+      transition: color 150ms ease-out;
+    }
+
+    .footer-link:disabled {
+      color: rgba(243, 240, 232, 0.24);
+      cursor: default;
+    }
+
+    .footer-release { justify-content: flex-end; }
+
+    .wordmark:focus-visible,
+    .footer-link:focus-visible,
+    .card-hitbox:focus-visible,
+    .overlay-close:focus-visible {
+      outline: 2px solid rgba(211, 202, 255, 0.88);
+      outline-offset: 3px;
+    }
+
+
+    .reading-view {
+      display: grid;
+      place-items: center;
+      padding: 92px clamp(24px, 5vw, 80px) 74px;
+      perspective: 1500px;
+    }
+
+    .reading-layout {
+      --card-width: clamp(272px, min(24vw, 48vh), 356px);
+      --card-half-height: clamp(218px, min(19.2vw, 38.4vh), 285px);
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(280px, 390px) minmax(340px, 520px);
+      align-items: center;
+      justify-content: center;
+      gap: clamp(88px, 9vw, 148px);
+      width: min(1240px, 100%);
+      min-height: min(690px, calc(100dvh - 154px));
+      pointer-events: none;
+    }
+
+    .card-zone {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      min-height: 580px;
+      grid-column: 1 / -1;
+      grid-row: 1;
+      transform: translateX(0);
+      transition: transform 680ms var(--ease-in-out);
+      pointer-events: none;
+      perspective: 860px;
+      perspective-origin: 50% 48%;
+    }
+
+    .mobile-swipe-cue { display: none; }
+
+    .variant-app[data-card-state="activating"] .card-zone,
+    .variant-app[data-card-state="live"] .card-zone,
+    .variant-app[data-card-state="returning"] .card-zone {
+      transform: translate3d(clamp(-320px, -19vw, -230px), -18px, 0);
+    }
+
+    .card-cluster {
+      position: relative;
+      width: var(--card-width);
+      aspect-ratio: 0.625;
+      opacity: 0;
+      transform-style: preserve-3d;
+      pointer-events: auto;
+      transition: transform 620ms var(--ease-in-out);
+    }
+
+    .variant-app[data-card-state="summoning"] .card-cluster {
+      will-change: transform, opacity;
+      animation: card-summon-glide 1120ms cubic-bezier(0.38, 0.35, 0.15, 1) 20ms both;
+    }
+
+    .variant-app[data-card-state="returning"] .card-cluster {
+      transform: translate3d(var(--shared-card-x, 0px), var(--shared-card-y, 0px), 0) scale(var(--shared-card-scale, 1));
+    }
+
+    .variant-app[data-shared-card-setup="true"] .card-cluster {
+      transition: none;
+    }
+
+    .variant-app[data-card-state="summoning"] .card-cluster,
+    .variant-app[data-card-state="back"] .card-cluster,
+    .variant-app[data-card-state="flipping"] .card-cluster,
+    .variant-app[data-card-state="static"] .card-cluster,
+    .variant-app[data-card-state="activating"] .card-cluster,
+    .variant-app[data-card-state="live"] .card-cluster,
+    .variant-app[data-card-state="returning"] .card-cluster {
+      opacity: 1;
+    }
+
+    .variant-app[data-card-state="dismissing"] .card-cluster {
+      opacity: 0;
+      transform: translateY(10px) scale(0.985);
+      pointer-events: none;
+      transition: opacity 180ms ease-in, transform 220ms var(--ease-in-out);
+    }
+
+    .source-card-stage,
+    .card-hitbox {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--card-radius-x) / var(--card-radius-y);
+    }
+
+    .source-card-stage {
+      z-index: 1;
+      opacity: 1;
+      visibility: hidden;
+      transform: perspective(1200px) translate3d(0, 0, -42px) rotateZ(-5deg) scale(0.91);
+      transform-origin: 50% 50%;
+      transform-style: preserve-3d;
+      pointer-events: none;
+      will-change: transform;
+      transition: transform 620ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+
+    .variant-app[data-under-card-rendered="true"] .source-card-stage {
+      visibility: visible;
+    }
+
+    /* Full-card siblings are flattened so the explicit layer state wins over
+       compositor depth sorting from their independent 3D/filter layers. */
+    .variant-app[data-full-card-motion="active"] .card-cluster {
+      isolation: isolate;
+      transform-style: flat;
+    }
+
+    .variant-app[data-full-card-layer="artwork"] .source-card-stage {
+      z-index: 60;
+    }
+
+    .variant-app[data-full-card-layer="avatar"] .source-card-stage {
+      z-index: 1;
+    }
+
+    .variant-app[data-under-card="visible"] .source-card-stage {
+      transform: perspective(1200px) translate3d(24px, 14px, -42px) rotateZ(0deg) scale(1);
+    }
+
+    .variant-app[data-card-state="live"][data-under-card="visible"] .source-card-stage {
+      pointer-events: auto;
+    }
+
+    .variant-app[data-under-card="concealed"] .source-card-breathe {
+      animation: none;
+      transform: none;
+    }
+
+    .source-card-breathe {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      transform-origin: 100% 100%;
+      will-change: transform;
+      animation: source-card-breathe 5200ms cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+    }
+
+    .variant-app[data-full-card-motion="active"] .source-card-breathe {
+      animation: none;
+    }
+
+    @keyframes source-card-breathe {
+      0%, 100% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
+      50% { transform: translate3d(1px, -1px, 0) rotateZ(0.45deg); }
+    }
+
+    .source-card {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 0;
+      border-radius: inherit;
+      background: transparent;
+      color: #181b19;
+      cursor: pointer;
+      transform: perspective(1100px) rotateY(-6deg) rotateZ(5deg);
+      transform-origin: 100% 100%;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      will-change: transform;
+      transition: transform 220ms var(--ease-out);
+    }
+
+    .source-card:disabled { cursor: default; }
+
+    .source-card-material {
+      position: absolute;
+      inset: 0;
+      display: block;
+      overflow: hidden;
+      border: 0;
+      border-radius: inherit;
+      background: #d8d0c0;
+      box-shadow:
+        0 28px 72px rgba(0, 0, 0, 0.38),
+        0 0 0 1px rgba(0, 0, 0, 0.3);
+      transform:
+        perspective(900px)
+        rotateX(var(--card-material-rx, 0deg))
+        rotateY(var(--card-material-ry, 0deg))
+        scale(var(--card-material-scale, 1));
+      transform-origin: 50% 50%;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      will-change: transform;
+      transition: transform 420ms cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    .today-card-shell::after,
+    .source-card-material::before,
+    .card-face::after,
+    .archive-card-inner::after,
+    .focus-face::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 12;
+      border-radius: inherit;
+      box-shadow: var(--card-edge-bevel);
+      pointer-events: none;
+    }
+
+    .archive-card-inner::after {
+      box-shadow: var(--card-edge-bevel-compact);
+    }
+
+    .source-card-material::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      border-radius: inherit;
+      background: rgba(2, 4, 4, 0.46);
+      opacity: 1;
+      pointer-events: none;
+      will-change: opacity;
+      transition: opacity 220ms ease-in;
+    }
+
+    .variant-app[data-full-card-appearance="expanded"] .source-card-material::after {
+      opacity: 0;
+      transition: opacity 220ms var(--ease-out);
+    }
+
+    .variant-app[data-full-card-state="closing"] .source-card-material::after {
+      transition: opacity 260ms var(--ease-out) 430ms;
+    }
+
+    .source-card-diffraction-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      opacity: 0;
+      mix-blend-mode: color-dodge;
+      pointer-events: none;
+      transition: opacity 150ms ease-out;
+    }
+
+    .source-card-diffraction-canvas[data-active] { opacity: 1; }
+
+    .source-card-edge-trigger {
+      position: absolute;
+      top: 4%;
+      right: -50px;
+      z-index: 4;
+      width: 56px;
+      height: 92%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      opacity: 0;
+      cursor: pointer;
+      pointer-events: none;
+      touch-action: manipulation;
+    }
+
+    .variant-app[data-card-state="live"] .source-card-edge-trigger {
+      pointer-events: auto;
+    }
+
+    .variant-app[data-full-card-state="opening"] .source-card-edge-trigger,
+    .variant-app[data-full-card-state="open"] .source-card-edge-trigger,
+    .variant-app[data-full-card-state="closing"] .source-card-edge-trigger,
+    .variant-app[data-reading-media="reversing"] .source-card-edge-trigger {
+      pointer-events: none;
+    }
+
+    .card-hitbox {
+      z-index: 2;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      perspective: 1200px;
+      touch-action: manipulation;
+    }
+
+    .card-hitbox:disabled { cursor: default; }
+
+    .card-object {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--card-radius-x) / var(--card-radius-y);
+      transform-style: preserve-3d;
+      transform:
+        rotateX(var(--card-material-rx, 0deg))
+        rotateY(var(--card-material-ry, 0deg))
+        scale(var(--card-material-scale, 1));
+      transition: transform 420ms cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    .variant-app[data-card-state="summoning"] .card-object {
+      animation: card-summon-plane 1050ms cubic-bezier(0.38, 0.35, 0.15, 1) 20ms both;
+    }
+
+    .variant-app[data-card-state="summoning"] .card-hitbox { perspective: 860px; }
+
+    .card-flipper {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      transform-style: preserve-3d;
+      transition: transform 760ms var(--card-flip-ease);
+      will-change: transform;
+    }
+
+    .variant-app[data-card-state="flipping"] .card-flipper,
+    .variant-app[data-card-state="static"] .card-flipper,
+    .variant-app[data-card-state="activating"] .card-flipper,
+    .variant-app[data-card-state="live"] .card-flipper,
+    .variant-app[data-card-state="returning"] .card-flipper {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border: 0;
+      border-radius: inherit;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      box-shadow:
+        0 44px 96px rgba(0, 0, 0, 0.45),
+        var(--card-edge-outline);
+    }
+
+    .card-back {
+      display: grid;
+      place-items: center;
+      background: #081415 var(--card-back-image) center / cover no-repeat;
+    }
+
+    .card-back-metal-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      opacity: 0.86;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .card-front-diffraction-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      opacity: 0;
+      mix-blend-mode: color-dodge;
+      pointer-events: none;
+      transition: opacity 180ms ease-out;
+    }
+
+    .card-front-diffraction-canvas[data-active] { opacity: 1; }
+
+    .card-back::before { content: none; }
+
+    .card-back::before { width: 45%; aspect-ratio: 1; }
+
+    .back-mark {
+      position: relative;
+      z-index: 2;
+      font-family: var(--serif);
+      font-size: 44px;
+      font-style: italic;
+      color: rgba(243, 239, 226, 0.82);
+      opacity: 0;
+      transition: opacity 300ms ease-out;
+    }
+
+    .variant-app[data-card-state="back"] .back-mark { opacity: 0; }
+
+    .card-front {
+      transform: rotateY(180deg);
+      color: #181b19;
+      background: #d9d2c4;
+    }
+
+    .static-art,
+    .avatar-art {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 22px 20px 18px;
+      border-radius: inherit;
+      transition: opacity 380ms ease-out, transform 680ms var(--ease-in-out);
+    }
+
+    .static-art {
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(255, 251, 233, 0.84), transparent 18%),
+        linear-gradient(158deg, #d7cfbd, #aba692 70%, #b7a3a9);
+    }
+
+    .static-artwork-image {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .static-art::after,
+    .source-card::after {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border: 1px solid rgba(30, 34, 30, 0.3);
+      border-radius:
+        max(0px, calc(var(--card-radius-x) - 7px)) /
+        max(0px, calc(var(--card-radius-y) - 7px));
+      pointer-events: none;
+    }
+
+    .avatar-art {
+      isolation: isolate;
+      overflow: hidden;
+      /* WebKit can let transformed video/canvas descendants escape an
+         ancestor's rounded 3D face. Give the media layer its own clipping
+         surface so the artwork and digital-human background share the card
+         radius on iOS as well as desktop browsers. */
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      opacity: 0;
+      transform: scale(1.035);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% 31%, rgba(170, 148, 255, 0.34), transparent 28%),
+        linear-gradient(160deg, #192321, #0d1111 64%, #261c2c);
+    }
+
+    .variant-app[data-card-state="activating"] .static-art,
+    .variant-app[data-card-state="live"] .static-art,
+    .variant-app[data-card-state="returning"] .static-art {
+      opacity: 0;
+      transform: scale(0.985);
+    }
+
+    .variant-app[data-card-state="activating"] .avatar-art,
+    .variant-app[data-card-state="live"] .avatar-art,
+    .variant-app[data-card-state="returning"] .avatar-art {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .return-video-art {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 22px 20px 18px;
+      overflow: hidden;
+      border-radius: inherit;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      opacity: 0;
+      transform: scale(1.025);
+      transition: opacity 300ms ease-out, transform 620ms var(--ease-in-out);
+      pointer-events: none;
+    }
+
+    .return-card-video,
+    .return-video-veil {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .return-card-video {
+      object-fit: cover;
+      opacity: 0;
+      filter: saturate(0.96) contrast(1.02) brightness(0.92);
+      transition: opacity 260ms cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    .return-card-video[data-ready] { opacity: 1; }
+
+    .return-video-veil {
+      z-index: 1;
+      background:
+        radial-gradient(circle at 50% 40%, transparent 18%, rgba(5, 9, 9, 0.1) 58%),
+        linear-gradient(180deg, rgba(8, 12, 12, 0.38), transparent 28%, transparent 66%, rgba(8, 11, 11, 0.62));
+      box-shadow: 0 0 0 8px rgba(10, 14, 13, 0.22) inset;
+    }
+
+    .return-video-art .card-index,
+    .return-video-art .card-name {
+      z-index: 2;
+      color: rgba(243, 240, 232, 0.82);
+    }
+
+    .return-video-art .card-name {
+      grid-row: 3;
+      align-self: end;
+    }
+
+    .variant-app[data-reading-media="transition"] .card-front > .avatar-art,
+    .variant-app[data-reading-media="video"] .card-front > .avatar-art {
+      opacity: 0;
+      transform: scale(0.985);
+    }
+
+    .variant-app[data-reading-media="transition"] .return-video-art,
+    .variant-app[data-reading-media="video"] .return-video-art {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .variant-app[data-reading-media="reversing"] .card-front > .avatar-art {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .variant-app[data-reading-media="reversing"] .return-video-art {
+      opacity: 0;
+      transform: scale(1.025);
+    }
+
+    .variant-app[data-reading-media="reversing"] .source-card {
+      pointer-events: none;
+    }
+
+    .source-card .static-art {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    .card-index,
+    .card-name {
+      position: relative;
+      z-index: 7;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .card-name { text-align: center; }
+
+    .avatar-bust {
+      position: absolute;
+      z-index: 2;
+      top: calc(var(--spatius-frame-y, 0) * 1%);
+      left: calc(var(--spatius-frame-x, 0) * 1%);
+      width: calc(var(--spatius-frame-width, 100) * 1%);
+      height: calc(var(--spatius-frame-height, 100) * 1%);
+    }
+
+    .spatius-card-background,
+    .spatius-card-overlay {
+      position: absolute;
+      inset: 0;
+      display: block;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      pointer-events: none;
+    }
+
+    .spatius-card-background {
+      z-index: 1;
+      opacity: var(--spatius-background-opacity, 1);
+      transform: translate3d(var(--spatius-background-x, 0%), var(--spatius-background-y, 0%), 0) scale(var(--spatius-background-scale, 1));
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    .spatius-card-overlay {
+      z-index: 6;
+      opacity: var(--spatius-overlay-opacity, 1);
+      transform: translate3d(var(--spatius-overlay-x, 0%), var(--spatius-overlay-y, 0%), 0) scale(var(--spatius-overlay-scale, 1));
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    .spatius-avatar-stage {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: block;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 420ms ease-out;
+    }
+
+    .spatius-avatar-stage[data-ready] { opacity: 1; }
+
+    .spatius-avatar-stage canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .live-status {
+      position: absolute;
+      z-index: 7;
+      top: 17px;
+      right: 17px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(243, 240, 232, 0.6);
+      font-size: 8px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .live-status::before {
+      content: "";
+      width: 5px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #aa93ff;
+      box-shadow: 0 0 12px #aa93ff;
+    }
+
+    .shader-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 9;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      mix-blend-mode: screen;
+    }
+
+    .variant-app[data-card-state="activating"] .shader-canvas,
+    .variant-app[data-reading-media="transition"] .shader-canvas,
+    .variant-app[data-reading-media="reversing"] .shader-canvas { opacity: 1; }
+
+    .card-reveal-prompt {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 6;
+      display: grid;
+      place-items: center;
+      width: 88%;
+      color: rgba(249, 246, 238, 0.86);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      white-space: nowrap;
+      text-align: center;
+      text-shadow:
+        0 2px 10px rgba(2, 5, 6, 0.52),
+        0 0 18px rgba(215, 205, 255, 0.1);
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translate3d(-50%, -50%, 42px);
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      pointer-events: none;
+    }
+
+    .card-reveal-prompt::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      width: min(300px, 96%);
+      height: 82px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(218, 208, 255, 0.13) 0%, rgba(154, 183, 234, 0.045) 44%, transparent 74%);
+      filter: blur(10px);
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.86);
+      mix-blend-mode: screen;
+    }
+
+    .card-reveal-copy {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(4px) scale(0.99);
+    }
+
+    .card-reveal-character {
+      display: inline-block;
+      opacity: 0;
+      filter: blur(8px);
+      transform: translateY(5px) scale(0.98);
+      will-change: filter, transform, opacity;
+    }
+
+    .card-reveal-character.is-space { width: 0.42em; }
+
+    .variant-app[data-card-state="back"] .card-reveal-prompt { opacity: 1; }
+    .variant-app[data-card-state="flipping"] .card-reveal-prompt {
+      opacity: 0;
+      transition: opacity 140ms ease-out;
+    }
+    .variant-app[data-card-state="back"] .card-reveal-prompt::before {
+      animation: card-prompt-aura 1100ms cubic-bezier(0.32, 0.72, 0, 1) 120ms both;
+    }
+    .variant-app[data-card-state="back"] .card-reveal-copy {
+      animation:
+        card-prompt-copy-in 360ms cubic-bezier(0.32, 0.72, 0, 1) 140ms both,
+        card-prompt-breathe 4000ms ease-in-out 1600ms infinite alternate both;
+    }
+    .variant-app[data-card-state="back"] .card-reveal-character {
+      animation: card-prompt-character-in 680ms cubic-bezier(0.32, 0.72, 0, 1) both;
+      animation-delay: calc(180ms + var(--character-index) * 24ms);
+    }
+
+    .reading-copy {
+      grid-column: 2;
+      grid-row: 1;
+      display: grid;
+      align-content: center;
+      max-width: 510px;
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 150ms ease-in, transform 150ms ease-in;
+    }
+
+    .reading-stack {
+      --reading-qa-shift: 80px;
+      display: grid;
+      gap: 24px;
+      width: 100%;
+      transform: translateY(var(--reading-qa-shift));
+    }
+
+    .variant-app[data-qa="ready"] .reading-stack,
+    .variant-app[data-qa="answered"] .reading-stack {
+      transform: translateY(0);
+      transition: transform 420ms cubic-bezier(0.455, 0.03, 0.515, 0.955) 70ms;
+    }
+
+    .variant-app[data-card-state="activating"] .reading-copy,
+    .variant-app[data-card-state="live"] .reading-copy {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      transition: opacity 330ms 180ms var(--ease-out), transform 330ms 180ms var(--ease-out);
+    }
+
+    .variant-app[data-reading-media="reversing"] .reading-copy {
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition-delay: 0ms;
+    }
+
+    /* Reset the hidden reading scene before it is made visible again. */
+    .variant-app[data-reading-copy-prepared="true"] .reading-copy {
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: none;
+    }
+
+    .reading-kicker {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .reading-stack > header {
+      display: grid;
+      gap: 12px;
+    }
+
+    .reading-title {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(46px, 5vw, 76px);
+      font-weight: 400;
+      line-height: 0.94;
+      letter-spacing: -0.045em;
+    }
+
+    .reading-lead {
+      margin: 0;
+      max-width: 46ch;
+      color: rgba(243, 240, 232, 0.78);
+      font-family: var(--serif);
+      font-size: clamp(19px, 1.75vw, 25px);
+      line-height: 1.38;
+    }
+
+    .tips {
+      display: grid;
+      gap: 10px;
+      padding-top: 4px;
+      margin: 0;
+      list-style: none;
+      color: var(--ink-muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .tips li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+    }
+
+    .tips li::before {
+      content: attr(data-index);
+      color: rgba(243, 240, 232, 0.3);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .speech-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 18px;
+      color: rgba(243, 240, 232, 0.4);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .voice-bars { display: inline-flex; align-items: center; gap: 2px; height: 12px; }
+    .voice-bars i { width: 1px; height: 4px; background: currentColor; }
+
+    .variant-app[data-speaking="true"] .voice-bars i {
+      animation: voice 480ms ease-in-out infinite alternate;
+    }
+
+    .variant-app[data-speaking="true"] .voice-bars i:nth-child(2) { animation-delay: -160ms; }
+    .variant-app[data-speaking="true"] .voice-bars i:nth-child(3) { animation-delay: -320ms; }
+
+    @keyframes voice { to { height: 11px; } }
+
+    .qa-block {
+      display: grid;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      opacity: 0;
+      visibility: hidden;
+      filter: blur(3px);
+      transform: translateY(10px);
+      pointer-events: none;
+      transition:
+        opacity 170ms ease-in,
+        filter 170ms ease-in,
+        transform 170ms ease-in,
+        visibility 0s linear 170ms;
+    }
+
+    .variant-app[data-qa="ready"] .qa-block,
+    .variant-app[data-qa="answered"] .qa-block {
+      opacity: 1;
+      visibility: visible;
+      filter: blur(0);
+      transform: translateY(0);
+      pointer-events: auto;
+      transition:
+        opacity 380ms cubic-bezier(0.215, 0.61, 0.355, 1) 190ms,
+        filter 380ms cubic-bezier(0.215, 0.61, 0.355, 1) 190ms,
+        transform 380ms cubic-bezier(0.215, 0.61, 0.355, 1) 190ms,
+        visibility 0s linear 0s;
+    }
+
+    .qa-label {
+      color: var(--ink-muted);
+      font-size: 11px;
+    }
+
+    .qa-form {
+      display: grid;
+      grid-template-columns: 1fr 38px;
+      gap: 8px;
+    }
+
+    .qa-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 2px;
+      border: 0;
+      border-bottom: 1px solid rgba(243, 240, 232, 0.28);
+      border-radius: 0;
+      outline-offset: 2px;
+      background: transparent;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    .qa-input::placeholder { color: rgba(243, 240, 232, 0.3); }
+
+    .qa-submit {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      align-self: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      transition: transform 150ms var(--ease-out), background-color 150ms ease-out;
+    }
+
+    .qa-submit:active { transform: scale(0.96); }
+
+    .qa-answer {
+      min-height: 0;
+      margin: 0;
+      color: rgba(243, 240, 232, 0.68);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .archive-view {
+      display: grid;
+      place-items: center;
+      padding: 94px 0 74px;
+    }
+
+    .archive-meta {
+      position: absolute;
+      top: 104px;
+      left: 50%;
+      translate: -50% 0;
+      z-index: 4;
+      display: grid;
+      justify-items: center;
+      gap: 5px;
+      pointer-events: none;
+    }
+
+    .archive-meta h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(34px, 4vw, 56px);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    .archive-meta p {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .archive-arc {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 7vh;
+      height: min(68vh, 620px);
+      perspective: 1300px;
+      transition: opacity 220ms ease-out;
+    }
+
+    .archive-webgl-stage {
+      position: absolute;
+      inset: 74px 0 0;
+      z-index: 3;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        rgba(0, 0, 0, 0.08) 12px,
+        rgba(0, 0, 0, 0.25) 28px,
+        rgba(0, 0, 0, 0.55) 48px,
+        rgba(0, 0, 0, 0.82) 70px,
+        black 96px
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        rgba(0, 0, 0, 0.08) 12px,
+        rgba(0, 0, 0, 0.25) 28px,
+        rgba(0, 0, 0, 0.55) 48px,
+        rgba(0, 0, 0, 0.82) 70px,
+        black 96px
+      );
+      transition: opacity 280ms var(--ease-out);
+    }
+
+    .archive-webgl-stage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(5, 8, 7, 0.32), transparent 14%, transparent 86%, rgba(5, 8, 7, 0.32)),
+        linear-gradient(180deg, rgba(5, 8, 7, 0.12), transparent 28%, transparent 72%, rgba(5, 8, 7, 0.18));
+    }
+
+    .archive-webgl-stage::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 3;
+      height: clamp(78px, 14vh, 132px);
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 8, 7, 0),
+        rgba(5, 8, 7, 0.035) 28%,
+        rgba(5, 8, 7, 0.12) 62%,
+        rgba(5, 8, 7, 0.28)
+      );
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.22) 26%, black 100%);
+      mask-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.22) 26%, black 100%);
+    }
+
+    .archive-webgl-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+      cursor: grab;
+      outline: none;
+    }
+
+    .archive-webgl-canvas[data-dragging] { cursor: grabbing; }
+
+    .archive-webgl-canvas:focus-visible {
+      outline: none;
+    }
+
+    .archive-webgl-help {
+      position: absolute;
+      left: 50%;
+      bottom: max(64px, calc(env(safe-area-inset-bottom) + 54px));
+      z-index: 4;
+      margin: 0;
+      translate: -50% 0;
+      color: rgba(243, 240, 232, 0.56);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      pointer-events: none;
+      transition: opacity 180ms ease-out;
+    }
+
+    .archive-webgl-stage[data-focused] .archive-webgl-help { opacity: 0; }
+
+    .archive-webgl-status {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .variant-app[data-archive-webgl="ready"] .archive-webgl-stage {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .variant-app[data-archive-webgl="loading"] .archive-arc {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .variant-app[data-archive-webgl="ready"] .archive-arc {
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .archive-card {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: clamp(116px, 10vw, 162px);
+      aspect-ratio: 0.625;
+      padding: 0;
+      border: 0;
+      border-radius: var(--card-radius-x) / var(--card-radius-y);
+      background: transparent;
+      transform-origin: 50% 160%;
+      cursor: pointer;
+      will-change: transform;
+    }
+
+    .archive-card-inner {
+      position: absolute;
+      inset: 0;
+      isolation: isolate;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 13px 11px 10px;
+      overflow: hidden;
+      border: 0;
+      border-radius: inherit;
+      color: #202420;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.32), transparent 24%),
+        linear-gradient(155deg, #cfc8b9, #8f978c 70%, #a08c9d);
+      box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.38),
+        var(--card-edge-outline);
+      transition: transform 220ms var(--ease-out), filter 220ms ease-out, opacity 220ms ease-out;
+    }
+
+    .archive-card-artwork,
+    .focus-card-artwork,
+    .focus-card-video {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .focus-card-artwork,
+    .focus-card-video {
+      transition: opacity 260ms cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    .focus-card-video { opacity: 0; }
+    .focus-front[data-video-ready] .focus-card-artwork { opacity: 0; }
+    .focus-front[data-video-ready] .focus-card-video { opacity: 1; }
+
+    .archive-card:not([data-collected]) .archive-card-inner {
+      filter: grayscale(1);
+    }
+
+    .archive-card:focus-visible { outline-offset: 7px; }
+
+    .archive-roman,
+    .archive-name {
+      position: relative;
+      z-index: 1;
+      color: rgba(248, 245, 236, 0.92);
+      font-size: 7px;
+      letter-spacing: 0.09em;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.78);
+      text-transform: uppercase;
+    }
+
+    .archive-name { grid-row: 3; text-align: center; }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: grid;
+      place-items: center;
+      padding: 72px 24px;
+      opacity: 0;
+      visibility: hidden;
+      background: rgba(4, 6, 5, 0.74);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      transition: opacity 220ms var(--ease-out), visibility 0s 220ms;
+    }
+
+    .plate-scrim {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 0;
+      background: rgba(4, 6, 5, 0.6);
+      -webkit-backdrop-filter: blur(12px) saturate(0.78);
+      backdrop-filter: blur(12px) saturate(0.78);
+      opacity: 0;
+      visibility: hidden;
+      cursor: default;
+      pointer-events: none;
+      transition: opacity 390ms var(--ease-out), visibility 0s linear 960ms;
+      will-change: opacity;
+    }
+
+    .variant-app[data-full-card-state="open"] .plate-scrim {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition: opacity 390ms var(--ease-out), visibility 0s;
+    }
+
+    .variant-app[data-full-card-state="closing"] .plate-scrim {
+      opacity: 0;
+      visibility: visible;
+      pointer-events: none;
+      transition: opacity 300ms var(--ease-out) 530ms, visibility 0s linear 860ms;
+    }
+
+    .variant-app[data-full-card-state="opening"] .card-zone,
+    .variant-app[data-full-card-state="open"] .card-zone,
+    .variant-app[data-full-card-state="closing"] .card-zone {
+      z-index: 40;
+    }
+
+    .variant-app[data-full-card-state="opening"] .site-header,
+    .variant-app[data-full-card-state="open"] .site-header,
+    .variant-app[data-full-card-state="closing"] .site-header,
+    .variant-app[data-full-card-state="opening"] .site-footer,
+    .variant-app[data-full-card-state="open"] .site-footer,
+    .variant-app[data-full-card-state="closing"] .site-footer {
+      z-index: 20;
+    }
+
+    .card-hitbox {
+      opacity: 1;
+      filter: blur(0) brightness(1) saturate(1);
+      transition: filter 300ms var(--ease-out);
+      will-change: filter;
+    }
+
+    .variant-app[data-full-card-state="open"] .card-hitbox {
+      opacity: 1;
+      filter: blur(8px) brightness(0.38) saturate(0.55);
+      pointer-events: none;
+    }
+
+    .variant-app[data-full-card-state="closing"] .card-hitbox {
+      pointer-events: none;
+      filter: blur(0) brightness(1) saturate(1);
+      transition: filter 300ms var(--ease-out) 530ms;
+    }
+
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    .overlay[data-open] {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 220ms var(--ease-out), visibility 0s;
+    }
+
+    .overlay-panel {
+      position: relative;
+      width: min(92vw, 420px);
+      max-height: min(78vh, 680px);
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(15, 18, 17, 0.94);
+      box-shadow: 0 32px 100px rgba(0, 0, 0, 0.46);
+      transform: scale(0.97);
+      transition: transform 220ms var(--ease-out);
+    }
+
+    .overlay[data-open] .overlay-panel { transform: scale(1); }
+
+    .overlay-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(243, 240, 232, 0.07);
+      cursor: pointer;
+    }
+
+    .archive-focus-panel {
+      display: grid;
+      justify-items: center;
+      gap: 18px;
+      width: auto;
+      padding: 0;
+      overflow: visible;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .focus-card-button {
+      position: relative;
+      width: min(70vw, 330px);
+      aspect-ratio: 0.625;
+      padding: 0;
+      border: 0;
+      border-radius: var(--card-radius-x) / var(--card-radius-y);
+      background: transparent;
+      perspective: 1200px;
+      cursor: pointer;
+    }
+
+    .focus-card-tilt {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      transform:
+        rotateX(var(--card-material-rx, 0deg))
+        rotateY(var(--card-material-ry, 0deg))
+        scale(var(--card-material-scale, 1));
+      transform-style: preserve-3d;
+      transition: transform 360ms cubic-bezier(0.32, 0.72, 0, 1);
+      will-change: transform;
+    }
+
+    .focus-flipper {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      transform-style: preserve-3d;
+      transition: transform 700ms var(--ease-in-out);
+    }
+
+    .focus-card-button[data-flipped] .focus-flipper { transform: rotateY(180deg); }
+
+    .focus-face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: inherit;
+      overflow: hidden;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      box-shadow:
+        0 42px 100px rgba(0, 0, 0, 0.5),
+        var(--card-edge-outline);
+    }
+
+    .focus-back {
+      background: #081415 var(--card-back-image) center / cover no-repeat;
+    }
+
+    .focus-back-metal-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      opacity: 0.86;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .focus-front-diffraction-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      opacity: 0;
+      mix-blend-mode: color-dodge;
+      pointer-events: none;
+      transition: opacity 180ms ease-out;
+    }
+
+    .focus-front-diffraction-canvas[data-active] { opacity: 1; }
+
+    .focus-back .back-mark { z-index: 2; }
+
+    .focus-front {
+      isolation: isolate;
+      grid-template-rows: auto 1fr auto;
+      place-items: stretch;
+      padding: 22px 20px 18px;
+      transform: rotateY(180deg);
+      color: #1f231f;
+      background: linear-gradient(155deg, #d8d0bd, #92998d 70%, #aa93a3);
+    }
+
+    .focus-front[data-locked] { filter: grayscale(1); }
+
+    .focus-card-index,
+    .focus-card-name {
+      position: relative;
+      z-index: 1;
+      color: rgba(248, 245, 236, 0.94);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-shadow: 0 1px 7px rgba(0, 0, 0, 0.82);
+      text-transform: uppercase;
+    }
+
+    .focus-card-index { grid-row: 1; }
+    .focus-card-name { grid-row: 3; text-align: center; }
+
+    .focus-caption {
+      margin: 0;
+      color: rgba(243, 240, 232, 0.64);
+      font-size: 11px;
+      letter-spacing: 0.07em;
+    }
+
+    .legal-panel {
+      padding: 34px;
+    }
+
+    .legal-panel h2 {
+      margin: 0 0 18px;
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 400;
+    }
+
+    .legal-panel p {
+      margin: 0 0 12px;
+      color: rgba(243, 240, 232, 0.68);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .changelog-panel { width: min(92vw, 460px); }
+
+    .legal-panel .changelog-kicker {
+      margin: 0 0 8px;
+      color: rgba(243, 240, 232, 0.44);
+      font-size: 9px;
+      font-weight: 550;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .changelog-list { display: grid; }
+
+    .changelog-entry {
+      padding: 18px 0;
+      border-top: 1px solid rgba(243, 240, 232, 0.11);
+    }
+
+    .changelog-entry:first-child { padding-top: 4px; border-top: 0; }
+    .changelog-entry:last-child { padding-bottom: 0; }
+
+    .changelog-entry header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 7px;
+    }
+
+    .changelog-entry h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 21px;
+      font-weight: 400;
+    }
+
+    .changelog-entry time {
+      color: rgba(243, 240, 232, 0.38);
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .legal-panel .changelog-entry p { margin: 0; }
+
+    /* Selected direction: Still — typographic and restrained. */
+    .landing-content { gap: 34px; }
+    .landing-cta { font-size: clamp(46px, 6.5vw, 94px); }
+    .card-flipper { transition-duration: 620ms; }
+    .source-card-stage { transition-duration: 620ms; }
+    .reading-layout { gap: clamp(88px, 9vw, 148px); }
+    .archive-card { transform-origin: 50% 260%; }
+
+    @keyframes card-summon-glide {
+      from { transform: translate3d(0, calc(42dvh + 430px), 0); }
+      to { transform: translate3d(0, 0, 0); }
+    }
+
+    @keyframes card-summon-plane {
+      from { transform: translate3d(0, 0, 410px) rotateX(68deg); }
+      to { transform: translate3d(0, 0, 0) rotateX(0deg); }
+    }
+
+    @keyframes card-prompt-aura {
+      from { opacity: 0; transform: translate(-50%, -50%) scale(0.86); }
+      to { opacity: 0.26; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    @keyframes card-prompt-copy-in {
+      from { opacity: 0; transform: translateY(4px) scale(0.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes card-prompt-character-in {
+      from { opacity: 0; filter: blur(8px); transform: translateY(5px) scale(0.98); }
+      to { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+    }
+
+    @keyframes card-prompt-breathe {
+      from { opacity: 0.82; transform: translateY(0) scale(0.998); }
+      to { opacity: 1; transform: translateY(-1px) scale(1); }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .wordmark:hover,
+      .footer-link:hover { color: var(--ink); }
+      .source-card-stage:hover .source-card-breathe {
+        animation-play-state: paused;
+      }
+      .source-card:not(:disabled):hover,
+      .card-cluster:has(.source-card-edge-trigger:hover) .source-card:not(:disabled) {
+        transform: perspective(1100px) rotateY(-2deg) rotateZ(6.5deg);
+      }
+      .qa-submit:hover { background: rgba(243, 240, 232, 0.08); }
+      .archive-card:hover .archive-card-inner { transform: translateY(-15px); }
+      .card-hitbox:hover + .unused { opacity: 1; }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      /* A tap focuses the card on mobile. The WebGL metallic overlay was
+         consequently held at its keyboard-focus intensity and WebKit could
+         composite its transparent gold pixels across the whole reverse.
+         The authored card-back artwork already carries the intended metal. */
+      .card-back-metal-canvas,
+      .focus-back-metal-canvas,
+      .three-card-back-metal-canvas { display: none !important; }
+    }
+
+    @media (max-width: 820px) {
+      #stage, .variant-app { min-height: 580px; }
+      .landing-content,
+      .landing-cta { max-width: calc(100vw - 48px); }
+      .landing-cta { font-size: clamp(40px, 12vw, 48px); }
+      .site-header {
+        grid-template-columns: minmax(34px, 1fr) auto minmax(34px, 1fr);
+        height: 76px;
+      }
+      .icon-nav { grid-column: 2; }
+      .wordmark-logo-viewport { width: 20px; }
+      .site-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: clamp(4px, 1.5vw, 8px);
+        font-size: clamp(7px, 1.9vw, 9px);
+        letter-spacing: 0.02em;
+        text-align: left;
+      }
+      .footer-group,
+      .footer-group:first-child {
+        display: flex;
+        flex: 0 1 auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: clamp(5px, 1.5vw, 10px);
+        width: auto;
+        min-width: 0;
+        white-space: nowrap;
+      }
+      .footer-release {
+        justify-content: flex-end;
+        text-align: right;
+      }
+      .footer-credit { display: inline; }
+      .site-footer .footer-link {
+        margin-left: -3px;
+        padding-inline: 3px;
+      }
+      .variant-app[data-view="reading"] .site-footer {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .variant-app[data-view="reading"] .site-footer * { pointer-events: none; }
+      .reading-view {
+        align-items: stretch;
+        padding: 76px 0 0;
+        overflow: hidden;
+      }
+      .reading-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr);
+        gap: 0;
+        width: 100%;
+        height: calc(100dvh - 76px);
+        min-height: 0;
+        padding: 0;
+        overflow: visible;
+      }
+      .card-back-metal-canvas,
+      .focus-back-metal-canvas,
+      .three-card-back-metal-canvas { display: none !important; }
+      .card-zone,
+      .variant-app[data-card-state="activating"] .card-zone,
+      .variant-app[data-card-state="live"] .card-zone,
+      .variant-app[data-card-state="returning"] .card-zone {
+        grid-column: auto;
+        grid-row: 1;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        padding: 22px 20px max(176px, calc(env(safe-area-inset-bottom) + 164px));
+        transform: translateX(0);
+      }
+      .card-cluster { width: min(68vw, 290px); }
+      .variant-app[data-card-state="activating"] .card-cluster,
+      .variant-app[data-card-state="live"] .card-cluster,
+      .variant-app[data-card-state="returning"] .card-cluster { width: min(62vw, 260px); }
+      .card-zone { transition: none; }
+      .variant-app[data-card-state="activating"] .card-zone,
+      .variant-app[data-card-state="live"] .card-zone,
+      .variant-app[data-card-state="returning"] .card-zone { min-height: 0; }
+      /* Narrow embedded browsers can report a fine pointer after a tap and
+         retain :hover through the close handoff. Keep the rear card on the
+         exact animation endpoint so it cannot grow again on the final frame. */
+      .source-card:not(:disabled):hover,
+      .card-cluster:has(.source-card-edge-trigger:hover) .source-card:not(:disabled) {
+        transform: perspective(1100px) rotateY(-6deg) rotateZ(5deg);
+      }
+      .reading-copy,
+      .variant-app[data-card-state="activating"] .reading-copy,
+      .variant-app[data-card-state="live"] .reading-copy,
+      .variant-app[data-reading-media="reversing"] .reading-copy,
+      .variant-app[data-reading-copy-prepared="true"] .reading-copy {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        padding: 0;
+        overflow: visible;
+        opacity: 1;
+        transform: none;
+        pointer-events: none;
+      }
+      .reading-stack { display: contents; transform: none !important; }
+      .reading-stack > header,
+      .reading-stack > .reading-lead,
+      .reading-stack > .tips,
+      .reading-stack > .speech-line { display: none; }
+      .reading-copy .duplex-composer { pointer-events: auto; }
+      .reading-title { font-size: clamp(42px, 13vw, 62px); }
+      .reading-lead { font-size: 19px; }
+      .card-reveal-prompt { width: 94%; font-size: 11px; }
+      .archive-meta { top: 86px; }
+      .archive-arc { bottom: 18vh; height: 54vh; }
+      .archive-card { width: 118px; }
+      .archive-webgl-stage { inset: 72px 0 0; }
+      .archive-webgl-help { bottom: max(70px, calc(env(safe-area-inset-bottom) + 60px)); width: 100%; text-align: center; }
+      .today-card-stack { gap: 20px; transform: translateY(30px); }
+      .today-card-button { width: min(58vw, 230px); }
+      .today-drawn-heading { top: 96px; }
+      .today-date,
+      .today-note { font-size: 14px; }
+    }
+
+    @media (max-height: 760px) and (min-width: 821px) {
+      .today-card-stack { gap: 12px; transform: translateY(48px); }
+    }
+
+    @media (max-height: 700px) and (min-width: 821px) {
+      .reading-layout { --card-width: 270px; --card-half-height: 216px; }
+      .card-zone { min-height: 510px; }
+      .reading-layout { min-height: 520px; }
+      .reading-stack { --reading-qa-shift: 76px; gap: 15px; }
+      .reading-title { font-size: 50px; }
+      .reading-lead { font-size: 18px; }
+      .tips { gap: 6px; }
+    }
+
+    /* Boot veil — static markup in <body>, so it paints before any JS runs.
+       The cosmic orb is portaled in by React once the bundle arrives; until
+       then the CSS aura + glyph + percent counter carry the loading state.
+       Dismissed by App once the background video has presented a frame. */
+    #boot-veil {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      row-gap: 28px;
+      background: #090b0b;
+      transition: opacity 640ms var(--ease-out), visibility 0s 640ms;
+    }
+
+    #boot-veil[data-leaving] {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .boot-veil-core {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 120px;
+      height: 120px;
+      transition: transform 640ms var(--ease-out);
+    }
+
+    #boot-veil[data-leaving] .boot-veil-core { transform: scale(1.05); }
+
+    /* Same radial recipe as .cosmic-mic-aura, scaled to the veil orb. */
+    .boot-veil-aura {
+      position: absolute;
+      inset: -22px;
+      z-index: 0;
+      display: block;
+      border-radius: 50%;
+      background: radial-gradient(circle at 46% 43%, rgba(225, 216, 255, 0.36) 0%, rgba(160, 128, 255, 0.3) 20%, rgba(106, 60, 255, 0.22) 40%, rgba(60, 224, 255, 0.1) 57%, rgba(255, 94, 168, 0.045) 65%, transparent 76%);
+      filter: blur(8px);
+      opacity: 0.32;
+      pointer-events: none;
+      animation: boot-veil-aura-breathe 2.8s ease-in-out infinite;
+    }
+
+    .boot-veil-orb-slot {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+    }
+
+    .boot-veil-orb,
+    .boot-veil-orb canvas {
+      display: block;
+      width: 120px !important;
+      height: 120px !important;
+      border-radius: 50%;
+    }
+
+    .boot-veil-orb {
+      filter: drop-shadow(0 0 8px rgba(215, 201, 255, 0.4)) drop-shadow(0 0 18px rgba(106, 60, 255, 0.25));
+      animation: boot-veil-orb-in 480ms var(--ease-out) both;
+    }
+
+    .boot-veil-glyph {
+      position: relative;
+      z-index: 2;
+      width: 30px;
+      height: auto;
+      color: #fff;
+      filter: drop-shadow(0 1px 6px rgba(9, 11, 11, 0.5));
+    }
+
+    .boot-veil-progress {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1;
+      letter-spacing: 0.05em;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-muted);
+      min-width: 3.4em;
+      text-align: center;
+    }
+
+    /* Sits in the veil grid right under the percent counter. The entrance
+       animates transform only and the breathe animates opacity only, so the
+       two never fight; with animation: none (reduced motion) the base
+       styles show the hint statically. */
+    .boot-veil-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin: 4px 0 0;
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 540;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      animation:
+        boot-veil-hint-in 900ms var(--ease-out) 500ms both,
+        boot-veil-hint-breathe 2.8s ease-in-out 500ms infinite both;
+    }
+
+    .boot-veil-hint svg {
+      width: 15px;
+      height: 15px;
+      flex: none;
+    }
+
+    @keyframes boot-veil-hint-in {
+      from { transform: translateY(6px); }
+    }
+
+    @keyframes boot-veil-hint-breathe {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.95; }
+    }
+
+    @keyframes boot-veil-aura-breathe {
+      0%, 100% { opacity: 0.26; }
+      50% { opacity: 0.42; }
+    }
+
+    @keyframes boot-veil-orb-in {
+      from {
+        opacity: 0;
+        transform: scale(0.94);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+      .today-card-video,
+      .return-card-video,
+      .focus-card-video { display: none; }
+      .today-hover-material { display: none; }
+      .card-back-metal-canvas,
+      .card-front-diffraction-canvas,
+      .source-card-diffraction-canvas,
+      .focus-back-metal-canvas,
+      .focus-front-diffraction-canvas { display: none; }
+      .archive-webgl-stage { display: none; }
+      .nav-selection { transition: none; }
+      .variant-app[data-card-state="back"] .card-reveal-copy,
+      .variant-app[data-card-state="back"] .card-reveal-character {
+        opacity: 1;
+        filter: none;
+        transform: none;
+      }
+      .landing-reveal-button {
+        opacity: 1;
+        filter: none;
+        transform: none;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div id="boot-veil" aria-hidden="true">
+    <div class="boot-veil-core">
+      <i class="boot-veil-aura"></i>
+      <div class="boot-veil-orb-slot"></div>
+      <svg class="boot-veil-glyph" viewBox="0 0 24 32" aria-hidden="true">
+        <rect x="1.25" y="1.25" width="21.5" height="29.5" rx="4.5" fill="none" stroke="currentColor" stroke-width="2" />
+        <path d="M12 10.5c.74 3.7 1.76 4.76 5.5 5.5-3.74.74-4.76 1.76-5.5 5.5-.74-3.74-1.76-4.76-5.5-5.5 3.74-.74 4.76-1.76 5.5-5.5Z" fill="currentColor" />
+      </svg>
+    </div>
+    <p class="boot-veil-progress" id="boot-veil-progress">0%</p>
+    <p class="boot-veil-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M4 13.5V12a8 8 0 0 1 16 0v1.5" />
+        <rect x="3" y="13.5" width="4.5" height="6.5" rx="2" />
+        <rect x="16.5" y="13.5" width="4.5" height="6.5" rx="2" />
+      </svg>
+      <span>Best experienced with headphones</span>
+    </p>
+  </div>
+  <script>
+    // Boot progress counter. Classic script so it starts during HTML parse,
+    // long before the module bundle lands. Creeps on a clock while nothing is
+    // known, then follows the two real downloads — background video buffering
+    // and the digital human preload (AvatarKit SDK + avatar assets) — and
+    // sprints to 100 on arcana:boot-ready.
+    (function () {
+      var label = document.getElementById("boot-veil-progress");
+      if (!label) return;
+      var displayed = 0;
+      var video = 0;
+      var avatar = 0;
+      var done = false;
+      var start = performance.now();
+
+      function tick(now) {
+        var creep = 60 * (1 - Math.exp(-(now - start) / 3200));
+        var known = video > 0 || avatar > 0;
+        var real = known ? 20 + (video * 0.5 + avatar * 0.5) * 78 : 0;
+        var target = done ? 100 : Math.max(creep, real);
+        if (target > displayed) displayed += (target - displayed) * (done ? 0.16 : 0.06);
+        var shown = Math.min(100, Math.round(displayed));
+        label.textContent = shown + "%";
+        if (done && shown >= 100) return;
+        window.requestAnimationFrame(tick);
+      }
+
+      function track(name, assign) {
+        window.addEventListener(name, function (event) {
+          var fraction = Number(event.detail);
+          if (Number.isFinite(fraction)) assign(Math.min(1, Math.max(0, fraction)));
+        });
+      }
+
+      track("arcana:background-progress", function (fraction) { video = Math.max(video, fraction); });
+      track("arcana:avatar-progress", function (fraction) { avatar = Math.max(avatar, fraction); });
+      window.addEventListener("arcana:background-ready", function () { video = 1; }, { once: true });
+      window.addEventListener("arcana:avatar-ready", function () { avatar = 1; }, { once: true });
+      window.addEventListener("arcana:boot-ready", function () { done = true; }, { once: true });
+      window.requestAnimationFrame(tick);
+    })();
+  </script>
+  <div id="stage"></div>
+
+  <script type="module">
+    const [
+      {
+        CARD_NAMES,
+        hasCompletedDailyDraw,
+        isCardIndexCollected,
+        recordDailyDraw,
+        SELECTED_DIRECTION,
+        TAROT_CARDS,
+        VIDEO_LIBRARY
+      },
+      { CARD_BACK_THUMBNAIL_URL },
+      { CARD_RADIUS_CHANGE_EVENT },
+      { createCardHoverMaterial },
+      { createDualFaceCardMaterial },
+      { runActivationShader },
+      { uiSfx }
+    ] = await Promise.all([
+      import("/src/data/tarot.js"),
+      import("/src/cardBackMetalShader.js"),
+      import("/src/cardArtworkTuning.js"),
+      import("/src/cardHoverMaterial.js"),
+      import("/src/dualFaceCardMaterial.js"),
+      import("/src/motion/runActivationShader.js"),
+      import("/src/audio/uiSfx.js")
+    ]);
+    window.TAROT_VIDEO_LIBRARY = VIDEO_LIBRARY;
+
+    function layoutArchive(app) {
+      const cards = [...app.querySelectorAll(".archive-card")];
+      const width = window.innerWidth;
+      const compact = width < 820;
+      const spacing = compact ? Math.max(40, width * 0.13) : Math.min(69, width * 0.047);
+      const center = (cards.length - 1) / 2;
+
+      cards.forEach((card, index) => {
+        const offset = index - center;
+        const y = Math.pow(Math.abs(offset), 1.64) * (compact ? 2.8 : 2.1) * 0.55;
+        const rotation = offset * 0.72;
+        card.style.transform = `translate3d(${offset * spacing - card.offsetWidth / 2}px, ${y}px, 0) rotate(${rotation}deg)`;
+        card.style.zIndex = String(50 - Math.round(Math.abs(offset)));
+      });
+    }
+
+    let threeModulePromise = null;
+
+    function loadThreeModule() {
+      if (!threeModulePromise) {
+        // Locally locked dependency (see package.json); previously loaded at
+        // runtime from jsDelivr, which broke under offline/strict-CSP setups.
+        threeModulePromise = import("three");
+      }
+      return threeModulePromise;
+    }
+
+    function roundRectPath(ctx, x, y, width, height, radius) {
+      const r = Math.min(radius, width / 2, height / 2);
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + width, y, x + width, y + height, r);
+      ctx.arcTo(x + width, y + height, x, y + height, r);
+      ctx.arcTo(x, y + height, x, y, r);
+      ctx.arcTo(x, y, x + width, y, r);
+      ctx.closePath();
+    }
+
+    function loadArchiveImage(source) {
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.decoding = "async";
+        image.addEventListener("load", () => resolve(image), { once: true });
+        image.addEventListener("error", () => reject(new Error(`Unable to load archive artwork: ${source}`)), { once: true });
+        image.src = source;
+      });
+    }
+
+    function drawCoverImage(ctx, image, width, height) {
+      const coverScale = Math.max(width / image.naturalWidth, height / image.naturalHeight);
+      const drawWidth = image.naturalWidth * coverScale;
+      const drawHeight = image.naturalHeight * coverScale;
+      ctx.drawImage(image, -drawWidth / 2, -drawHeight / 2, drawWidth, drawHeight);
+    }
+
+    function drawArchiveCardOverlay(ctx, index, cornerRadius = 38) {
+      const collected = isCardIndexCollected(index);
+      const [roman, name] = CARD_NAMES[index];
+      ctx.save();
+      const topShade = ctx.createLinearGradient(0, 0, 0, 118);
+      topShade.addColorStop(0, "rgba(5, 7, 7, .36)");
+      topShade.addColorStop(1, "rgba(5, 7, 7, 0)");
+      ctx.fillStyle = topShade;
+      ctx.fillRect(0, 0, 512, 122);
+      const bottomShade = ctx.createLinearGradient(0, 690, 0, 820);
+      bottomShade.addColorStop(0, "rgba(5, 7, 7, 0)");
+      bottomShade.addColorStop(1, "rgba(5, 7, 7, .42)");
+      ctx.fillStyle = bottomShade;
+      ctx.fillRect(0, 680, 512, 140);
+      ctx.strokeStyle = "rgba(247,242,229,.62)";
+      ctx.lineWidth = 3;
+      roundRectPath(ctx, 10, 10, 492, 800, Math.max(0, cornerRadius - 2));
+      ctx.stroke();
+      ctx.fillStyle = "rgba(248,245,236,.94)";
+      ctx.shadowColor = "rgba(0,0,0,.78)";
+      ctx.shadowBlur = 8;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.font = "500 24px 'Inclusive Sans', sans-serif";
+      ctx.letterSpacing = "3px";
+      ctx.fillText(`${roman} · MAJOR ARCANA`, 256, 64);
+      ctx.font = "500 23px 'Inclusive Sans', sans-serif";
+      ctx.fillText(collected ? name.toUpperCase() : "NOT YET AWAKENED", 256, 758);
+      ctx.restore();
+    }
+
+    function makeArchiveCardCanvas(index, image, canvas = document.createElement("canvas"), cornerRadius = 38) {
+      canvas.width = 512;
+      canvas.height = 820;
+      const ctx = canvas.getContext("2d");
+      const collected = isCardIndexCollected(index);
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.save();
+      ctx.fillStyle = "#d8d0c0";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.filter = collected ? "none" : "grayscale(1)";
+      ctx.translate(canvas.width * 0.5, canvas.height * 0.5);
+      drawCoverImage(ctx, image, canvas.width, canvas.height);
+      ctx.restore();
+      drawArchiveCardOverlay(ctx, index, cornerRadius);
+      return canvas;
+    }
+
+    function makeArchiveMotionOverlayCanvas(index, cornerRadius = 38) {
+      const canvas = document.createElement("canvas");
+      canvas.width = 512;
+      canvas.height = 820;
+      drawArchiveCardOverlay(canvas.getContext("2d"), index, cornerRadius);
+      return canvas;
+    }
+
+    function makeArchiveBackCanvas(image) {
+      const canvas = document.createElement("canvas");
+      canvas.width = 512;
+      canvas.height = 820;
+      const ctx = canvas.getContext("2d");
+      ctx.save();
+      ctx.translate(canvas.width / 2, canvas.height / 2);
+      drawCoverImage(ctx, image, canvas.width, canvas.height);
+      ctx.restore();
+      return canvas;
+    }
+
+    async function setupArchiveScene(app) {
+      const THREE = await loadThreeModule();
+      const stage = app.querySelector(".archive-webgl-stage");
+      const canvas = stage.querySelector(".archive-webgl-canvas");
+      const status = stage.querySelector(".archive-webgl-status");
+      const archiveFallback = app.querySelector(".archive-arc");
+      const motionVideo = document.createElement("video");
+      motionVideo.muted = true;
+      motionVideo.loop = true;
+      motionVideo.playsInline = true;
+      motionVideo.preload = "metadata";
+      const [backImage, ...frontImages] = await Promise.all([
+        // Textures are 512×820 canvases, so the grid loads matching
+        // thumbnails (~1.8 MB in total) instead of 23 full-size images (~9 MB).
+        loadArchiveImage(CARD_BACK_THUMBNAIL_URL),
+        ...TAROT_CARDS.map(card => loadArchiveImage(card.composition.thumbnailArtworkUrl)),
+      ]);
+      const compactQuery = window.matchMedia("(max-width: 820px)");
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: "high-performance" });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, compactQuery.matches ? 1.5 : 2));
+      renderer.setClearColor(0x000000, 0);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(39, 1, 0.1, 40);
+      camera.position.set(0, 0, 9.6);
+
+      const geometry = new THREE.PlaneGeometry(1.22, 1.952, 1, 1);
+      const textureLoaderMax = renderer.capabilities.getMaxAnisotropy();
+      const raycaster = new THREE.Raycaster();
+      const pointer = new THREE.Vector2(2, 2);
+      const readArchiveCornerRadius = () => {
+        const style = getComputedStyle(app);
+        const normalized = (property, fallback) => {
+          const value = style.getPropertyValue(property).trim();
+          if (value.endsWith("%")) {
+            const number = Number.parseFloat(value);
+            if (Number.isFinite(number)) return number / 100;
+          }
+          return fallback;
+        };
+        return new THREE.Vector2(
+          normalized("--card-radius-x", 48 / 356),
+          normalized("--card-radius-y", (48 / 356) * 0.625),
+        );
+      };
+      const archiveCornerRadius = readArchiveCornerRadius();
+      const cards = [];
+      const hitMeshes = [];
+      const cardVertexShader = `
+        varying vec2 vUv;
+        void main() {
+          vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `;
+      const roundedCardMaskShader = `
+        uniform vec2 uCornerRadius;
+
+        float roundedCardMask(vec2 uv) {
+          vec2 radius = max(uCornerRadius, vec2(0.0001));
+          vec2 cornerCenter = vec2(0.5) - radius;
+          vec2 cornerOffset = max(abs(uv - 0.5) - cornerCenter, vec2(0.0));
+          float ellipse = length(cornerOffset / radius);
+          return 1.0 - smoothstep(0.985, 1.0, ellipse);
+        }
+
+        vec3 applyCardEdgeBevel(vec3 color, vec2 uv) {
+          float horizontalEdge = min(uv.x, 1.0 - uv.x);
+          float verticalEdge = min(uv.y, 1.0 - uv.y) * 1.6;
+          float edgeDistance = min(horizontalEdge, verticalEdge);
+          float darkBevel = 1.0 - smoothstep(0.0035, 0.014, edgeDistance);
+          float fineHighlight = 1.0 - smoothstep(0.0, 0.0025, edgeDistance);
+          color = mix(color, color * 0.24, darkBevel);
+          return color + vec3(0.045) * fineHighlight;
+        }
+      `;
+      const cardFragmentShader = `
+        uniform sampler2D uMap;
+        uniform vec2 uPointer;
+        uniform float uHover;
+        uniform float uDim;
+        uniform float uOpacity;
+        uniform float uSoftness;
+        uniform float uLocked;
+        varying vec2 vUv;
+        ${roundedCardMaskShader}
+        void main() {
+          float blurStrength = uSoftness * uSoftness;
+          vec2 blurStep = vec2(0.013, 0.0085) * blurStrength;
+          vec4 texel = texture2D(uMap, vUv) * 0.28;
+          texel += texture2D(uMap, vUv + vec2( blurStep.x, 0.0)) * 0.12;
+          texel += texture2D(uMap, vUv + vec2(-blurStep.x, 0.0)) * 0.12;
+          texel += texture2D(uMap, vUv + vec2(0.0,  blurStep.y)) * 0.12;
+          texel += texture2D(uMap, vUv + vec2(0.0, -blurStep.y)) * 0.12;
+          texel += texture2D(uMap, vUv + vec2( blurStep.x,  blurStep.y)) * 0.06;
+          texel += texture2D(uMap, vUv + vec2(-blurStep.x,  blurStep.y)) * 0.06;
+          texel += texture2D(uMap, vUv + vec2( blurStep.x, -blurStep.y)) * 0.06;
+          texel += texture2D(uMap, vUv + vec2(-blurStep.x, -blurStep.y)) * 0.06;
+          float cornerMask = roundedCardMask(vUv);
+          if (texel.a < 0.02 || cornerMask < 0.001) discard;
+          float radial = 1.0 - smoothstep(0.0, 0.52, distance(vUv, uPointer));
+          float diagonal = 1.0 - smoothstep(0.0, 0.085, abs((vUv.x + vUv.y) - (0.82 + uPointer.x * 0.35)));
+          float sheen = (radial * 0.18 + diagonal * 0.10) * uHover;
+          float luminance = dot(texel.rgb, vec3(0.2126, 0.7152, 0.0722));
+          vec3 faceColor = mix(texel.rgb, vec3(luminance), uLocked);
+          vec3 color = faceColor * uDim + vec3(0.72, 0.66, 1.0) * sheen;
+          color = applyCardEdgeBevel(color, vUv);
+          gl_FragColor = vec4(color, texel.a * uOpacity * cornerMask);
+          #include <colorspace_fragment>
+        }
+      `;
+      const cardMotionFragmentShader = `
+        uniform sampler2D uMap;
+        uniform sampler2D uMask;
+        uniform float uOpacity;
+        uniform float uLocked;
+        varying vec2 vUv;
+        ${roundedCardMaskShader}
+        void main() {
+          vec4 texel = texture2D(uMap, vUv);
+          // VideoTexture cannot use the GPU's sRGB internal format. Built-in
+          // Three materials decode it in map_fragment, but this custom shader
+          // owns the sampler, so bring the video into linear space explicitly
+          // before matching it to the static card texture and output transform.
+          texel = sRGBTransferEOTF(texel);
+          float mask = texture2D(uMask, vUv).a;
+          float cornerMask = roundedCardMask(vUv);
+          if (mask < 0.02 || uOpacity < 0.001 || cornerMask < 0.001) discard;
+          float luminance = dot(texel.rgb, vec3(0.2126, 0.7152, 0.0722));
+          vec3 color = mix(texel.rgb, vec3(luminance), uLocked);
+          color = applyCardEdgeBevel(color, vUv);
+          gl_FragColor = vec4(color, texel.a * mask * uOpacity * cornerMask);
+          #include <colorspace_fragment>
+        }
+      `;
+      const cardBackFragmentShader = `
+        uniform sampler2D uMap;
+        uniform vec2 uPointer;
+        uniform float uIntensity;
+        uniform float uDim;
+        uniform float uOpacity;
+        uniform float uSoftness;
+        varying vec2 vUv;
+        ${roundedCardMaskShader}
+
+        float hash(vec2 value) {
+          return fract(sin(dot(value, vec2(127.1, 311.7))) * 43758.5453123);
+        }
+
+        void main() {
+          float blurStrength = uSoftness * uSoftness;
+          vec2 blurStep = vec2(0.013, 0.0085) * blurStrength;
+          vec4 texel = texture2D(uMap, vUv) * 0.28;
+          texel += texture2D(uMap, vUv + vec2( blurStep.x, 0.0)) * 0.12;
+          texel += texture2D(uMap, vUv + vec2(-blurStep.x, 0.0)) * 0.12;
+          texel += texture2D(uMap, vUv + vec2(0.0,  blurStep.y)) * 0.12;
+          texel += texture2D(uMap, vUv + vec2(0.0, -blurStep.y)) * 0.12;
+          texel += texture2D(uMap, vUv + vec2( blurStep.x,  blurStep.y)) * 0.06;
+          texel += texture2D(uMap, vUv + vec2(-blurStep.x,  blurStep.y)) * 0.06;
+          texel += texture2D(uMap, vUv + vec2( blurStep.x, -blurStep.y)) * 0.06;
+          texel += texture2D(uMap, vUv + vec2(-blurStep.x, -blurStep.y)) * 0.06;
+          float cornerMask = roundedCardMask(vUv);
+          if (texel.a < 0.02 || cornerMask < 0.001) discard;
+
+          vec3 source = texture2D(uMap, vUv).rgb;
+          float maximum = max(source.r, max(source.g, source.b));
+          float minimum = min(source.r, min(source.g, source.b));
+          float chroma = maximum - minimum;
+          float luminance = dot(source, vec3(0.2126, 0.7152, 0.0722));
+          float warm = smoothstep(0.025, 0.16, source.r - source.b)
+            * smoothstep(-0.035, 0.095, source.r - source.g);
+          float material = warm
+            * smoothstep(0.035, 0.19, chroma)
+            * smoothstep(0.16, 0.64, luminance);
+          vec2 edgeDistance = abs(vUv - 0.5) * 2.0;
+          float sideFrame = smoothstep(0.69, 0.84, edgeDistance.x);
+          float horizontalFrame = smoothstep(0.80, 0.91, edgeDistance.y);
+          float metalMask = material * max(sideFrame, horizontalFrame);
+          vec2 lightAxis = normalize(vec2(0.84, 0.54));
+          float distanceToSweep = abs(dot(vUv - uPointer, lightAxis));
+          float narrowSweep = 1.0 - smoothstep(0.018, 0.13, distanceToSweep);
+          float broadReflection = 1.0 - smoothstep(0.08, 0.48, distance(vUv, uPointer));
+          float grain = mix(0.82, 1.12, hash(floor(vUv * vec2(760.0, 1216.0))));
+          float reflection = metalMask
+            * (0.025 + uIntensity * (narrowSweep * 0.72 + broadReflection * 0.1))
+            * grain;
+          vec3 warmGold = vec3(1.0, 0.66, 0.29);
+          vec3 paleEdge = vec3(1.0, 0.92, 0.73);
+          vec3 reflectionColor = mix(warmGold, paleEdge, smoothstep(0.38, 0.82, luminance));
+          vec3 baseColor = texel.rgb * uDim;
+          vec3 color = mix(baseColor, reflectionColor, clamp(reflection, 0.0, 0.7));
+          color = applyCardEdgeBevel(color, vUv);
+          gl_FragColor = vec4(color, texel.a * uOpacity * cornerMask);
+          #include <colorspace_fragment>
+        }
+      `;
+
+      const makeTexture = source => {
+        const texture = new THREE.CanvasTexture(source);
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.anisotropy = Math.min(8, textureLoaderMax);
+        texture.needsUpdate = true;
+        return texture;
+      };
+
+      const makeMaterial = (texture, fragmentShader = cardFragmentShader, locked = false) => new THREE.ShaderMaterial({
+        uniforms: {
+          uMap: { value: texture },
+          uPointer: { value: new THREE.Vector2(0.5, 0.5) },
+          uHover: { value: 0 },
+          uIntensity: { value: 0.12 },
+          uDim: { value: 1 },
+          uOpacity: { value: 1 },
+          uSoftness: { value: 0 },
+          uLocked: { value: locked ? 1 : 0 },
+          uCornerRadius: { value: archiveCornerRadius }
+        },
+        vertexShader: cardVertexShader,
+        fragmentShader,
+        transparent: true,
+        depthWrite: true,
+        side: THREE.FrontSide
+      });
+
+      const makeMotionMaterial = (videoTexture, maskTexture, locked) => new THREE.ShaderMaterial({
+        uniforms: {
+          uMap: { value: videoTexture },
+          uMask: { value: maskTexture },
+          uOpacity: { value: 0 },
+          uLocked: { value: locked ? 1 : 0 },
+          uCornerRadius: { value: archiveCornerRadius }
+        },
+        vertexShader: cardVertexShader,
+        fragmentShader: cardMotionFragmentShader,
+        transparent: true,
+        depthWrite: false,
+        side: THREE.FrontSide
+      });
+
+      const backTexture = makeTexture(makeArchiveBackCanvas(backImage));
+      CARD_NAMES.forEach((_, index) => {
+        const row = index < 11 ? 0 : 1;
+        const column = index % 11;
+        const frontCanvas = makeArchiveCardCanvas(index, frontImages[index], undefined, archiveCornerRadius.x * 512);
+        const frontTexture = makeTexture(frontCanvas);
+        const instances = [-1, 0, 1].map(copy => {
+          const group = new THREE.Group();
+          /* Do not rely on CanvasRenderingContext2D.filter for the collection
+             state: iOS Safari can ignore it. The shader owns the grayscale
+             invariant so every unawakened card is correct in the ring and
+             while focused. */
+          const frontMaterial = makeMaterial(frontTexture, cardFragmentShader, !isCardIndexCollected(index));
+          const backMaterial = makeMaterial(backTexture, cardBackFragmentShader);
+          const front = new THREE.Mesh(geometry, frontMaterial);
+          const back = new THREE.Mesh(geometry, backMaterial);
+          front.position.z = 0.008;
+          back.position.z = -0.008;
+          back.rotation.y = Math.PI;
+          front.userData.cardIndex = index;
+          back.userData.cardIndex = index;
+          front.userData.copy = copy;
+          back.userData.copy = copy;
+          group.add(front, back);
+          group.renderOrder = row === 0 ? 1 : 2;
+          scene.add(group);
+          hitMeshes.push(front, back);
+          return { copy, group, frontMaterial, backMaterial };
+        });
+        cards.push({
+          index, row, column, frontCanvas, frontImage: frontImages[index], frontTexture, instances,
+          hover: 0,
+          pointer: new THREE.Vector2(0.5, 0.5)
+        });
+      });
+
+      const state = {
+        active: false,
+        destroyed: false,
+        dragging: false,
+        dragRow: null,
+        moved: false,
+        pointerId: null,
+        pointerStartX: 0,
+        lastX: 0,
+        lastTime: 0,
+        dragSoundTravel: 0,
+        dragSoundTick: 0,
+        offsets: [0, 0.72],
+        velocities: [-0.105, 0.082],
+        autoSpeeds: [-0.105, 0.082],
+        hoveredIndex: null,
+        selectedIndex: null,
+        selectedCopy: null,
+        motionIndex: null,
+        motionLoadToken: 0,
+        motionReady: false,
+        motionImmediate: false,
+        motionMix: 0,
+        motionTexture: null,
+        motionMaterial: null,
+        motionMesh: null,
+        motionOverlayTexture: null,
+        motionOverlayMaterial: null,
+        motionOverlayMesh: null,
+        focus: 0,
+        focusTarget: 0,
+        flip: 0,
+        flipTarget: 0,
+        visibleHalfWidth: 6.2,
+        keyboardIndex: 5,
+        frame: 0,
+        lastFrameTime: performance.now()
+      };
+
+      const lerp = (a, b, t) => a + (b - a) * t;
+      const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+      const damp = (value, target, speed, dt) => lerp(value, target, 1 - Math.exp(-speed * dt));
+      const spacing = () => compactQuery.matches ? 1.26 : 1.58;
+      const wrap = (value, length) => ((value + length / 2) % length + length) % length - length / 2;
+
+      function disposeFocusedMotionLayers() {
+        state.motionMesh?.removeFromParent();
+        state.motionOverlayMesh?.removeFromParent();
+        state.motionMaterial?.dispose();
+        state.motionOverlayMaterial?.dispose();
+        state.motionTexture?.dispose();
+        state.motionOverlayTexture?.dispose();
+        state.motionTexture = null;
+        state.motionMaterial = null;
+        state.motionMesh = null;
+        state.motionOverlayTexture = null;
+        state.motionOverlayMaterial = null;
+        state.motionOverlayMesh = null;
+      }
+
+      function stopFocusedMotion() {
+        state.motionLoadToken += 1;
+        state.motionReady = false;
+        state.motionImmediate = false;
+        state.motionMix = 0;
+        motionVideo.pause();
+        motionVideo.onloadeddata = null;
+        motionVideo.onerror = null;
+        motionVideo.removeAttribute("src");
+        motionVideo.load();
+        disposeFocusedMotionLayers();
+        state.motionIndex = null;
+      }
+
+      function prepareFocusedMotion(index, immediate = false) {
+        const selectedCard = TAROT_CARDS[index];
+        const source = selectedCard?.composition.motionVideoUrl;
+        stopFocusedMotion();
+        if (!source) return;
+
+        const token = ++state.motionLoadToken;
+        const collected = isCardIndexCollected(index);
+        state.motionIndex = index;
+        state.motionImmediate = immediate;
+
+        const markReady = () => {
+          if (token !== state.motionLoadToken || state.motionIndex !== index) return;
+          const selectedInstance = cards[index]?.instances.find(instance => instance.copy === state.selectedCopy);
+          if (!selectedInstance) return;
+
+          const videoTexture = new THREE.VideoTexture(motionVideo);
+          videoTexture.colorSpace = THREE.SRGBColorSpace;
+          videoTexture.minFilter = THREE.LinearFilter;
+          videoTexture.magFilter = THREE.LinearFilter;
+          videoTexture.generateMipmaps = false;
+          const motionMaterial = makeMotionMaterial(videoTexture, cards[index].frontTexture, !collected);
+          const motionMesh = new THREE.Mesh(geometry, motionMaterial);
+          motionMesh.position.z = 0.012;
+
+          const overlayTexture = makeTexture(makeArchiveMotionOverlayCanvas(index, archiveCornerRadius.x * 512));
+          const overlayMaterial = makeMaterial(overlayTexture);
+          overlayMaterial.uniforms.uOpacity.value = 0;
+          overlayMaterial.depthWrite = false;
+          const overlayMesh = new THREE.Mesh(geometry, overlayMaterial);
+          overlayMesh.position.z = 0.016;
+          selectedInstance.group.add(motionMesh, overlayMesh);
+
+          state.motionTexture = videoTexture;
+          state.motionMaterial = motionMaterial;
+          state.motionMesh = motionMesh;
+          state.motionOverlayTexture = overlayTexture;
+          state.motionOverlayMaterial = overlayMaterial;
+          state.motionOverlayMesh = overlayMesh;
+          state.motionReady = true;
+          if (state.motionImmediate) {
+            state.motionMix = 1;
+            state.motionMaterial.uniforms.uOpacity.value = 1;
+            state.motionOverlayMaterial.uniforms.uOpacity.value = 1;
+          }
+          invalidate();
+        };
+        const revealFirstFrame = () => {
+          if (token !== state.motionLoadToken) return;
+          Promise.resolve(motionVideo.play()).then(() => {
+            if (typeof motionVideo.requestVideoFrameCallback === "function") {
+              motionVideo.requestVideoFrameCallback(markReady);
+            } else {
+              markReady();
+            }
+          }).catch(() => {
+            if (motionVideo.readyState >= 2) markReady();
+          });
+        };
+
+        motionVideo.onloadeddata = revealFirstFrame;
+        motionVideo.onerror = () => {
+          if (token === state.motionLoadToken) stopFocusedMotion();
+        };
+        motionVideo.src = source;
+        motionVideo.load();
+      }
+
+      function rowFromPointer(event, intersection = null) {
+        const cardIndex = intersection?.object?.userData?.cardIndex;
+        if (Number.isInteger(cardIndex)) return cards[cardIndex].row;
+        const rect = canvas.getBoundingClientRect();
+        return (event.clientY - rect.top) / rect.height < 0.52 ? 0 : 1;
+      }
+
+      function updatePointerFromEvent(event) {
+        const rect = canvas.getBoundingClientRect();
+        pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      }
+
+      function intersectCards() {
+        raycaster.setFromCamera(pointer, camera);
+        return raycaster.intersectObjects(hitMeshes, false).find(hit => {
+          const index = hit.object.userData.cardIndex;
+          return Number.isInteger(index) && hit.object.material.uniforms.uOpacity.value > 0.12;
+        }) || null;
+      }
+
+      function setHovered(intersection) {
+        const next = intersection?.object?.userData?.cardIndex;
+        state.hoveredIndex = Number.isInteger(next) ? next : null;
+        if (state.hoveredIndex !== null && intersection.uv) {
+          cards[state.hoveredIndex].pointer.copy(intersection.uv);
+        }
+        canvas.style.cursor = state.dragging ? "grabbing" : state.hoveredIndex === null ? "grab" : "pointer";
+      }
+
+      function describeCard(index, prefix = "Selected") {
+        const [roman, name] = CARD_NAMES[index];
+        const collected = isCardIndexCollected(index);
+        status.textContent = `${prefix}: ${roman}, ${collected ? name : "not yet awakened"}.`;
+      }
+
+      function focusCard(index, immediate = false, copy = null) {
+        if (!Number.isInteger(index)) return;
+        canvas.dispatchEvent(new CustomEvent("living-arcana:sfx", {
+          bubbles: true,
+          detail: { cue: "open", prepareCardFlip: true }
+        }));
+        state.selectedIndex = index;
+        state.selectedCopy = Number.isInteger(copy)
+          ? copy
+          : cards[index].instances.reduce((closest, instance) =>
+            Math.abs(instance.group.position.x) < Math.abs(closest.group.position.x) ? instance : closest
+          ).copy;
+        state.focusTarget = 1;
+        state.flipTarget = 0;
+        stage.setAttribute("data-focused", "");
+        prepareFocusedMotion(index, immediate);
+        describeCard(index);
+        if (immediate) state.focus = 1;
+        invalidate();
+      }
+
+      function exitFocus(immediate = false) {
+        canvas.dispatchEvent(new CustomEvent("living-arcana:sfx", { bubbles: true, detail: { cue: "close" } }));
+        state.focusTarget = 0;
+        state.flipTarget = 0;
+        state.motionImmediate = immediate;
+        stage.removeAttribute("data-focused");
+        status.textContent = "Returned to the Major Arcana library.";
+        if (immediate) {
+          stopFocusedMotion();
+          state.focus = 0;
+          state.flip = 0;
+          state.selectedIndex = null;
+          state.selectedCopy = null;
+        }
+        invalidate();
+      }
+
+      function toggleFocusedCard(immediate = false) {
+        if (state.selectedIndex === null) return;
+        state.motionImmediate = immediate;
+        state.flipTarget = state.flipTarget > 0.5 ? 0 : 1;
+        canvas.dispatchEvent(new CustomEvent("living-arcana:sfx", {
+          bubbles: true,
+          detail: { cardFlip: true }
+        }));
+        if (state.flipTarget > 0.5) motionVideo.pause();
+        else if (state.motionReady) motionVideo.play().catch(() => {});
+        describeCard(state.selectedIndex, state.flipTarget ? "Showing the reverse of" : "Showing the face of");
+        invalidate();
+      }
+
+      function updateCardArtwork(cardId) {
+        const index = TAROT_CARDS.findIndex(card => card.id === cardId);
+        const card = cards[index];
+        if (!card) return;
+        makeArchiveCardCanvas(index, card.frontImage, card.frontCanvas, archiveCornerRadius.x * 512);
+        card.frontTexture.needsUpdate = true;
+        card.instances.forEach(instance => {
+          instance.frontMaterial.uniforms.uLocked.value = isCardIndexCollected(index) ? 0 : 1;
+        });
+        if (index === state.motionIndex && state.motionReady) {
+          state.motionMaterial.uniforms.uLocked.value = isCardIndexCollected(index) ? 0 : 1;
+          state.motionOverlayTexture.image = makeArchiveMotionOverlayCanvas(index, archiveCornerRadius.x * 512);
+          state.motionOverlayTexture.needsUpdate = true;
+        }
+        invalidate();
+      }
+
+      let radiusRedrawTimer = 0;
+      const onArchiveRadiusChange = event => {
+        const radiusX = Number(event.detail?.radiusX);
+        const radiusY = Number(event.detail?.radiusY);
+        if (Number.isFinite(radiusX) && Number.isFinite(radiusY)) {
+          archiveCornerRadius.set(radiusX, radiusY);
+        } else {
+          archiveCornerRadius.copy(readArchiveCornerRadius());
+        }
+
+        // The shader mask updates immediately. Redraw the lightweight canvas
+        // labels after the slider settles so their inset outline follows the
+        // same curve without rebuilding 22 textures on every pointer event.
+        window.clearTimeout(radiusRedrawTimer);
+        radiusRedrawTimer = window.setTimeout(() => {
+          cards.forEach(card => {
+            makeArchiveCardCanvas(card.index, card.frontImage, card.frontCanvas, archiveCornerRadius.x * 512);
+            card.frontTexture.needsUpdate = true;
+          });
+          if (state.motionOverlayTexture && state.motionIndex !== null) {
+            state.motionOverlayTexture.image = makeArchiveMotionOverlayCanvas(state.motionIndex, archiveCornerRadius.x * 512);
+            state.motionOverlayTexture.needsUpdate = true;
+          }
+          invalidate();
+        }, 120);
+        invalidate();
+      };
+      window.addEventListener(CARD_RADIUS_CHANGE_EVENT, onArchiveRadiusChange);
+
+      function resize() {
+        const rect = stage.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, compactQuery.matches ? 1.5 : 2));
+        renderer.setSize(rect.width, rect.height, false);
+        camera.aspect = rect.width / rect.height;
+        /* Portrait screens previously pushed the camera farther away, making
+           the library read as a tiny strip. Bring the two rows forward and
+           tighten their rhythm so individual faces stay legible by thumb. */
+        camera.fov = compactQuery.matches ? 46 : 39;
+        camera.position.z = compactQuery.matches ? 8.15 : 9.6;
+        camera.updateProjectionMatrix();
+        state.visibleHalfWidth = Math.tan(THREE.MathUtils.degToRad(camera.fov * 0.5))
+          * camera.position.z * camera.aspect;
+        invalidate();
+      }
+
+      function updateCards(dt) {
+        const compact = compactQuery.matches;
+        const step = spacing();
+        const loopLength = step * 11;
+        let moving = false;
+
+        if (state.focusTarget === 0) {
+          for (let row = 0; row < 2; row += 1) {
+            if (state.dragging && state.dragRow === row) continue;
+            state.velocities[row] = damp(state.velocities[row], state.autoSpeeds[row], 1.65, dt);
+            state.offsets[row] = wrap(state.offsets[row] + state.velocities[row] * dt, loopLength);
+          }
+          moving = true;
+        }
+
+        state.focus = damp(state.focus, state.focusTarget, state.focusTarget ? 6.4 : 8.5, dt);
+        state.flip = damp(state.flip, state.flipTarget, 7.6, dt);
+        if (Math.abs(state.focus - state.focusTarget) > 0.001 || Math.abs(state.flip - state.flipTarget) > 0.001) moving = true;
+        const motionTarget = Number(
+          state.active
+          && state.motionReady
+          && state.motionIndex === state.selectedIndex
+          && state.focusTarget === 1
+          && state.focus > 0.62
+          && state.flipTarget === 0
+          && state.flip < 0.16,
+        );
+        const previousMotionMix = state.motionMix;
+        state.motionMix = state.motionImmediate
+          ? motionTarget
+          : damp(state.motionMix, motionTarget, motionTarget ? 13 : 19, dt);
+        if (state.motionMaterial) state.motionMaterial.uniforms.uOpacity.value = state.motionMix;
+        if (state.motionOverlayMaterial) state.motionOverlayMaterial.uniforms.uOpacity.value = state.motionMix;
+        if (Math.abs(previousMotionMix - state.motionMix) > 0.001) moving = true;
+        if (motionTarget && !motionVideo.paused) moving = true;
+
+        const curve = compact ? 0.035 : 0.04;
+        const centerDistance = Math.max(compact ? 5.5 : 6.5, state.visibleHalfWidth);
+        const exitFadeStart = Math.max(compact ? 3.1 : 4.25, state.visibleHalfWidth - (compact ? 1.45 : 1.75));
+        const exitFadeEnd = state.visibleHalfWidth + (compact ? 0.58 : 0.72);
+        cards.forEach(card => {
+          const baseX = (card.column - 5) * step + state.offsets[card.row];
+          const hoverTarget = state.focusTarget === 0 && card.index === state.hoveredIndex && !state.dragging ? 1 : 0;
+          card.hover = damp(card.hover, hoverTarget, hoverTarget ? 13 : 10, dt);
+          if (Math.abs(card.hover - hoverTarget) > 0.002) moving = true;
+
+          card.instances.forEach(instance => {
+            const selected = card.index === state.selectedIndex && instance.copy === state.selectedCopy;
+            const x = baseX + instance.copy * loopLength;
+            const rowY = card.row === 0 ? (compact ? 1.16 : 1.08) : (compact ? -1.08 : -0.96);
+            const y = rowY - curve * x * x;
+            const edge = clamp(Math.abs(x) / centerDistance, 0, 1);
+            const exitFade = THREE.MathUtils.smoothstep(Math.abs(x), exitFadeStart, exitFadeEnd);
+            const rowScale = card.row === 0 ? 0.90 : 1;
+            const baseScale = rowScale * (1 - edge * 0.11);
+            const baseZ = (card.row === 0 ? -0.58 : 0) - edge * 0.55;
+            const baseRotationZ = Math.atan(-2 * curve * x) * 0.82;
+            const baseRotationY = -x * (compact ? 0.038 : 0.044);
+
+            let targetX = x;
+            let targetY = y + card.hover * 0.08;
+            let targetZ = baseZ + card.hover * 0.38;
+            let targetScale = baseScale * (1 + card.hover * 0.055);
+            let targetRotationX = card.hover * (0.5 - card.pointer.y) * 0.12;
+            let targetRotationY = baseRotationY + card.hover * (card.pointer.x - 0.5) * 0.16;
+            let targetRotationZ = baseRotationZ;
+            let opacity = (1 - edge * 0.10) * (1 - exitFade);
+            let dim = 1 - edge * 0.16 - exitFade * 0.16;
+            let softness = exitFade;
+
+            if (state.selectedIndex !== null) {
+              if (selected) {
+                targetX = lerp(targetX, 0, state.focus);
+                targetY = lerp(targetY, -0.04, state.focus);
+                targetZ = lerp(targetZ, 2.45, state.focus);
+                targetScale = lerp(targetScale, compact ? 1.34 : 1.62, state.focus);
+                targetRotationX = lerp(targetRotationX, 0, state.focus);
+                targetRotationY = lerp(targetRotationY, Math.PI * state.flip, state.focus);
+                targetRotationZ = lerp(targetRotationZ, 0, state.focus);
+                opacity = 1;
+                dim = 1;
+                softness = 0;
+              } else {
+                targetX += Math.sign(x || 1) * state.focus * 0.32;
+                targetZ -= state.focus * 0.9;
+                opacity *= 1 - state.focus * 0.78;
+                dim *= 1 - state.focus * 0.55;
+              }
+            }
+
+            instance.group.visible = opacity > 0.002 || selected;
+            instance.group.position.set(targetX, targetY, targetZ);
+            instance.group.rotation.set(targetRotationX, targetRotationY, targetRotationZ);
+            instance.group.scale.setScalar(targetScale);
+            [instance.frontMaterial, instance.backMaterial].forEach(material => {
+              material.uniforms.uHover.value = card.hover;
+              material.uniforms.uPointer.value.copy(card.pointer);
+              material.uniforms.uOpacity.value = opacity;
+              material.uniforms.uDim.value = dim;
+              material.uniforms.uSoftness.value = softness;
+              material.depthWrite = opacity > 0.72;
+            });
+            instance.backMaterial.uniforms.uIntensity.value = 0.12
+              + Math.max(card.hover, selected ? state.focus : 0) * 0.64;
+          });
+        });
+
+        if (state.focusTarget === 0 && state.focus < 0.002 && state.selectedIndex !== null) {
+          stopFocusedMotion();
+          state.selectedIndex = null;
+          state.selectedCopy = null;
+          state.flip = 0;
+        }
+        return moving;
+      }
+
+      function render(time) {
+        state.frame = 0;
+        if (!state.active || state.destroyed) return;
+        const dt = Math.min(0.034, Math.max(0.001, (time - state.lastFrameTime) / 1000));
+        state.lastFrameTime = time;
+        const moving = updateCards(dt);
+        renderer.render(scene, camera);
+        if (moving || state.dragging) invalidate();
+      }
+
+      function invalidate() {
+        if (!state.active || state.destroyed || state.frame) return;
+        state.frame = requestAnimationFrame(render);
+      }
+
+      function onPointerDown(event) {
+        if (event.button !== 0) return;
+        updatePointerFromEvent(event);
+        state.dragging = state.focusTarget === 0;
+        state.moved = false;
+        state.pointerId = event.pointerId;
+        state.pointerStartX = event.clientX;
+        state.lastX = event.clientX;
+        state.lastTime = event.timeStamp;
+        if (state.dragging) {
+          const intersection = intersectCards();
+          state.dragRow = rowFromPointer(event, intersection);
+          canvas.setPointerCapture(event.pointerId);
+          canvas.setAttribute("data-dragging", "");
+          canvas.dataset.dragRow = String(state.dragRow);
+          canvas.style.cursor = "grabbing";
+          state.velocities[state.dragRow] = 0;
+          state.dragSoundTravel = 0;
+          state.dragSoundTick = 0;
+          uiSfx.activate("drag-start", { volume: 0.16 });
+          status.textContent = `Dragging ${state.dragRow === 0 ? "upper" : "lower"} row.`;
+        }
+        invalidate();
+      }
+
+      function onPointerMove(event) {
+        updatePointerFromEvent(event);
+        if (state.dragging && event.pointerId === state.pointerId) {
+          const dx = event.clientX - state.lastX;
+          const dt = Math.max(8, event.timeStamp - state.lastTime) / 1000;
+          const worldPerPixel = compactQuery.matches ? 0.0116 : 0.0084;
+          const loopLength = spacing() * 11;
+          const row = state.dragRow ?? 0;
+          state.offsets[row] = wrap(state.offsets[row] + dx * worldPerPixel, loopLength);
+          state.velocities[row] = clamp((dx * worldPerPixel) / dt, -10, 10);
+          state.moved ||= Math.abs(event.clientX - state.pointerStartX) > 5;
+          if (state.moved) {
+            state.dragSoundTravel += Math.abs(dx * worldPerPixel);
+            const detent = spacing() * 0.25;
+            if (state.dragSoundTravel >= detent) {
+              state.dragSoundTravel %= detent;
+              state.dragSoundTick += 1;
+              uiSfx.play("snap", {
+                volume: 0.18,
+                cooldownMs: 38,
+                retrigger: "overlap",
+                playbackRate: 0.96 + (state.dragSoundTick % 3) * 0.035
+              });
+            }
+          }
+          state.lastX = event.clientX;
+          state.lastTime = event.timeStamp;
+          state.hoveredIndex = null;
+        } else {
+          setHovered(intersectCards());
+        }
+        invalidate();
+      }
+
+      function onPointerUp(event) {
+        updatePointerFromEvent(event);
+        const wasDragging = state.dragging;
+        const wasMoved = state.moved;
+        state.dragging = false;
+        state.dragRow = null;
+        canvas.removeAttribute("data-dragging");
+        delete canvas.dataset.dragRow;
+        if (wasDragging && canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
+        setHovered(intersectCards());
+        if (wasMoved) {
+          uiSfx.play("drop", { volume: 0.18 });
+          status.textContent = "Row released.";
+        }
+        if (!wasMoved) {
+          const intersection = intersectCards();
+          const clickedIndex = intersection?.object?.userData?.cardIndex;
+          const clickedCopy = intersection?.object?.userData?.copy;
+          if (state.selectedIndex !== null) {
+            if (clickedIndex === state.selectedIndex) toggleFocusedCard();
+            else exitFocus();
+          } else if (Number.isInteger(clickedIndex)) {
+            focusCard(clickedIndex, false, clickedCopy);
+          }
+        }
+        invalidate();
+      }
+
+      function onPointerLeave() {
+        if (!state.dragging) {
+          state.hoveredIndex = null;
+          canvas.style.cursor = "grab";
+          invalidate();
+        }
+      }
+
+      function onWheel(event) {
+        if (state.focusTarget !== 0) return;
+        event.preventDefault();
+        updatePointerFromEvent(event);
+        const row = rowFromPointer(event, intersectCards());
+        const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+        const impulse = clamp(-delta * 0.018, -2.8, 2.8);
+        state.velocities[row] = clamp(state.velocities[row] + impulse, -8, 8);
+        invalidate();
+      }
+
+      function onKeyDown(event) {
+        if (event.key === "Escape" && state.selectedIndex !== null) {
+          event.stopPropagation();
+          exitFocus(true);
+          renderer.render(scene, camera);
+          return;
+        }
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          if (state.selectedIndex !== null) toggleFocusedCard(true);
+          else focusCard(state.keyboardIndex, true);
+          renderer.render(scene, camera);
+          return;
+        }
+        if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) return;
+        event.preventDefault();
+        if (state.selectedIndex !== null) exitFocus(true);
+        if (event.key === "ArrowLeft") state.keyboardIndex = clamp(state.keyboardIndex - 1, 0, 21);
+        if (event.key === "ArrowRight") state.keyboardIndex = clamp(state.keyboardIndex + 1, 0, 21);
+        if (event.key === "ArrowUp" && state.keyboardIndex >= 11) state.keyboardIndex -= 11;
+        if (event.key === "ArrowDown" && state.keyboardIndex < 11) state.keyboardIndex += 11;
+        const keyboardRow = state.keyboardIndex < 11 ? 0 : 1;
+        const keyboardColumn = state.keyboardIndex % 11;
+        state.offsets[keyboardRow] = -(keyboardColumn - 5) * spacing();
+        state.velocities[keyboardRow] = 0;
+        describeCard(state.keyboardIndex, "Centered");
+        updateCards(1);
+        renderer.render(scene, camera);
+      }
+
+      canvas.addEventListener("pointerdown", onPointerDown);
+      canvas.addEventListener("pointermove", onPointerMove);
+      canvas.addEventListener("pointerup", onPointerUp);
+      canvas.addEventListener("pointercancel", onPointerUp);
+      canvas.addEventListener("pointerleave", onPointerLeave);
+      canvas.addEventListener("wheel", onWheel, { passive: false });
+      canvas.addEventListener("keydown", onKeyDown);
+      const stageResizeObserver = new ResizeObserver(resize);
+      stageResizeObserver.observe(stage);
+
+      archiveFallback.setAttribute("aria-hidden", "true");
+      archiveFallback.querySelectorAll("button").forEach(button => button.tabIndex = -1);
+      app.dataset.archiveWebgl = "ready";
+      resize();
+
+      return {
+        setActive(active) {
+          state.active = active;
+          if (active) {
+            resize();
+            state.lastFrameTime = performance.now();
+            if (state.motionReady && state.selectedIndex !== null && state.flipTarget === 0) motionVideo.play().catch(() => {});
+            invalidate();
+          } else {
+            motionVideo.pause();
+            if (state.frame) {
+              cancelAnimationFrame(state.frame);
+              state.frame = 0;
+            }
+          }
+        },
+        resize,
+        focusCard,
+        updateCardArtwork,
+        destroy() {
+          state.destroyed = true;
+          stopFocusedMotion();
+          if (state.frame) cancelAnimationFrame(state.frame);
+          canvas.removeEventListener("pointerdown", onPointerDown);
+          canvas.removeEventListener("pointermove", onPointerMove);
+          canvas.removeEventListener("pointerup", onPointerUp);
+          canvas.removeEventListener("pointercancel", onPointerUp);
+          canvas.removeEventListener("pointerleave", onPointerLeave);
+          canvas.removeEventListener("wheel", onWheel);
+          canvas.removeEventListener("keydown", onKeyDown);
+          window.removeEventListener(CARD_RADIUS_CHANGE_EVENT, onArchiveRadiusChange);
+          window.clearTimeout(radiusRedrawTimer);
+          stageResizeObserver.disconnect();
+          cards.forEach(card => {
+            card.frontTexture.dispose();
+            card.instances.forEach(instance => {
+              instance.frontMaterial.dispose();
+              instance.backMaterial.dispose();
+            });
+          });
+          backTexture.dispose();
+          geometry.dispose();
+          renderer.dispose();
+        }
+      };
+    }
+
+    // Fires exactly once, when the ambient background is as ready as it will
+    // get — first video frame presented, playback refused, or no video at
+    // all. App.jsx holds the boot veil until this signal (with a timeout).
+    const announceBackgroundReady = (() => {
+      let announced = false;
+      return () => {
+        if (announced) return;
+        announced = true;
+        window.__ARCANA_BACKGROUND_READY = true;
+        window.dispatchEvent(new Event("arcana:background-ready"));
+      };
+    })();
+
+    function setupBackgroundVideo(app) {
+      const videos = [...app.querySelectorAll(".background-video")];
+      const library = Array.isArray(window.TAROT_VIDEO_LIBRARY) ? window.TAROT_VIDEO_LIBRARY.filter(Boolean) : [];
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!library.length || videos.length < 2) {
+        announceBackgroundReady();
+        return () => {};
+      }
+
+      const requested = Number.parseInt(new URLSearchParams(window.location.search).get("bg"), 10);
+      const index = Number.isInteger(requested) && requested >= 0 && requested < library.length
+        ? requested
+        : Math.floor(Math.random() * library.length);
+      const source = library[index];
+
+      app.dataset.background = String(index + 1);
+
+      /* Reduced motion still gets the first authored frame instead of a blank
+         fallback gradient. Do not start a moving background in this branch. */
+      if (reduceMotion) {
+        const video = videos[0];
+        video.autoplay = false;
+        const showFrame = () => {
+          video.pause();
+          video.setAttribute("data-visible", "");
+          video.setAttribute("data-front", "");
+          announceBackgroundReady();
+        };
+        video.addEventListener("loadeddata", showFrame, { once: true });
+        video.addEventListener("error", showFrame, { once: true });
+        video.src = source;
+        video.load();
+        // Expose the poster immediately; loadeddata replaces it with the
+        // authored first frame, while decode failures keep the poster visible.
+        video.setAttribute("data-visible", "");
+        video.setAttribute("data-front", "");
+        if (video.readyState >= 2) showFrame();
+        return () => {
+          video.removeEventListener("loadeddata", showFrame);
+          video.removeEventListener("error", showFrame);
+          video.pause();
+          video.removeAttribute("data-visible");
+          video.removeAttribute("data-front");
+        };
+      }
+
+      const CROSSFADE_MS = 360;
+      const CROSSFADE_LEAD_SECONDS = 0.52;
+      let activeVideo = videos[0];
+      let crossfading = false;
+      let fadeTimer = 0;
+      let fadeFrame = 0;
+      let disposed = false;
+
+      const resetVideo = video => {
+        video.pause();
+        video.removeAttribute("data-visible");
+        video.removeAttribute("data-front");
+        video.removeAttribute("data-fading");
+        try { video.currentTime = 0; } catch {}
+      };
+
+      const waitForPresentedFrame = video => new Promise(resolve => {
+        let settled = false;
+        const finish = () => {
+          if (settled) return;
+          settled = true;
+          window.clearTimeout(fallbackTimer);
+          resolve();
+        };
+        const fallbackTimer = window.setTimeout(finish, 120);
+        if (typeof video.requestVideoFrameCallback === "function") {
+          video.requestVideoFrameCallback(finish);
+        } else {
+          window.requestAnimationFrame(finish);
+        }
+      });
+
+      const armStandbyVideo = () => {
+        const standby = videos[1];
+        if (!standby || disposed || standby.getAttribute("src")) return;
+        standby.src = source;
+        standby.load();
+      };
+
+      const crossfade = async () => {
+        if (crossfading || disposed || document.hidden) return;
+        crossfading = true;
+        armStandbyVideo();
+        const outgoing = activeVideo;
+        const incoming = videos.find(video => video !== outgoing);
+        resetVideo(incoming);
+
+        try {
+          await incoming.play();
+          await waitForPresentedFrame(incoming);
+        } catch {
+          crossfading = false;
+          return;
+        }
+
+        if (disposed || document.hidden) {
+          resetVideo(incoming);
+          crossfading = false;
+          return;
+        }
+
+        // The next loop is already playing and has presented a decoded frame
+        // before it becomes visible. Only the outgoing final frames fade,
+        // preventing both a frozen handoff and the dip of a two-way fade.
+        incoming.setAttribute("data-visible", "");
+        window.cancelAnimationFrame(fadeFrame);
+        fadeFrame = window.requestAnimationFrame(() => {
+          fadeFrame = window.requestAnimationFrame(() => {
+            outgoing.setAttribute("data-fading", "");
+            window.clearTimeout(fadeTimer);
+            fadeTimer = window.setTimeout(() => {
+              resetVideo(outgoing);
+              incoming.setAttribute("data-front", "");
+              activeVideo = incoming;
+              crossfading = false;
+            }, CROSSFADE_MS);
+          });
+        });
+      };
+
+      const handleTimeUpdate = event => {
+        const video = event.currentTarget;
+        if (video !== activeVideo || crossfading || !Number.isFinite(video.duration)) return;
+        if (video.duration - video.currentTime <= CROSSFADE_LEAD_SECONDS) crossfade();
+      };
+
+      const handleEnded = event => {
+        if (event.currentTarget === activeVideo && !crossfading) crossfade();
+      };
+
+      const handleError = event => {
+        const video = event.currentTarget;
+        video.removeAttribute("data-fading");
+        if (video === activeVideo) {
+          // A failed mobile decode still shows the authored poster instead of
+          // dropping all the way back to the near-black ambient gradient.
+          video.setAttribute("data-visible", "");
+          video.setAttribute("data-front", "");
+        } else {
+          video.removeAttribute("data-visible");
+          video.removeAttribute("data-front");
+        }
+        announceBackgroundReady();
+      };
+
+      // Surface real buffering progress for the boot veil's percent counter.
+      const reportBufferProgress = () => {
+        const video = videos[0];
+        if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+        const ranges = video.buffered;
+        if (!ranges.length) return;
+        const fraction = Math.min(1, ranges.end(ranges.length - 1) / video.duration);
+        window.dispatchEvent(new CustomEvent("arcana:background-progress", { detail: fraction }));
+      };
+
+      videos.forEach(video => {
+        video.addEventListener("timeupdate", handleTimeUpdate);
+        video.addEventListener("ended", handleEnded);
+        video.addEventListener("error", handleError);
+      });
+      // The standby element only matters at the first crossfade. Loading it at
+      // boot downloaded the same multi-MB file twice in parallel, so it waits
+      // until the active one can play through (crossfade arms it as a fallback).
+      videos[0].addEventListener("canplaythrough", armStandbyVideo, { once: true });
+      videos[0].src = source;
+      videos[0].load();
+      videos[0].addEventListener("progress", reportBufferProgress);
+      videos[0].addEventListener("loadedmetadata", reportBufferProgress);
+
+      let startingInitialPlayback = false;
+      let playbackBlocked = false;
+      const startInitialPlayback = async () => {
+        if (startingInitialPlayback) return;
+        if (disposed || document.hidden) {
+          announceBackgroundReady();
+          return;
+        }
+        startingInitialPlayback = true;
+        try {
+          await activeVideo.play();
+          await waitForPresentedFrame(activeVideo);
+          activeVideo.setAttribute("data-visible", "");
+          activeVideo.setAttribute("data-front", "");
+          playbackBlocked = false;
+        } catch {
+          /* Low Power Mode and embedded iOS browsers can reject autoplay even
+             for muted inline media. Keep the poster or decoded first frame
+             visible and retry on the first real user gesture. */
+          activeVideo.setAttribute("data-visible", "");
+          activeVideo.setAttribute("data-front", "");
+          playbackBlocked = true;
+        }
+        startingInitialPlayback = false;
+        announceBackgroundReady();
+      };
+
+      if (activeVideo.readyState >= 2) startInitialPlayback();
+      else activeVideo.addEventListener("loadeddata", startInitialPlayback, { once: true });
+
+      const syncPlayback = () => {
+        if (document.hidden) {
+          videos.forEach(video => video.pause());
+          return;
+        }
+        // If the page loaded while hidden, the initial reveal never ran —
+        // without this, the video plays invisibly until the first crossfade.
+        if (!activeVideo.hasAttribute("data-visible") && !crossfading) {
+          if (activeVideo.readyState >= 2) startInitialPlayback();
+          return;
+        }
+        activeVideo.play().catch(() => {});
+      };
+      const retryBlockedPlayback = () => {
+        if (!playbackBlocked || disposed || document.hidden) return;
+        startInitialPlayback();
+      };
+      document.addEventListener("visibilitychange", syncPlayback);
+      document.addEventListener("pointerdown", retryBlockedPlayback, { passive: true });
+      document.addEventListener("touchstart", retryBlockedPlayback, { passive: true });
+      window.addEventListener("pageshow", syncPlayback);
+
+      return () => {
+        disposed = true;
+        window.clearTimeout(fadeTimer);
+        window.cancelAnimationFrame(fadeFrame);
+        document.removeEventListener("visibilitychange", syncPlayback);
+        document.removeEventListener("pointerdown", retryBlockedPlayback);
+        document.removeEventListener("touchstart", retryBlockedPlayback);
+        window.removeEventListener("pageshow", syncPlayback);
+        videos[0].removeEventListener("progress", reportBufferProgress);
+        videos[0].removeEventListener("loadedmetadata", reportBufferProgress);
+        videos.forEach(video => {
+          video.removeEventListener("timeupdate", handleTimeUpdate);
+          video.removeEventListener("ended", handleEnded);
+          video.removeEventListener("error", handleError);
+          resetVideo(video);
+        });
+      };
+    }
+
+    function initApp(app, variant, {
+      spatiusAdapter = window.SPATIUS_ADAPTER || {},
+      getActiveCard = () => TAROT_CARDS[1],
+      getCardAvatarId = card => card.avatarId,
+      defaultAvatarId = ""
+    } = {}) {
+      let started = false;
+      let completed = false;
+      let cardState = "idle";
+      let timers = [];
+      let cleanupBackground = () => {};
+      let archiveController = null;
+      let archiveControllerPromise = null;
+      let overlayReturnFocus = null;
+      let readingSpeechRun = 0;
+      let navigationTransitionRun = 0;
+      let navigationAnimations = [];
+      let lastTodayView = "today";
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const spatius = spatiusAdapter;
+      const callSpatius = (method, payload) => Promise.resolve(spatius[method]?.(payload)).catch(() => {});
+      const currentCard = () => getActiveCard?.() || TAROT_CARDS[1];
+      // Debug overrides (?card=) opt out of the once-a-day rule so the full
+      // draw flow stays replayable while tuning; they also never persist.
+      const debugCardOverride = new URLSearchParams(window.location.search).has("card");
+      const persistCompletedDraw = () => {
+        if (!debugCardOverride) recordDailyDraw(currentCard().id);
+      };
+      const cardPayload = (extra = {}) => {
+        const card = currentCard();
+        return {
+          cardId: card.id,
+          avatarId: getCardAvatarId(card) || defaultAvatarId || undefined,
+          transform: card.composition.avatar,
+          voiceId: card.tts.voiceId || undefined,
+          voiceSettings: {
+            stability: card.tts.stability,
+            similarityBoost: card.tts.similarityBoost,
+            style: card.tts.style,
+            speed: card.tts.speed
+          },
+          ...extra
+        };
+      };
+      const delay = (fn, ms) => {
+        const timer = window.setTimeout(fn, reduced ? 0 : ms);
+        timers.push(timer);
+        return timer;
+      };
+      const SHARED_CARD_DURATION = 620;
+      const STATIC_CARD_DWELL = 1050;
+      const LANDING_EXIT_DURATION = 300;
+      const sharedCard = app.querySelector(".card-cluster");
+      const drawButton = app.querySelector('[data-action="draw"]');
+      const todayCard = app.querySelector(".today-card-button");
+      const todayTilt = app.querySelector(".today-card-tilt");
+      const todayShell = app.querySelector(".today-card-shell");
+      const todayVideo = app.querySelector(".today-card-video");
+      const returnVideo = app.querySelector(".return-card-video");
+      const readingShader = app.querySelector(".shader-canvas");
+      const homeHoverMaterial = createCardHoverMaterial({
+        target: todayCard,
+        tilt: todayTilt,
+        canvas: app.querySelector(".today-hover-material"),
+        reducedMotion: reduced,
+        enabled: () => app.dataset.view === "today" && completed,
+        getArtworkUrl: () => getActiveCard()?.composition?.staticArtworkUrl || "",
+        getStrength: () => {
+          const value = Number.parseFloat(getComputedStyle(app).getPropertyValue("--home-holographic-strength"));
+          return Number.isFinite(value) ? value : 0.68;
+        },
+      });
+      const materialStrength = () => {
+        const value = Number.parseFloat(getComputedStyle(app).getPropertyValue("--home-holographic-strength"));
+        return Number.isFinite(value) ? value : 0.68;
+      };
+      const readingCardButton = app.querySelector(".card-hitbox");
+      const readingCardMaterial = createDualFaceCardMaterial({
+        target: readingCardButton,
+        tilt: app.querySelector(".card-object"),
+        frontCanvas: app.querySelector(".card-front-diffraction-canvas"),
+        backCanvas: app.querySelector(".card-back-metal-canvas"),
+        reducedMotion: reduced,
+        maxTilt: 1.5,
+        getSide: () => ["summoning", "back"].includes(cardState) ? "back" : "front",
+        enabled: () => app.dataset.view === "reading" && ["back", "static", "live"].includes(cardState),
+        getFrontArtworkUrl: () => currentCard()?.composition?.staticArtworkUrl || "",
+        getStrength: materialStrength,
+      });
+      const archiveFocusButton = app.querySelector(".focus-card-button");
+      const archiveFocusFront = app.querySelector(".archive-focus-overlay .focus-front");
+      const archiveFocusMaterial = createDualFaceCardMaterial({
+        target: archiveFocusButton,
+        tilt: app.querySelector(".focus-card-tilt"),
+        frontCanvas: app.querySelector(".focus-front-diffraction-canvas"),
+        backCanvas: app.querySelector(".focus-back-metal-canvas"),
+        reducedMotion: reduced,
+        maxTilt: 2.4,
+        getSide: () => archiveFocusButton.hasAttribute("data-flipped") ? "front" : "back",
+        enabled: () => app.querySelector(".archive-focus-overlay")?.hasAttribute("data-open"),
+        getFrontArtworkUrl: () => TAROT_CARDS.find(card => card.id === archiveFocusButton.dataset.cardId)?.composition?.libraryArtworkUrl || "",
+        getStrength: materialStrength,
+      });
+      const archiveFocusVideo = app.querySelector("[data-archive-focus-video]");
+      let idleVideoPromise = null;
+      let idleVideoSource = "";
+      let archiveFocusVideoToken = 0;
+
+      function setSharedCardGeometry(fromElement, toElement) {
+        const from = fromElement.getBoundingClientRect();
+        const to = toElement.getBoundingClientRect();
+        if (!from.width || !from.height || !to.width || !to.height) return false;
+        const fromCenterX = from.left + from.width / 2;
+        const fromCenterY = from.top + from.height / 2;
+        const toCenterX = to.left + to.width / 2;
+        const toCenterY = to.top + to.height / 2;
+        const scale = to.width / from.width;
+        const sourceRadius = Number.parseFloat(getComputedStyle(app.querySelector(".card-front")).borderTopLeftRadius) || 48;
+        sharedCard.style.setProperty("--shared-card-x", `${toCenterX - fromCenterX}px`);
+        sharedCard.style.setProperty("--shared-card-y", `${toCenterY - fromCenterY}px`);
+        sharedCard.style.setProperty("--shared-card-scale", String(scale));
+        todayCard.style.setProperty("--home-card-radius", `${sourceRadius * scale}px`);
+        todayCard.style.setProperty("--home-live-width", `${from.width}px`);
+        todayCard.style.setProperty("--home-live-height", `${from.height}px`);
+        todayCard.style.setProperty("--home-live-scale", String(scale));
+        return true;
+      }
+
+      function clearSharedCardGeometry() {
+        sharedCard.style.removeProperty("--shared-card-x");
+        sharedCard.style.removeProperty("--shared-card-y");
+        sharedCard.style.removeProperty("--shared-card-scale");
+        todayCard.style.removeProperty("--home-card-radius");
+      }
+
+      function prepareIdleCardVideo() {
+        const source = currentCard().composition.motionVideoUrl;
+        if (!source || reduced) return Promise.resolve(false);
+        if (idleVideoPromise && idleVideoSource === source) return idleVideoPromise;
+        idleVideoSource = source;
+
+        const prepareVideo = video => new Promise(resolve => {
+          let settled = false;
+          video.pause();
+          video.removeAttribute("data-ready");
+          const finish = ready => {
+            if (settled) return;
+            settled = true;
+            if (ready) video.setAttribute("data-ready", "");
+            resolve(ready);
+          };
+          const revealFirstFrame = () => {
+            Promise.resolve(video.play()).then(() => {
+              if (typeof video.requestVideoFrameCallback === "function") {
+                video.requestVideoFrameCallback(() => finish(true));
+              } else {
+                finish(true);
+              }
+            }).catch(() => finish(video.readyState >= 2));
+          };
+          video.addEventListener("error", () => finish(false), { once: true });
+          video.addEventListener("loadeddata", revealFirstFrame, { once: true });
+          video.src = source;
+          video.load();
+        });
+
+        idleVideoPromise = Promise.all([todayVideo, returnVideo].map(prepareVideo))
+          .then(results => results.every(Boolean));
+        return idleVideoPromise;
+      }
+
+      function stopArchiveFocusVideo({ clear = true } = {}) {
+        archiveFocusVideoToken += 1;
+        archiveFocusFront?.removeAttribute("data-video-ready");
+        if (!archiveFocusVideo) return;
+        archiveFocusVideo.pause();
+        archiveFocusVideo.onloadeddata = null;
+        archiveFocusVideo.onerror = null;
+        if (clear) {
+          archiveFocusVideo.removeAttribute("src");
+          archiveFocusVideo.removeAttribute("poster");
+          archiveFocusVideo.load();
+        }
+      }
+
+      function prepareArchiveFocusVideo(card) {
+        stopArchiveFocusVideo();
+        const source = card?.composition.motionVideoUrl;
+        if (!archiveFocusVideo || !archiveFocusFront || !source || reduced) return;
+
+        const token = ++archiveFocusVideoToken;
+        archiveFocusVideo.poster = card.composition.libraryArtworkUrl;
+        const markReady = () => {
+          if (token !== archiveFocusVideoToken) return;
+          archiveFocusFront.setAttribute("data-video-ready", "");
+          if (!archiveFocusButton.hasAttribute("data-flipped")) archiveFocusVideo.pause();
+        };
+        const revealFirstFrame = () => {
+          if (token !== archiveFocusVideoToken) return;
+          Promise.resolve(archiveFocusVideo.play()).then(() => {
+            if (typeof archiveFocusVideo.requestVideoFrameCallback === "function") {
+              archiveFocusVideo.requestVideoFrameCallback(markReady);
+            } else {
+              markReady();
+            }
+          }).catch(() => {
+            if (archiveFocusVideo.readyState >= 2) markReady();
+          });
+        };
+
+        archiveFocusVideo.onloadeddata = revealFirstFrame;
+        archiveFocusVideo.onerror = () => {
+          if (token === archiveFocusVideoToken) stopArchiveFocusVideo();
+        };
+        archiveFocusVideo.src = source;
+        archiveFocusVideo.load();
+      }
+
+      function freezeHomeCardShell() {
+        const transform = getComputedStyle(todayShell).transform;
+        todayShell.style.animation = "none";
+        todayShell.style.transition = "none";
+        todayShell.style.transform = transform === "none" ? "none" : transform;
+        todayShell.getBoundingClientRect();
+      }
+
+      function clearHomeCardShellOverride() {
+        todayShell.style.removeProperty("animation");
+        todayShell.style.removeProperty("transition");
+        todayShell.style.removeProperty("transform");
+      }
+
+      function syncIdleVideos(sourceVideo, targetVideo) {
+        if (sourceVideo.readyState >= 2 && targetVideo.readyState >= 2) {
+          const time = sourceVideo.currentTime;
+          if (Number.isFinite(time) && Math.abs(targetVideo.currentTime - time) > 0.04) {
+            try { targetVideo.currentTime = time; } catch {}
+          }
+        }
+        targetVideo.play().catch(() => {});
+      }
+
+      function ensureArchiveScene() {
+        if (reduced) return Promise.resolve(null);
+        if (!archiveControllerPromise) {
+          const archiveStage = app.querySelector(".archive-webgl-stage");
+          const archiveStatus = app.querySelector(".archive-webgl-status");
+          const archiveFallback = app.querySelector(".archive-arc");
+          app.dataset.archiveWebgl = "loading";
+          archiveStage.setAttribute("aria-busy", "true");
+          archiveStatus.textContent = "Preparing the Major Arcana library.";
+          archiveFallback.setAttribute("aria-hidden", "true");
+          archiveFallback.querySelectorAll("button").forEach(button => { button.tabIndex = -1; });
+          archiveControllerPromise = setupArchiveScene(app).then(controller => {
+            archiveController = controller;
+            controller.setActive(app.dataset.view === "archive");
+            archiveStage.removeAttribute("aria-busy");
+            return controller;
+          }).catch(error => {
+            console.warn("Archive WebGL scene unavailable; using the accessible card layout instead.", error);
+            app.dataset.archiveWebgl = "fallback";
+            archiveStage.removeAttribute("aria-busy");
+            archiveStatus.textContent = "The accessible Major Arcana library is ready.";
+            archiveFallback.removeAttribute("aria-hidden");
+            archiveFallback.querySelectorAll("button").forEach(button => { button.tabIndex = 0; });
+            return null;
+          });
+        }
+        return archiveControllerPromise;
+      }
+
+      function setView(view) {
+        if (view !== "today") homeHoverMaterial.reset({ immediate: true });
+        app.dataset.view = view;
+        try { window.sessionStorage.setItem("living-arcana.last-view.v1", view); } catch {}
+        if (view === "today" || view === "reading") lastTodayView = view;
+        app.querySelectorAll(".scene").forEach(scene => {
+          const active = scene.classList.contains(`${view}-view`);
+          scene.setAttribute("aria-hidden", active ? "false" : "true");
+          scene.inert = !active;
+        });
+        const todayNav = app.querySelector('[data-action="today"]');
+        const consultationNav = app.querySelector('[data-action="consultation"]');
+        const archiveNav = app.querySelector('[data-action="archive"]');
+        const todayCurrent = view === "today" || view === "reading";
+        const consultationCurrent = view === "consultation";
+        const archiveCurrent = view === "archive";
+        todayNav.toggleAttribute("data-current", todayCurrent);
+        consultationNav.toggleAttribute("data-current", consultationCurrent);
+        archiveNav.toggleAttribute("data-current", archiveCurrent);
+        [todayNav, consultationNav, archiveNav].forEach(nav => nav.removeAttribute("aria-current"));
+        if (todayCurrent) todayNav.setAttribute("aria-current", "page");
+        if (consultationCurrent) consultationNav.setAttribute("aria-current", "page");
+        if (archiveCurrent) archiveNav.setAttribute("aria-current", "page");
+        if (view === "archive") {
+          requestAnimationFrame(() => layoutArchive(app));
+          ensureArchiveScene().then(controller => controller?.setActive(app.dataset.view === "archive"));
+        } else {
+          archiveController?.setActive(false);
+        }
+      }
+
+      function clearNavigationTransition() {
+        navigationTransitionRun += 1;
+        navigationAnimations.forEach(animation => animation.cancel());
+        navigationAnimations = [];
+        app.querySelectorAll(".scene").forEach(scene => {
+          scene.style.removeProperty("visibility");
+          scene.style.removeProperty("z-index");
+          scene.style.removeProperty("will-change");
+          scene.style.removeProperty("pointer-events");
+        });
+      }
+
+      function transitionView(view, { animate = true } = {}) {
+        const previousView = app.dataset.view;
+        const navigationIndex = { today: 0, reading: 0, consultation: 1, archive: 2 };
+        const isPrimaryNavigation = previousView !== view
+          && navigationIndex[previousView] !== navigationIndex[view];
+        if (!animate || reduced || !isPrimaryNavigation) {
+          clearNavigationTransition();
+          setView(view);
+          return Promise.resolve();
+        }
+
+        const outgoing = app.querySelector(`.${previousView}-view`);
+        const incoming = app.querySelector(`.${view}-view`);
+        if (!outgoing || !incoming) {
+          clearNavigationTransition();
+          setView(view);
+          return Promise.resolve();
+        }
+
+        const interrupted = navigationAnimations.length > 0;
+        const captured = interrupted ? new Map([outgoing, incoming].map(scene => {
+          const style = getComputedStyle(scene);
+          return [scene, { opacity: style.opacity, transform: style.transform }];
+        })) : null;
+        clearNavigationTransition();
+        const run = navigationTransitionRun;
+        const direction = navigationIndex[view] > navigationIndex[previousView] ? 1 : -1;
+
+        outgoing.style.visibility = "visible";
+        outgoing.style.zIndex = "1";
+        outgoing.style.willChange = "transform, opacity";
+        outgoing.style.pointerEvents = "none";
+        incoming.style.visibility = "visible";
+        incoming.style.zIndex = "2";
+        incoming.style.willChange = "transform, opacity";
+        incoming.style.pointerEvents = "none";
+        setView(view);
+
+        const outgoingStart = captured?.get(outgoing) || { opacity: 1, transform: "translate3d(0, 0, 0)" };
+        const incomingStart = captured?.get(incoming) || { opacity: 0, transform: `translate3d(${direction * 14}px, 0, 0)` };
+        const easing = "cubic-bezier(0.23, 1, 0.32, 1)";
+        const outgoingAnimation = outgoing.animate([
+          outgoingStart,
+          { opacity: 0, transform: `translate3d(${-direction * 10}px, 0, 0)` },
+        ], { duration: interrupted ? 160 : 180, easing, fill: "both" });
+        const incomingAnimation = incoming.animate([
+          incomingStart,
+          { opacity: 1, transform: "translate3d(0, 0, 0)" },
+        ], { duration: interrupted ? 200 : 240, easing, fill: "both" });
+        navigationAnimations = [outgoingAnimation, incomingAnimation];
+
+        return Promise.allSettled(navigationAnimations.map(animation => animation.finished)).then(() => {
+          if (run !== navigationTransitionRun) return;
+          clearNavigationTransition();
+        });
+      }
+
+      function runNavigationChange(change, pointerInitiated) {
+        const navigation = app.querySelector(".icon-nav");
+        if (!pointerInitiated) navigation.setAttribute("data-instant", "");
+        change(pointerInitiated);
+        if (!pointerInitiated) {
+          requestAnimationFrame(() => {
+            navigation.getBoundingClientRect();
+            navigation.removeAttribute("data-instant");
+          });
+        }
+      }
+
+      function setCardState(next) {
+        cardState = next;
+        app.dataset.cardState = next;
+        readingCardMaterial.sync();
+        const cardButton = app.querySelector('[data-action="flip"]');
+        cardButton.disabled = !["back"].includes(next);
+        cardButton.setAttribute("aria-label", next === "back" ? "Reveal today's card" : "Today's card");
+        const fullCardButton = app.querySelector('.source-card');
+        const fullCardAvailable = next === "live";
+        fullCardButton.disabled = !fullCardAvailable;
+        fullCardButton.tabIndex = fullCardAvailable ? 0 : -1;
+      }
+
+      function clearDelays() {
+        timers.forEach(clearTimeout);
+        timers = [];
+      }
+
+      function interruptReadingSpeech({ readyForQuestions = false } = {}) {
+        readingSpeechRun += 1;
+        callSpatius("stop");
+        app.dataset.speaking = "false";
+        if (readyForQuestions && completed && app.dataset.qa === "waiting") {
+          app.dataset.qa = "ready";
+          const speechLabel = app.querySelector("[data-speech-label]");
+          if (speechLabel) speechLabel.textContent = "Reading paused · Ask one question";
+        }
+      }
+
+      function resetIncompleteReadingState({ showToday = true } = {}) {
+        started = false;
+        delete app.dataset.landingExit;
+        drawButton.disabled = false;
+        app.dataset.underCard = "concealed";
+        app.dataset.underCardRendered = "false";
+        app.dataset.homeMedia = "live";
+        app.dataset.readingMedia = "live";
+        readingCardMaterial.reset({ immediate: true });
+        if (showToday) setView("today");
+        setCardState("idle");
+      }
+
+      function pauseIncompleteReadingAtStableState(checkpoint) {
+        delete app.dataset.landingExit;
+        drawButton.disabled = false;
+        app.dataset.speaking = "false";
+
+        if (["flipping", "static"].includes(checkpoint)) {
+          completed = true;
+          app.dataset.drawn = "true";
+          persistCompletedDraw();
+          app.dataset.underCard = "visible";
+          app.dataset.underCardRendered = "true";
+          app.dataset.qa = "ready";
+          setCardState("live");
+          const speechLabel = app.querySelector("[data-speech-label]");
+          if (speechLabel) speechLabel.textContent = "Reading paused · Ask one question";
+          void prepareIdleCardVideo();
+          return;
+        }
+
+        app.dataset.underCard = "concealed";
+        app.dataset.underCardRendered = "false";
+        app.dataset.qa = "waiting";
+        setCardState("back");
+      }
+
+      function cancelIncompleteReading({ animate = true } = {}) {
+        if (completed) return false;
+
+        clearDelays();
+        interruptReadingSpeech();
+        app.dataset.qa = "waiting";
+
+        const finish = () => resetIncompleteReadingState();
+
+        const canAnimate = animate
+          && app.dataset.view === "reading"
+          && ["summoning", "back", "flipping", "static"].includes(cardState);
+
+        if (!canAnimate) {
+          finish();
+          return true;
+        }
+
+        setCardState("dismissing");
+        delay(finish, 220);
+        return true;
+      }
+
+      function summon() {
+        if (cardState !== "idle" || app.dataset.landingExit === "true") return;
+        started = true;
+        app.dataset.landingExit = "true";
+        drawButton.disabled = true;
+        app.dataset.underCard = "concealed";
+        app.dataset.underCardRendered = "false";
+        const avatarPreparation = callSpatius("prepare", cardPayload({ scriptId: "daily-note-01" }));
+        setView("reading");
+        setCardState("summoning");
+        app.dataset.qa = "waiting";
+        delay(() => {
+          delete app.dataset.landingExit;
+          drawButton.disabled = false;
+        }, LANDING_EXIT_DURATION);
+        delay(() => {
+          Promise.resolve(avatarPreparation).finally(() => {
+            if (cardState === "summoning") setCardState("back");
+          });
+        }, 1210);
+      }
+
+      function flip() {
+        if (cardState !== "back") return;
+        // Use the revealing gesture to unlock the avatar's audio channel. The
+        // visual reading starts later, after the artwork has had time to land.
+        callSpatius("unlock", cardPayload());
+        setCardState("flipping");
+        delay(() => {
+          if (cardState !== "flipping") return;
+          app.dataset.underCardRendered = "true";
+          setCardState("static");
+          delay(activate, STATIC_CARD_DWELL);
+        }, 640);
+      }
+
+      function activate() {
+        if (cardState !== "static") return;
+        completed = true;
+        app.dataset.drawn = "true";
+        persistCompletedDraw();
+        app.dataset.underCard = "visible";
+        prepareIdleCardVideo();
+        const readingView = app.querySelector(".reading-view");
+        readingView.scrollTop = 0;
+        requestAnimationFrame(() => { readingView.scrollTop = 0; });
+        setCardState("activating");
+        runActivationShader(app.querySelector(".shader-canvas"), variant.shader);
+        delay(() => {
+          if (cardState !== "activating") return;
+          setCardState("live");
+          const speechRun = ++readingSpeechRun;
+          app.dataset.speaking = "true";
+          app.querySelector("[data-speech-label]").textContent = `${currentCard().name} is speaking`;
+          let readingSettled = false;
+          const settleReading = () => {
+            if (readingSettled || speechRun !== readingSpeechRun) return;
+            readingSettled = true;
+            app.dataset.speaking = "false";
+            app.dataset.qa = "ready";
+            app.querySelector("[data-speech-label]").textContent = "Reading complete · Ask one question";
+          };
+          const card = currentCard();
+          callSpatius("speak", cardPayload({ text: card.lead })).then(result => {
+            if (speechRun !== readingSpeechRun || app.dataset.view !== "reading" || cardState !== "live") return;
+            if (result?.completed) {
+              settleReading();
+              return;
+            }
+            if (result === undefined && cardState === "live") {
+              callSpatius("play", cardPayload({ scriptId: "daily-note-01" })).then(fallbackResult => {
+                if (speechRun !== readingSpeechRun || app.dataset.view !== "reading" || cardState !== "live") return;
+                if (fallbackResult?.completed) settleReading();
+                else delay(settleReading, 4200);
+              });
+              return;
+            }
+            settleReading();
+          });
+          delay(settleReading, 15000);
+        }, 900);
+      }
+
+      function returnHome({ animate = false } = {}) {
+        clearDelays();
+        cancelPendingReadingReveal();
+        delete app.dataset.readingCopyPrepared;
+        app.dataset.underCard = "concealed";
+        interruptReadingSpeech({ readyForQuestions: completed });
+        if (!completed) {
+          if (["archive", "consultation"].includes(app.dataset.view)) {
+            app.dataset.qa = "waiting";
+            const transition = transitionView("today", { animate });
+            Promise.resolve(transition).finally(() => resetIncompleteReadingState({ showToday: false }));
+            return;
+          }
+          cancelIncompleteReading();
+          return;
+        }
+        if (app.dataset.view === "reading" && ["activating", "live"].includes(cardState)) {
+          app.dataset.homeMedia = "video";
+          setSharedCardGeometry(sharedCard, todayCard);
+          setCardState("returning");
+          prepareIdleCardVideo().then(() => {
+            if (app.dataset.view !== "reading" || cardState !== "returning") return;
+            syncIdleVideos(todayVideo, returnVideo);
+            app.dataset.readingMedia = "transition";
+            runActivationShader(readingShader, variant.shader, SHARED_CARD_DURATION);
+          });
+          delay(() => {
+            app.dataset.readingMedia = "video";
+            syncIdleVideos(returnVideo, todayVideo);
+            returnVideo.pause();
+            app.dataset.sharedCardSetup = "true";
+            setView("today");
+            setCardState("live");
+            clearSharedCardGeometry();
+            sharedCard.getBoundingClientRect();
+            delete app.dataset.sharedCardSetup;
+          }, SHARED_CARD_DURATION);
+          return;
+        }
+        app.dataset.homeMedia = "video";
+        // Rest on "video" (like the animated return path): the reading card
+        // keeps the card motion up, so the next reopen never has to fade the
+        // live avatar layer out across the view switch.
+        app.dataset.readingMedia = "video";
+        void prepareIdleCardVideo();
+        transitionView("today", { animate });
+        setCardState("live");
+      }
+
+      function openStandaloneView(view, { animate = false } = {}) {
+        clearDelays();
+        cancelPendingReadingReveal();
+        const pauseIncompleteAfterExit = !completed && started;
+        const incompleteCheckpoint = pauseIncompleteAfterExit ? cardState : null;
+        const normalizeCompletedAfterExit = completed;
+        if (pauseIncompleteAfterExit) {
+          interruptReadingSpeech();
+          app.dataset.qa = "waiting";
+        } else if (normalizeCompletedAfterExit) {
+          interruptReadingSpeech({ readyForQuestions: true });
+        }
+        const transition = transitionView(view, { animate });
+        Promise.resolve(transition).finally(() => {
+          delete app.dataset.readingCopyPrepared;
+          if (pauseIncompleteAfterExit) {
+            pauseIncompleteReadingAtStableState(incompleteCheckpoint);
+            return;
+          }
+          if (!normalizeCompletedAfterExit) return;
+          app.dataset.homeMedia = "video";
+          app.dataset.readingMedia = "video";
+          clearSharedCardGeometry();
+          clearHomeCardShellOverride();
+          delete app.dataset.sharedCardSetup;
+          setCardState("live");
+          void prepareIdleCardVideo();
+        });
+      }
+
+      function openArchive(options) {
+        openStandaloneView("archive", options);
+      }
+
+      function openConsultation(options) {
+        openStandaloneView("consultation", options);
+      }
+
+      function openTodayTab({ animate = false } = {}) {
+        if (!["archive", "consultation"].includes(app.dataset.view)) return;
+        const targetView = lastTodayView === "reading" ? "reading" : "today";
+        app.dataset.speaking = "false";
+        if (targetView === "reading") {
+          const host = app.querySelector('[data-spatius-host="reading"]');
+          if (!host || host.hasAttribute("data-spatius-rendered")) {
+            app.dataset.readingMedia = "live";
+          } else {
+            app.dataset.readingMedia = "video";
+            prepareIdleCardVideo().then(() => {
+              if (app.dataset.view === "reading" && app.dataset.readingMedia === "video") {
+                syncIdleVideos(todayVideo, returnVideo);
+              }
+            });
+            revealReadingMedia({ crossfade: false });
+          }
+        }
+        transitionView(targetView, { animate });
+      }
+
+      let cancelPendingReadingReveal = () => {};
+
+      // The reading card must not cross-fade to the live avatar before the
+      // avatar has painted its first frame, or the card briefly turns empty.
+      // While waiting, the idle card video stays on screen; the
+      // reveal runs once data-spatius-rendered appears on the reading host.
+      function revealReadingMedia({ crossfade = true } = {}) {
+        cancelPendingReadingReveal();
+        const goLive = () => {
+          if (crossfade) {
+            app.dataset.readingMedia = "reversing";
+            runActivationShader(readingShader, variant.shader, SHARED_CARD_DURATION);
+            delay(() => {
+              app.dataset.readingMedia = "live";
+              todayVideo.pause();
+              returnVideo.pause();
+            }, SHARED_CARD_DURATION);
+            return;
+          }
+          app.dataset.readingMedia = "live";
+          todayVideo.pause();
+          returnVideo.pause();
+        };
+        const host = app.querySelector('[data-spatius-host="reading"]');
+        if (!host || host.hasAttribute("data-spatius-rendered")) {
+          goLive();
+          return;
+        }
+        const observer = new MutationObserver(() => {
+          if (!host.hasAttribute("data-spatius-rendered")) return;
+          observer.disconnect();
+          cancelPendingReadingReveal = () => {};
+          if (app.dataset.view !== "reading" || cardState !== "live") return;
+          if (app.dataset.view === "reading" && cardState === "live") goLive();
+        });
+        observer.observe(host, { attributes: true, attributeFilter: ["data-spatius-rendered"] });
+        cancelPendingReadingReveal = () => {
+          observer.disconnect();
+          cancelPendingReadingReveal = () => {};
+        };
+      }
+
+      function beginReopenMotion() {
+        app.dataset.readingMedia = "video";
+        app.dataset.readingCopyPrepared = "true";
+        app.dataset.underCard = "concealed";
+        app.dataset.underCardRendered = "true";
+        syncIdleVideos(todayVideo, returnVideo);
+        app.dataset.sharedCardSetup = "true";
+        setSharedCardGeometry(sharedCard, todayShell);
+        setCardState("returning");
+        setView("reading");
+        app.querySelector(".reading-copy").getBoundingClientRect();
+        sharedCard.getBoundingClientRect();
+        requestAnimationFrame(() => {
+          delete app.dataset.sharedCardSetup;
+          sharedCard.getBoundingClientRect();
+          requestAnimationFrame(() => {
+            setCardState("live");
+            app.dataset.underCard = "visible";
+            clearHomeCardShellOverride();
+            revealReadingMedia();
+            delay(() => {
+              delete app.dataset.readingCopyPrepared;
+              clearSharedCardGeometry();
+            }, SHARED_CARD_DURATION);
+          });
+        });
+      }
+
+      function reopenReading() {
+        if (!completed || app.dataset.view !== "today") return;
+        // The reopen click is a user gesture: use it to (re)awaken the avatar
+        // so a restored session receives a rendered first frame and speech
+        // works without a prior draw in this page load.
+        callSpatius("unlock", cardPayload());
+        homeHoverMaterial.reset({ immediate: true });
+        freezeHomeCardShell();
+        prepareIdleCardVideo().then(beginReopenMotion);
+      }
+
+      function openOverlay(overlay) {
+        overlayReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+        [app.querySelector(".site-header"), app.querySelector("main"), app.querySelector(".site-footer")]
+          .filter(Boolean)
+          .forEach(element => { element.inert = true; });
+        overlay.inert = false;
+        overlay.setAttribute("data-open", "");
+        overlay.setAttribute("aria-hidden", "false");
+        if (overlay.classList.contains("archive-focus-overlay")) {
+          archiveFocusMaterial.sync();
+        }
+        overlay.querySelector("button")?.focus();
+      }
+
+      function closeOverlays() {
+        let closed = false;
+        app.querySelectorAll(".overlay[data-open]").forEach(overlay => {
+          closed = true;
+          if (overlay.classList.contains("archive-focus-overlay")) {
+            archiveFocusMaterial.reset({ immediate: true });
+            stopArchiveFocusVideo();
+          }
+          overlay.removeAttribute("data-open");
+          overlay.setAttribute("aria-hidden", "true");
+          overlay.inert = true;
+          if (overlay.classList.contains("archive-focus-overlay")) archiveFocusMaterial.sync();
+        });
+        if (!closed) return;
+        [app.querySelector(".site-header"), app.querySelector("main"), app.querySelector(".site-footer")]
+          .filter(Boolean)
+          .forEach(element => { element.inert = false; });
+        const focusTarget = overlayReturnFocus;
+        overlayReturnFocus = null;
+        requestAnimationFrame(() => focusTarget?.isConnected && focusTarget.focus({ preventScroll: true }));
+      }
+
+      app.addEventListener("click", event => {
+        // A React-controlled reading log may unmount during its close click.
+        // `event.target.closest()` then loses the original ancestors before
+        // this native listener runs, so preserve the dispatch-time boundary
+        // through the immutable composed path.
+        const fromReadingLog = event.composedPath().some(node =>
+          node instanceof Element && node.classList.contains("reading-log-dialog")
+        );
+        if (fromReadingLog) return;
+
+        const action = event.target.closest("[data-action]")?.dataset.action;
+        if (!action) {
+          const onReadingSurface = event.target.closest(".reading-view");
+          const insideReadingContent = event.target.closest(".card-cluster, .card-reveal-prompt, .reading-copy");
+          if (onReadingSurface && !insideReadingContent && app.dataset.view === "reading") {
+            const readingCanDismiss = completed
+              && cardState === "live"
+              && app.dataset.speaking !== "true"
+              && app.dataset.qa === "ready";
+            if (readingCanDismiss) returnHome();
+          }
+          if (event.target.classList.contains("overlay")) closeOverlays();
+          return;
+        }
+
+        if (action === "draw") summon();
+        if (action === "flip") flip();
+        if (action === "archive") runNavigationChange(animate => openArchive({ animate }), event.detail > 0);
+        if (action === "consultation") runNavigationChange(animate => openConsultation({ animate }), event.detail > 0);
+        if (action === "today") runNavigationChange(animate => openTodayTab({ animate }), event.detail > 0);
+        if (action === "home") runNavigationChange(animate => returnHome({ animate }), event.detail > 0);
+        if (action === "reopen") {
+          if (event.detail > 0) event.target.closest(".today-card-button")?.blur();
+          reopenReading();
+        }
+        if (action === "legal") openOverlay(app.querySelector(".legal-overlay"));
+        if (action === "changelog") openOverlay(app.querySelector(".changelog-overlay"));
+        if (action === "close-overlay") closeOverlays();
+        if (action === "focus-flip") {
+          const showingFront = event.target.closest(".focus-card-button").toggleAttribute("data-flipped");
+          archiveFocusMaterial.sync();
+          if (showingFront) archiveFocusVideo?.play().catch(() => {});
+          else archiveFocusVideo?.pause();
+        }
+      });
+
+      app.querySelectorAll(".archive-card").forEach(card => card.addEventListener("click", () => {
+        const index = Number(card.dataset.cardIndex);
+        const [roman, name] = CARD_NAMES[index];
+        const selectedCard = TAROT_CARDS[index];
+        const collected = card.hasAttribute("data-collected");
+        const overlay = app.querySelector(".archive-focus-overlay");
+        const focus = overlay.querySelector(".focus-card-button");
+        const front = overlay.querySelector(".focus-front");
+        focus.removeAttribute("data-flipped");
+        focus.dataset.cardId = selectedCard.id;
+        front.toggleAttribute("data-locked", !collected);
+        front.querySelector("[data-archive-focus-artwork]").src = selectedCard.composition.libraryArtworkUrl;
+        front.querySelector("[data-archive-focus-index]").textContent = `${roman} · Major Arcana`;
+        front.querySelector("[data-archive-focus-name]").textContent = collected ? name : "Not yet awakened";
+        overlay.querySelector(".focus-caption").textContent = collected ? `${roman} · ${name} · Click the card to flip` : `${roman} · Not yet encountered · Click the card to flip`;
+        prepareArchiveFocusVideo(selectedCard);
+        openOverlay(overlay);
+      }));
+
+      const archiveWarmTrigger = app.querySelector('[data-action="archive"]');
+      const warmArchiveScene = () => {
+        if (!reduced) void ensureArchiveScene();
+      };
+      archiveWarmTrigger.addEventListener("pointerenter", warmArchiveScene, { passive: true });
+      archiveWarmTrigger.addEventListener("pointerdown", warmArchiveScene, { passive: true });
+      archiveWarmTrigger.addEventListener("focus", warmArchiveScene);
+
+      const escapeHandler = event => {
+        if (event.key !== "Escape") return;
+        if (app.querySelector(".reading-log-dialog")) return;
+        if (app.querySelector(".overlay[data-open]")) closeOverlays();
+        else if (["reading", "consultation"].includes(app.dataset.view)) returnHome();
+      };
+      document.addEventListener("keydown", escapeHandler);
+      const cleanup = () => {
+        clearDelays();
+        clearNavigationTransition();
+        delete app.dataset.readingCopyPrepared;
+        cancelPendingReadingReveal();
+        cleanupBackground();
+        [todayVideo, returnVideo].forEach(video => {
+          video.pause();
+          video.removeAttribute("src");
+          video.load();
+        });
+        callSpatius("stop");
+        archiveController?.destroy();
+        homeHoverMaterial.destroy();
+        readingCardMaterial.destroy();
+        archiveFocusMaterial.destroy();
+        archiveWarmTrigger.removeEventListener("pointerenter", warmArchiveScene);
+        archiveWarmTrigger.removeEventListener("pointerdown", warmArchiveScene);
+        archiveWarmTrigger.removeEventListener("focus", warmArchiveScene);
+        document.removeEventListener("keydown", escapeHandler);
+      };
+      app._cleanup = cleanup;
+
+      // Enforce "One card · once a day": when today's draw already completed
+      // (and no ?card= debug override is active), restore the drawn state so a
+      // refresh lands on the drawn Today card instead of a fresh draw.
+      if (!debugCardOverride && hasCompletedDailyDraw(currentCard().id)) {
+        completed = true;
+        app.dataset.restoreBoot = "true";
+        app.dataset.drawn = "true";
+        app.dataset.underCard = "visible";
+        app.dataset.underCardRendered = "true";
+        app.dataset.qa = "ready";
+        // Match the resting drawn-Today media state (see returnHome): the
+        // home card shows its card motion; the avatar only awakens after a
+        // user gesture reopens the reading. Leaving either on "live" would
+        // reveal an empty live-avatar surface before its first rendered frame.
+        app.dataset.homeMedia = "video";
+        app.dataset.readingMedia = "video";
+        setCardState("live");
+        const speechLabel = app.querySelector("[data-speech-label]");
+        if (speechLabel) speechLabel.textContent = "Reading restored · Ask one question";
+        // Re-enable transitions once the restored state has painted.
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          delete app.dataset.restoreBoot;
+        }));
+      }
+
+      // Normalize aria-hidden/inert for the initial view as well as later
+      // navigation. A recoverable Three Cards session can boot directly into
+      // consultation instead of flashing Today first.
+      setView(app.dataset.view || "today");
+      cleanupBackground = setupBackgroundVideo(app);
+      // Only a restored draw shows the card motion at boot. Before the draw the
+      // two card videos are invisible, and decoding them would compete with
+      // the background video and the digital human preload behind the veil.
+      if (completed) prepareIdleCardVideo();
+      requestAnimationFrame(() => layoutArchive(app));
+      return cleanup;
+    }
+
+    window.LIVING_ARCANA_ENGINE = Object.freeze({ initApp, layoutArchive });
+    await import("/src/main.jsx");
+  </script>
+</body>
+</html>

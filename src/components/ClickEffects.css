@@ -1,0 +1,91 @@
+.click-effects-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+
+.click-effect {
+  --click-effect-color: rgba(231, 219, 188, 0.96);
+  position: absolute;
+  top: var(--click-y);
+  left: var(--click-x);
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.click-effect-crosshair__line,
+.click-effect-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.click-effect-crosshair__line {
+  --crosshair-x: 0px;
+  --crosshair-y: 0px;
+  width: 11px;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--click-effect-color) 34% 66%, transparent);
+  box-shadow: 0 0 5px rgba(226, 204, 151, 0.32);
+  animation: click-effect-crosshair 420ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.click-effect-crosshair__line--north,
+.click-effect-crosshair__line--south {
+  width: 1px;
+  height: 11px;
+  background: linear-gradient(180deg, transparent, var(--click-effect-color) 34% 66%, transparent);
+}
+
+.click-effect-crosshair__line--north { --crosshair-y: -31px; }
+.click-effect-crosshair__line--east { --crosshair-x: 31px; }
+.click-effect-crosshair__line--south { --crosshair-y: 31px; }
+.click-effect-crosshair__line--west { --crosshair-x: -31px; }
+
+.click-effect-particle {
+  width: var(--particle-size);
+  height: var(--particle-size);
+  border-radius: 50%;
+  background: var(--particle-color);
+  box-shadow: 0 0 6px rgba(225, 203, 151, 0.46);
+  animation: click-effect-particle 460ms cubic-bezier(.16, 1, .3, 1) var(--particle-delay) both;
+}
+
+@keyframes click-effect-crosshair {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(.35);
+  }
+  18% { opacity: 1; }
+  70% { opacity: .82; }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(-50% + var(--crosshair-x)), calc(-50% + var(--crosshair-y)), 0) scale(.88);
+  }
+}
+
+@keyframes click-effect-particle {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(.25);
+  }
+  14% { opacity: 1; }
+  72% { opacity: .86; }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(-50% + var(--particle-x)), calc(-50% + var(--particle-y)), 0) scale(.45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .click-effects-layer { display: none; }
+}
