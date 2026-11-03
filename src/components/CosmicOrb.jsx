@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { fragmentShader, vertexShader } from "./cosmicOrbShader.js";
+import { fragmentShader, glassFragmentShader, vertexShader } from "./cosmicOrbShader.js";
 
 const DEFAULT_PALETTE = { anchor: "#6a3cff", colorA: "#3ce0ff", colorB: "#a24bff", colorC: "#ff5ea8" };
 
@@ -41,10 +41,14 @@ export default function CosmicOrb({
     let elapsed = 0;
     let visible = true;
     let lost = false;
-    let program;
+    let ready = false;
+    let scenePass;
+    let glassPass;
+    let texture;
+    let framebuffer;
+    let textureSize = 0;
     let buffer;
     let shaders = [];
-    let uniforms;
 
     const resize = () => {
       const bounds = canvas.getBoundingClientRect();
@@ -53,16 +57,30 @@ export default function CosmicOrb({
         canvas.width = resolution;
         canvas.height = resolution;
       }
+      if (texture && textureSize !== resolution) {
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, resolution, resolution, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+        textureSize = resolution;
+      }
     };
     const paint = (now) => {
       frame = 0;
-      if (lost || !program) return;
+      if (lost || !ready) return;
       if (previousTime && !motion.matches) elapsed += Math.min((now - previousTime) / 1000, 0.05);
       previousTime = now;
       gl.viewport(0, 0, canvas.width, canvas.height);
-      gl.useProgram(program);
-      gl.uniform1f(uniforms.uTime, elapsed);
-      gl.uniform1f(uniforms.uResolution, canvas.width);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
+      gl.bindTexture(gl.TEXTURE_2D, null);
+      gl.useProgram(scenePass.program);
+      gl.uniform1f(scenePass.uniforms.uTime, elapsed);
+      gl.uniform1f(scenePass.uniforms.uResolution, canvas.width);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      gl.useProgram(glassPass.program);
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.uniform1f(glassPass.uniforms.uTime, elapsed);
+      gl.uniform1f(glassPass.uniforms.uResolution, canvas.width);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       if (canvas.style.opacity !== "1") canvas.style.opacity = "1";
       if (!motion.matches && (speed > 0 || spin > 0) && visible && !document.hidden) frame = requestAnimationFrame(paint);
@@ -71,41 +89,68 @@ export default function CosmicOrb({
       cancelAnimationFrame(frame);
       frame = 0;
       previousTime = 0;
-      if (!lost && visible && !document.hidden) frame = requestAnimationFrame(paint);
+      if (!lost && ready && visible && !document.hidden) frame = requestAnimationFrame(paint);
     };
     const initialize = () => {
+      ready = false;
       const vertex = compile(gl, gl.VERTEX_SHADER, vertexShader);
-      const fragment = compile(gl, gl.FRAGMENT_SHADER, fragmentShader);
-      shaders = [vertex, fragment].filter(Boolean);
-      if (!vertex || !fragment) return;
-      program = gl.createProgram();
-      gl.attachShader(program, vertex);
-      gl.attachShader(program, fragment);
-      gl.linkProgram(program);
-      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-        console.warn("[Living Arcana] Crystal orb program linking failed:", gl.getProgramInfoLog(program));
-        gl.deleteProgram(program);
-        program = null;
-        return;
-      }
-      gl.useProgram(program);
+      shaders = [vertex].filter(Boolean);
+      if (!vertex) return;
+      const createPass = (source) => {
+        const fragment = compile(gl, gl.FRAGMENT_SHADER, source);
+        if (!fragment) return null;
+        shaders.push(fragment);
+        const program = gl.createProgram();
+        gl.attachShader(program, vertex);
+        gl.attachShader(program, fragment);
+        gl.bindAttribLocation(program, 0, "aPosition");
+        gl.linkProgram(program);
+        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+          console.warn("[Living Arcana] Crystal orb program linking failed:", gl.getProgramInfoLog(program));
+          gl.deleteProgram(program);
+          return null;
+        }
+        gl.useProgram(program);
+        const uniforms = Object.fromEntries(["uTime", "uResolution", "uBackground", "uAnchor", "uColorA", "uColorB", "uColorC", "uSpeed", "uSpin", "uLens", "uScene"].map((name) => [name, gl.getUniformLocation(program, name)]));
+        for (const [name, color] of Object.entries({ uBackground: background, uAnchor: anchor, uColorA: colorA, uColorB: colorB, uColorC: colorC })) gl.uniform3fv(uniforms[name], rgb(color));
+        gl.uniform1f(uniforms.uSpeed, Math.max(0, speed) / 50);
+        gl.uniform1f(uniforms.uSpin, Math.max(0, spin) / 50);
+        gl.uniform1f(uniforms.uLens, lens ? Math.min(1, Math.max(0, lensAmount) / 100) : 0);
+        gl.uniform1i(uniforms.uScene, 0);
+        return { program, uniforms };
+      };
+      scenePass = createPass(fragmentShader);
+      glassPass = createPass(glassFragmentShader);
+      if (!scenePass || !glassPass) return;
       buffer = gl.createBuffer();
       gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-      const position = gl.getAttribLocation(program, "aPosition");
-      gl.enableVertexAttribArray(position);
-      gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-      uniforms = Object.fromEntries(["uTime", "uResolution", "uBackground", "uAnchor", "uColorA", "uColorB", "uColorC", "uSpeed", "uSpin", "uLens"].map((name) => [name, gl.getUniformLocation(program, name)]));
-      for (const [name, color] of Object.entries({ uBackground: background, uAnchor: anchor, uColorA: colorA, uColorB: colorB, uColorC: colorC })) gl.uniform3fv(uniforms[name], rgb(color));
-      gl.uniform1f(uniforms.uSpeed, Math.max(0, speed) / 50);
-      gl.uniform1f(uniforms.uSpin, Math.max(0, spin) / 50);
-      gl.uniform1f(uniforms.uLens, lens ? Math.max(0, lensAmount) / 100 : 0);
+      gl.enableVertexAttribArray(0);
+      gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+      texture = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      framebuffer = gl.createFramebuffer();
+      gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
+      gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
+      textureSize = 0;
       resize();
+      const complete = gl.checkFramebufferStatus(gl.FRAMEBUFFER) === gl.FRAMEBUFFER_COMPLETE;
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+      if (!complete) {
+        console.warn("[Living Arcana] Crystal orb render texture is unavailable.");
+        return;
+      }
+      ready = true;
       resume();
     };
     const onLost = (event) => {
       event.preventDefault();
       lost = true;
+      ready = false;
       cancelAnimationFrame(frame);
       canvas.style.opacity = "0";
     };
@@ -139,7 +184,10 @@ export default function CosmicOrb({
       canvas.removeEventListener("webglcontextrestored", onRestored);
       shaders.forEach((shader) => gl.deleteShader(shader));
       if (buffer) gl.deleteBuffer(buffer);
-      if (program) gl.deleteProgram(program);
+      if (scenePass) gl.deleteProgram(scenePass.program);
+      if (glassPass) gl.deleteProgram(glassPass.program);
+      if (texture) gl.deleteTexture(texture);
+      if (framebuffer) gl.deleteFramebuffer(framebuffer);
     };
   }, [size, background, anchor, colorA, colorB, colorC, speed, spin, lens, lensAmount]);
 

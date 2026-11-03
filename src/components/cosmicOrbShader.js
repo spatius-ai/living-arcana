@@ -19,7 +19,6 @@ uniform vec3 uColorB;
 uniform vec3 uColorC;
 uniform float uSpeed;
 uniform float uSpin;
-uniform float uLens;
 
 float hash(vec3 p) {
   p = fract(p * vec3(0.1031, 0.11369, 0.13787));
@@ -71,17 +70,15 @@ void main() {
   }
 
   float z = sqrt(1.0 - radius2);
-  vec3 normal = vec3(uv, z);
   float time = uTime * uSpeed;
   float turn = uTime * uSpin * 0.025;
-  vec2 refracted = uv * (1.0 + uLens * (0.32 - z * 0.3));
   vec3 color = mix(uBackground, vec3(0.018, 0.009, 0.038), 0.75);
   vec3 cloud = vec3(0.0);
 
   // Integrate a shallow volume so clouds drift behind the curved glass.
   for (int i = 0; i < 10; i++) {
     float depth = (float(i) + 0.5) / 10.0;
-    vec3 p = vec3(refracted, mix(-z, z, depth));
+    vec3 p = vec3(uv, mix(-z, z, depth));
     p.xz = rotate(turn + 0.35) * p.xz;
     p.yz = rotate(-0.32) * p.yz;
     vec3 flow = p * 2.7 + vec3(0.0, time * 0.027, time * 0.012);
@@ -97,19 +94,69 @@ void main() {
   }
   color += cloud;
 
-  vec2 starPosition = rotate(turn * 0.35) * refracted;
+  vec2 starPosition = rotate(turn * 0.35) * uv;
   color += stars(starPosition + vec2(time * 0.002, 0.0), 0.0, time) * 1.20;
   color += stars(starPosition * 0.83 + vec2(1.7, -0.9), 1.0, time) * 0.75;
   color += stars(starPosition * 0.66 + vec2(-2.3, 0.7), 2.0, time) * 0.40;
 
+  gl_FragColor = vec4(color, coverage);
+}
+`;
+
+export const glassFragmentShader = `
+precision highp float;
+varying vec2 vPosition;
+uniform sampler2D uScene;
+uniform float uTime;
+uniform float uSpeed;
+uniform float uResolution;
+uniform float uLens;
+uniform vec3 uColorA;
+uniform vec3 uColorB;
+
+vec2 throughGlass(vec2 position, vec3 normal, float height, float index) {
+  vec3 ray = refract(vec3(0.0, 0.0, -1.0), normal, 1.0 / index);
+  float distance = height * 2.4 / max(0.25, -ray.z);
+  return (position + ray.xy * distance * uLens) * 0.5 + 0.5;
+}
+
+void main() {
+  vec2 uv = vPosition;
+  float radius2 = dot(uv, uv);
+  if (radius2 >= 1.0) {
+    gl_FragColor = vec4(0.0);
+    return;
+  }
+  float z = sqrt(1.0 - radius2);
+  float time = uTime * uSpeed;
+  vec3 surface = vec3(uv, z);
+  vec2 flow = vec2(
+    sin(uv.y * 5.0 + time * 0.11 + sin(uv.x * 3.0)),
+    cos(uv.x * 4.0 - time * 0.09 + sin(uv.y * 3.5))
+  );
+  vec3 normal = normalize(vec3(uv + flow * z * 0.12 * uLens, z));
+
+  // The volume is rendered once. Wavelength-dependent rays then sample it
+  // three times, instead of evaluating the expensive cloud field three times.
+  vec2 redUV = throughGlass(uv, normal, z, 1.43);
+  vec2 greenUV = throughGlass(uv, normal, z, 1.46);
+  vec2 blueUV = throughGlass(uv, normal, z, 1.51);
+  vec3 color = vec3(
+    texture2D(uScene, redUV).r,
+    texture2D(uScene, greenUV).g,
+    texture2D(uScene, blueUV).b
+  );
+
   float fresnel = pow(1.0 - z, 2.7);
-  float rimLight = 0.48 + 0.52 * dot(normal.xy, normalize(vec2(0.75, 0.6)));
+  float rimLight = 0.48 + 0.52 * dot(surface.xy, normalize(vec2(0.75, 0.6)));
   color += mix(uColorB, vec3(0.67, 0.62, 0.81), 0.65) * fresnel * (0.12 + rimLight * 0.28);
-  float highlight = pow(max(0.0, dot(normal, normalize(vec3(-0.58, 0.68, 0.65)))), 42.0);
+  vec3 light = normalize(vec3(-0.58, 0.68, 0.65));
+  float highlight = pow(max(0.0, dot(normal, light)), 42.0);
   float reflection = pow(max(0.0, dot(normal, normalize(vec3(0.76, -0.3, 0.32)))), 26.0);
   color += vec3(0.75, 0.78, 0.95) * highlight * 0.33;
   color += mix(uColorA, vec3(0.77, 0.72, 0.9), 0.9) * reflection * 0.28;
   color *= 0.7 + 0.3 * z;
+  float coverage = 1.0 - smoothstep(1.0 - 3.0 / uResolution, 1.0, radius2);
   gl_FragColor = vec4(color, coverage);
 }
 `;
