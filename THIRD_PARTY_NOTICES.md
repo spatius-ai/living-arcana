@@ -6,7 +6,7 @@ Dependencies are installed from the package registry using `pnpm-lock.yaml` and 
 
 Inclusive Sans and Instrument Serif font files are bundled under `public/assets/fonts/` under the SIL Open Font License 1.1. Their copyright notices and full license texts are preserved in `OFL-inclusivesans.txt` and `OFL-instrumentserif.txt`. The root MIT license does not apply to these fonts.
 
-The previously vendored OriginKit cosmic-orb implementation is excluded because redistribution terms were not established. The release uses a simple project-authored decorative component instead.
+The previously vendored OriginKit cosmic-orb implementation is excluded because redistribution terms were not established. The crystal orb uses project-authored WebGL shaders and rendering code under the root MIT license; it includes no OriginKit source or assets.
 
 ## Package license details
 
