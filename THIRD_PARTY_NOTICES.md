@@ -10,6 +10,6 @@ The previously vendored OriginKit cosmic-orb implementation is excluded because 
 
 ## Package license details
 
-- Spatius AvatarKit (`@spatius/avatarkit` 1.3.6) declares `UNLICENSED` in its package metadata. It is an external SDK dependency, not part of this project's MIT grant; obtain permission or applicable terms from Spatius for your intended use. Its package and compiled binaries are not committed here.
+- Spatius AvatarKit (`@spatius/avatarkit` 1.3.10): see [spatius.ai](https://spatius.ai) for terms and access.
 - React, Three.js, Tabler Icons, liquid-gooey and uisfx code declare MIT licenses. Preserve their notices when redistributing bundled builds.
 - uisfx audio under its `sounds/` directory is distributed under CC0-1.0; see the package's `LICENSE-AUDIO`.

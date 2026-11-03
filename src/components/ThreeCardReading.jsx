@@ -66,8 +66,7 @@ function normalizeDailyQuota(payload) {
 }
 
 function isLiveAnswerPayload(payload) {
-  return payload?.source === "llm"
-    || (payload?.source === "spatius-easter-egg" && payload?.live === true);
+  return payload?.source === "llm";
 }
 
 const POSITIONS = Object.freeze([

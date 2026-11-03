@@ -1,11 +1,5 @@
 import { buildCardSystemPrompt, fallbackTarotAnswer, getCardById } from "../src/data/tarot.js";
 import { buildEmbodiedCardSystemPrompt } from "./arcanaCardStory.js";
-import {
-  buildSpatiusEasterEggSystemPrompt,
-  getSpatiusEasterEggPayload,
-  SPATIUS_EASTER_EGG_SOURCE,
-  SPATIUS_EASTER_EGG_VERSION,
-} from "./spatiusEasterEgg.js";
 import { isValidQuotaId } from "./threeCardQuestionQuota.js";
 
 export const ARCANA_ASK_PATH = "/api/arcana/ask";
@@ -73,20 +67,17 @@ function buildChatRequestBody({
   voice,
   model,
   stream = false,
-  spatiusMode = false,
   readingContext = null,
   history = [],
 }) {
   const embodiedCardPrompt = buildEmbodiedCardSystemPrompt(card, buildCardSystemPrompt(card));
-  const systemPrompt = spatiusMode
-    ? buildSpatiusEasterEggSystemPrompt({ card, voice })
-    : readingContext
-      ? buildThreeCardPrompt(card, readingContext)
-      : voice
-      // Spoken turns stay short but dense — see the non-stream path.
-      ? `${embodiedCardPrompt}\nLive voice conversation — this overrides the sentence guidance above: reply in two to three short spoken sentences in the user's language. Every sentence must carry substance — a card-scene insight or one concrete action; no filler, no restating the question. Do not end with a question back to the user unless their request genuinely needs clarifying. No lists, no preamble.`
-      : embodiedCardPrompt;
-  const userMessage = !spatiusMode && readingContext?.mode === "three-card-followup"
+  const systemPrompt = readingContext
+    ? buildThreeCardPrompt(card, readingContext)
+    : voice
+    // Spoken turns stay short but dense — see the non-stream path.
+    ? `${embodiedCardPrompt}\nLive voice conversation — this overrides the sentence guidance above: reply in two to three short spoken sentences in the user's language. Every sentence must carry substance — a card-scene insight or one concrete action; no filler, no restating the question. Do not end with a question back to the user unless their request genuinely needs clarifying. No lists, no preamble.`
+    : embodiedCardPrompt;
+  const userMessage = readingContext?.mode === "three-card-followup"
     ? `ORIGINAL USER QUESTION:\n${readingContext.originalQuestion}\n\nCURRENT USER FOLLOW-UP:\n${question}`
     : question;
 
@@ -100,7 +91,7 @@ function buildChatRequestBody({
     provider: { sort: "latency" },
     messages: [
       { role: "system", content: systemPrompt },
-      ...(!spatiusMode && !readingContext ? history : []),
+      ...(!readingContext ? history : []),
       { role: "user", content: userMessage },
     ],
     max_tokens: voice ? 160 : 260,
@@ -124,10 +115,9 @@ export async function streamArcanaAnswer({
   model = DEFAULT_READING_MODEL,
   fetchImpl = globalThis.fetch,
 }) {
-  const easterEgg = getSpatiusEasterEggPayload({ card, question });
   const fallback = () => ({
     type: "json",
-    payload: easterEgg || {
+    payload: {
       answer: fallbackTarotAnswer(card, question),
       cardId: card.id,
       source: "curated",
@@ -150,7 +140,6 @@ export async function streamArcanaAnswer({
         voice,
         model,
         stream: true,
-        spatiusMode: Boolean(easterEgg),
         readingContext,
         history,
       })),
@@ -243,8 +232,7 @@ export async function answerArcanaQuestion({
   model = DEFAULT_READING_MODEL,
   fetchImpl = globalThis.fetch,
 }) {
-  const easterEgg = getSpatiusEasterEggPayload({ card, question });
-  const fallback = () => easterEgg || ({
+  const fallback = () => ({
     answer: fallbackTarotAnswer(card, question),
     cardId: card.id,
     source: "curated",
@@ -266,7 +254,6 @@ export async function answerArcanaQuestion({
         question,
         voice,
         model,
-        spatiusMode: Boolean(easterEgg),
         readingContext,
         history,
       })),
@@ -285,9 +272,8 @@ export async function answerArcanaQuestion({
     return {
       answer,
       cardId: card.id,
-      source: easterEgg ? SPATIUS_EASTER_EGG_SOURCE : "llm",
-      promptVersion: easterEgg ? SPATIUS_EASTER_EGG_VERSION : ARCANA_PROMPT_VERSION,
-      ...(easterEgg ? { live: true } : {}),
+      source: "llm",
+      promptVersion: ARCANA_PROMPT_VERSION,
     };
   } catch (error) {
     console.warn("[Living Arcana] OpenRouter reading request errored:", error?.message || error);

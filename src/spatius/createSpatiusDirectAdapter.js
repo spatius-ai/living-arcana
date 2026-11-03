@@ -173,11 +173,6 @@ export function createSpatiusDirectAdapter({
         drivingServiceMode: sdk.DrivingServiceMode.direct,
         logLevel: sdk.LogLevel.warning,
         renderQuality: sdk.RenderQuality.high,
-        audioFormat: {
-          channelCount: 1,
-          sampleRate: 16_000,
-          opusUplinkEnabled: true,
-        },
       });
       sdk.AvatarSDK.setRenderResolutionCap(true, 720);
       sdkInitialized = true;
@@ -232,7 +227,13 @@ export function createSpatiusDirectAdapter({
       const avatar = await sdk.AvatarManager.shared.load(avatarBeingLoaded, undefined, true);
       if (disposed) return false;
 
-      avatarView = new sdk.AvatarView(avatar, renderStage);
+      avatarView = new sdk.AvatarView(avatar, renderStage, {
+        audioFormat: {
+          channelCount: 1,
+          sampleRate: 16_000,
+          opusUplinkEnabled: true,
+        },
+      });
       controller = avatarView.controller;
       loadedAvatarId = avatarBeingLoaded;
       firstFrameRendered = false;

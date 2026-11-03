@@ -42,7 +42,7 @@ pnpm preview
 
 ## Cloudflare deployment
 
-The Worker serves static assets and API routes, with SQLite-backed Durable Objects for anonymous reading quotas. `wrangler.jsonc` contains no production account or custom domain. Before public deployment, configure authentication and abuse controls appropriate to your service; browser quotas do not protect every paid API endpoint.
+The Worker serves static assets and API routes, with SQLite-backed Durable Objects for anonymous reading quotas. `wrangler.jsonc` contains no production account or custom domain. This is a demo, not a production-hardened service. The same-origin check and per-browser question quota only cover normal browser use; scripted clients can bypass both, and the speech, transcription and Spatius session-token endpoints have no quota at all. Before public deployment, add authentication, rate limiting and provider spending limits appropriate to your service.
 
 1. Set your own `VITE_` values in the build environment and your Spatius app ID in Worker configuration.
 2. Authenticate Wrangler to your own Cloudflare account.
@@ -70,4 +70,4 @@ This release is based on upstream `main` at `fe098ad5e909ce176adf781d32ba3b0d170
 
 ## License
 
-MIT; see [LICENSE](LICENSE). Bundled project media is included with the project owner's authorization; third-party fonts retain their SIL OFL license. Third-party dependencies retain their own licenses and service access requires your own account. AvatarKit is an external SDK whose package declares `UNLICENSED`; its usage terms are separate from this project's MIT license. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+MIT; see [LICENSE](LICENSE). Bundled project media is included with the project owner's authorization; third-party fonts retain their SIL OFL license. Third-party dependencies retain their own licenses and service access requires your own account. For Spatius AvatarKit terms and access, see [spatius.ai](https://spatius.ai). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

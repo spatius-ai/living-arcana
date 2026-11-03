@@ -1,1906 +1,603 @@
 {
-  "meta": {
-    "title": "Daily Tarot × Spatius — RWS 78-card content seed",
-    "version": "0.1.0",
-    "updated_at": "2026-08-10",
-    "language": "zh-CN",
-    "tradition": "Rider–Waite–Smith",
-    "orientation_policy": "upright-only-with-shadow-facet",
-    "product_positioning": "reflective prompt, not predictive claim",
-    "disclaimer": "本数据用于产品内容设计和反思性提示，不构成事实预测、心理诊断、医疗、法律或财务建议。",
-    "sources": [
-      {
-        "name": "The Pictorial Key to the Tarot, Part III",
-        "url": "https://en.wikisource.org/wiki/The_Pictorial_Key_to_the_Tarot/Part_3",
-        "role": "RWS 图像与传统牌义的一手来源"
-      },
-      {
-        "name": "A history of tarot cards, Victoria and Albert Museum",
-        "url": "https://www.vam.ac.uk/articles/tarot-cards",
-        "role": "历史、78 张结构、花色与 RWS 图像史"
-      },
-      {
-        "name": "Before Fortune-Telling, The Metropolitan Museum of Art",
-        "url": "https://www.metmuseum.org/pt/perspectives/tarot-2",
-        "role": "塔罗作为纸牌游戏的历史背景"
-      }
-    ],
-    "editorial_note": "traditional_core 是对一手来源与 RWS 图像的压缩整理；modern_core、shadow、daily_note、action、reflection 和 avatar 均为本产品的现代编辑内容。"
-  },
-  "suits": {
-    "wands": {
-      "title_zh": "权杖",
-      "element": "火",
-      "domain": ["行动", "创造", "意愿", "尝试"],
-      "avatar_id": "emissary-wands",
-      "persona": "点火者"
-    },
-    "cups": {
-      "title_zh": "圣杯",
-      "element": "水",
-      "domain": ["情绪", "关系", "感受", "想象"],
-      "avatar_id": "emissary-cups",
-      "persona": "倾听者"
-    },
-    "swords": {
-      "title_zh": "宝剑",
-      "element": "风",
-      "domain": ["思考", "判断", "沟通", "冲突"],
-      "avatar_id": "emissary-swords",
-      "persona": "辨析者"
-    },
-    "pentacles": {
-      "title_zh": "星币",
-      "element": "土",
-      "domain": ["身体", "资源", "工作", "习惯", "现实"],
-      "avatar_id": "emissary-pentacles",
-      "persona": "工匠"
-    }
-  },
-  "rank_dynamics": {
-    "ace": "出现：领域中的新信号、机会或原材料",
-    "two": "两极：配对、选择、平衡或拉扯",
-    "three": "形成：第一个可见结果、合作或扩展",
-    "four": "稳定：边界、休息、秩序，也可能凝固",
-    "five": "扰动：摩擦、损失、竞争或适应压力",
-    "six": "调整：恢复流动、交换、承认或过渡",
-    "seven": "检验：评估、策略、坚持或选择过多",
-    "eight": "运行：速度、练习、限制或离开",
-    "nine": "接近完成：成熟、韧性、满足或负荷累积",
-    "ten": "完整与溢出：一个周期的结果，也可能过载",
-    "page": "初识：学习、好奇与接收信号",
-    "knight": "推进：把能量带向外部并经受现实检验",
-    "queen": "内在掌握：调节、照料与承载复杂度",
-    "king": "外在掌握：建立方向、决策与承担后果"
-  },
   "cards": [
     {
       "id": "major-00-fool",
-      "title_zh": "愚者",
-      "title_en": "The Fool",
       "arcana": "major",
-      "number": 0,
-      "traditional_core": ["未知旅程", "自由行动", "不受约束"],
-      "modern_core": ["开始", "开放", "低成本尝试"],
-      "shadow": ["鲁莽", "忽视准备", "把逃避当自由"],
-      "daily_note": "今天适合让一件迟迟未开始的小事真正迈出第一步。开放并不等于毫无准备：先确认最基本的边界，再允许自己边走边学。",
-      "action": "选一件可以在十五分钟内开始的事，只完成第一步，不要求今天得到完整结果。",
-      "reflection": "我是在等待不可能出现的绝对确定，还是确实缺少一项关键信息？",
+      "traditional_core": [
+        "unknown journey",
+        "free action",
+        "unbound"
+      ],
+      "modern_core": [
+        "beginnings",
+        "openness",
+        "low-cost experiments"
+      ],
+      "shadow": [
+        "recklessness",
+        "skipping preparation",
+        "mistaking escape for freedom"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "轻装旅人",
-        "count_motif": "悬崖边的一条路径与一个轻便行囊",
-        "gesture": "向前迈步前短暂停顿，回看脚下",
-        "environment": "高处晨光、远方开放、边缘清晰可见",
-        "motion_cue": "风吹衣角，脚步在边缘前稳定下来"
-      },
-      "safety_tags": []
+        "persona": "Light Traveler",
+        "count_motif": "a path along a cliff edge and a light pack",
+        "gesture": "pause briefly before stepping forward, glancing down at your footing",
+        "environment": "morning light on high ground, an open horizon, the edge clearly visible",
+        "motion_cue": "wind catching the hem of your clothes as your steps steady before the edge"
+      }
     },
     {
       "id": "major-01-magician",
-      "title_zh": "魔术师",
-      "title_en": "The Magician",
       "arcana": "major",
-      "number": 1,
-      "traditional_core": ["技巧", "意志", "资源运用", "主动性"],
-      "modern_core": ["能动性", "整合工具", "把想法变成动作"],
-      "shadow": ["操控", "只展示不落实", "资源分散"],
-      "daily_note": "你可能已经拥有推进事情所需的大部分资源。今天的重点不是继续收集工具，而是选定一个明确结果，把现有能力组织起来。",
-      "action": "列出手边已有的三项资源，并用其中一项完成一个可见产出。",
-      "reflection": "我真正缺少的是工具，还是一个清楚的决定？",
+      "traditional_core": [
+        "skill",
+        "will",
+        "use of resources",
+        "initiative"
+      ],
+      "modern_core": [
+        "agency",
+        "bringing tools together",
+        "turning ideas into action"
+      ],
+      "shadow": [
+        "manipulation",
+        "showing without delivering",
+        "scattered resources"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "整合者",
-        "count_motif": "四种花色符号各一，分布在工作台",
-        "gesture": "一手指向上方，一手将注意力落到桌面",
-        "environment": "明亮工作台、植物与清晰几何边框",
-        "motion_cue": "四种符号依次响应，最后汇入一个动作"
-      },
-      "safety_tags": []
+        "persona": "Integrator",
+        "count_motif": "one symbol of each of the four suits laid out on a workbench",
+        "gesture": "point upward with one hand while bringing attention down to the table with the other",
+        "environment": "a bright workbench, plants and a clean geometric frame",
+        "motion_cue": "the four symbols responding one by one before merging into a single action"
+      }
     },
     {
       "id": "major-02-high-priestess",
-      "title_zh": "女祭司",
-      "title_en": "The High Priestess",
       "arcana": "major",
-      "number": 2,
-      "traditional_core": ["秘密", "未揭示的信息", "沉默", "智慧"],
-      "modern_core": ["观察", "容纳未知", "直觉与证据并置"],
-      "shadow": ["过度被动", "神秘化普通问题", "只凭感觉下结论"],
-      "daily_note": "今天未必需要立刻表态。先区分你已经知道的事实、身体给出的感受，以及尚未确认的猜测，让答案多停留一会儿。",
-      "action": "把一个问题分成“已知、感受、未知”三栏，各写至少一项。",
-      "reflection": "我此刻的安静是在观察，还是在回避需要验证的信息？",
+      "traditional_core": [
+        "secrets",
+        "unrevealed information",
+        "silence",
+        "wisdom"
+      ],
+      "modern_core": [
+        "observation",
+        "holding the unknown",
+        "setting intuition beside evidence"
+      ],
+      "shadow": [
+        "excessive passivity",
+        "mystifying ordinary questions",
+        "concluding from feeling alone"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "守门人",
-        "count_motif": "黑白双柱、半掩卷轴与月形符号",
-        "gesture": "保持静止，只以目光提示两侧信息",
-        "environment": "帷幕后有缓慢水纹，前景秩序对称",
-        "motion_cue": "帷幕轻动，未完全揭开"
-      },
-      "safety_tags": ["avoid-paranormal-certainty"]
+        "persona": "Gatekeeper",
+        "count_motif": "a black pillar and a white pillar, a half-hidden scroll and a crescent symbol",
+        "gesture": "stay still, pointing to the information on either side with only your gaze",
+        "environment": "slow ripples of water behind a veil, a symmetrical and orderly foreground",
+        "motion_cue": "the veil stirring slightly without fully opening"
+      }
     },
     {
       "id": "major-03-empress",
-      "title_zh": "皇后",
-      "title_en": "The Empress",
       "arcana": "major",
-      "number": 3,
-      "traditional_core": ["丰饶", "生长", "行动", "滋养"],
-      "modern_core": ["创造", "照料", "让条件适合生长"],
-      "shadow": ["过度照顾", "把付出当控制", "忽略自身需要"],
-      "daily_note": "今天适合照料一件正在生长的事：作品、关系、身体或空间。滋养不是无限投入，而是提供真正需要的条件。",
-      "action": "为一件重要但未成熟的事补充一个具体条件，并删掉一项无效投入。",
-      "reflection": "我提供的是对方或项目真正需要的支持，还是我习惯给予的支持？",
+      "traditional_core": [
+        "abundance",
+        "growth",
+        "action",
+        "nourishment"
+      ],
+      "modern_core": [
+        "creation",
+        "care",
+        "making conditions right for growth"
+      ],
+      "shadow": [
+        "overcaring",
+        "using giving as control",
+        "neglecting your own needs"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "培育者",
-        "count_motif": "谷物、果实与一枚金星纹章",
-        "gesture": "触碰植物叶面，观察其真实状态",
-        "environment": "有水源的丰盛园地，质感柔软但不甜腻",
-        "motion_cue": "植物缓慢舒展，水面维持稳定"
-      },
-      "safety_tags": []
+        "persona": "Cultivator",
+        "count_motif": "grain, fruit and a Venus emblem",
+        "gesture": "touch a plant's leaves to see their true condition",
+        "environment": "a lush garden with a source of water, soft in texture but not saccharine",
+        "motion_cue": "plants slowly unfurling while the water stays calm"
+      }
     },
     {
       "id": "major-04-emperor",
-      "title_zh": "皇帝",
-      "title_en": "The Emperor",
       "arcana": "major",
-      "number": 4,
-      "traditional_core": ["稳定", "权力", "保护", "实现", "意志"],
-      "modern_core": ["结构", "边界", "责任", "可执行规则"],
-      "shadow": ["僵化", "控制欲", "把秩序置于人之上"],
-      "daily_note": "今天需要的可能不是更多灵感，而是一条清楚的规则。好的结构应减少反复决策，同时为例外保留空间。",
-      "action": "为今天最重要的任务设定开始时间、结束条件和一个不做事项。",
-      "reflection": "这条规则是在保护重要的事，还是只是在维护我的控制感？",
+      "traditional_core": [
+        "stability",
+        "power",
+        "protection",
+        "realization",
+        "will"
+      ],
+      "modern_core": [
+        "structure",
+        "boundaries",
+        "responsibility",
+        "workable rules"
+      ],
+      "shadow": [
+        "rigidity",
+        "need for control",
+        "putting order above people"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "建构者",
-        "count_motif": "四方座椅、山体与坚硬几何",
-        "gesture": "放下权杖，明确划出一个边界",
-        "environment": "岩石高地、低饱和红与稳定水平线",
-        "motion_cue": "环境几乎静止，只有布料和火光轻动"
-      },
-      "safety_tags": []
+        "persona": "Builder",
+        "count_motif": "a square throne, mountains and hard geometry",
+        "gesture": "set down the scepter and draw one clear boundary",
+        "environment": "rocky highlands, muted reds and a steady horizon",
+        "motion_cue": "an almost motionless setting where only cloth and firelight stir"
+      }
     },
     {
       "id": "major-05-hierophant",
-      "title_zh": "教皇",
-      "title_en": "The Hierophant",
       "arcana": "major",
-      "number": 5,
-      "traditional_core": ["传统", "联盟", "教导", "规范", "求助权威"],
-      "modern_core": ["向体系学习", "共同语言", "制度与传承"],
-      "shadow": ["盲从", "把惯例当真理", "权威依赖"],
-      "daily_note": "今天可以先了解一件事已有的规则和前人经验，再决定是否偏离。真正的独立不是拒绝所有传统，而是知道自己为什么接受或修改它。",
-      "action": "为当前问题找一份可靠规范、教程或有经验的人，记录一条值得沿用和一条需要质疑的规则。",
-      "reflection": "我是在借助经验，还是把判断责任交给权威？",
+      "traditional_core": [
+        "tradition",
+        "alliance",
+        "teaching",
+        "norms",
+        "turning to authority"
+      ],
+      "modern_core": [
+        "learning from systems",
+        "shared language",
+        "institutions and lineage"
+      ],
+      "shadow": [
+        "blind conformity",
+        "mistaking convention for truth",
+        "dependence on authority"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "传承者",
-        "count_motif": "双钥匙、双柱与重复仪式符号",
-        "gesture": "先展示一本开放文本，再合上让用户判断",
-        "environment": "公共学习空间而非宗教权力舞台",
-        "motion_cue": "符号按固定节律亮起，随后停下"
-      },
-      "safety_tags": ["religion-sensitive"]
+        "persona": "Tradition Bearer",
+        "count_motif": "two keys, two pillars and repeated ritual symbols",
+        "gesture": "first show an open text, then close it and leave the judgment to the user",
+        "environment": "a public place of learning rather than a stage of religious power",
+        "motion_cue": "symbols lighting up in a fixed rhythm, then stopping"
+      }
     },
     {
       "id": "major-06-lovers",
-      "title_zh": "恋人",
-      "title_en": "The Lovers",
       "arcana": "major",
-      "number": 6,
-      "traditional_core": ["吸引", "爱", "关系", "选择", "经受考验"],
-      "modern_core": ["价值一致", "互相选择", "关系中的诚实"],
-      "shadow": ["讨好", "价值错位", "把吸引误当承诺"],
-      "daily_note": "这张牌不只谈爱情，也谈选择是否与你重视的价值一致。今天在答应一件事前，先确认它是否需要你牺牲一个更重要的承诺。",
-      "action": "面对一个选择，写下它分别支持和损害的价值，再做决定。",
-      "reflection": "我现在的选择来自真实意愿，还是来自害怕让别人失望？",
+      "traditional_core": [
+        "attraction",
+        "love",
+        "relationships",
+        "choice",
+        "being tested"
+      ],
+      "modern_core": [
+        "aligned values",
+        "choosing each other",
+        "honesty in relationships"
+      ],
+      "shadow": [
+        "people-pleasing",
+        "misaligned values",
+        "mistaking attraction for commitment"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "选择者",
-        "count_motif": "两条光路与一个共同中心",
-        "gesture": "不扮演恋爱对象，而是在两条路径之间真诚转身",
-        "environment": "开放园地、远处山峰、关系符号保持抽象",
-        "motion_cue": "两条光路交汇后仍保留各自边界"
-      },
-      "safety_tags": ["avoid-third-party-mind-reading"]
+        "persona": "Chooser",
+        "count_motif": "two paths of light and a shared center",
+        "gesture": "turn sincerely between the two paths rather than playing a romantic partner",
+        "environment": "an open garden, distant peaks, relationship symbols kept abstract",
+        "motion_cue": "the two paths of light meeting while each keeps its own boundary"
+      }
     },
     {
       "id": "major-07-chariot",
-      "title_zh": "战车",
-      "title_en": "The Chariot",
       "arcana": "major",
-      "number": 7,
-      "traditional_core": ["推进", "胜利", "意志", "冲突中的方向"],
-      "modern_core": ["聚焦", "协调相反力量", "有方向的行动"],
-      "shadow": ["强行推进", "胜负执念", "方向不清却加速"],
-      "daily_note": "今天的速度取决于方向是否统一。与其同时拉动相反目标，不如先决定哪个结果值得你把力量集中起来。",
-      "action": "删掉一个与今日主目标相冲突的任务，并为主目标安排第一段不被打断的时间。",
-      "reflection": "我是在掌舵，还是只是因为忙碌而感觉自己正在前进？",
+      "traditional_core": [
+        "momentum",
+        "victory",
+        "will",
+        "direction amid conflict"
+      ],
+      "modern_core": [
+        "focus",
+        "coordinating opposing forces",
+        "directed action"
+      ],
+      "shadow": [
+        "forcing ahead",
+        "obsession with winning",
+        "speeding up without a clear direction"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "驾驭者",
-        "count_motif": "一黑一白两股力量与单一前进轴",
-        "gesture": "双手不拉缰绳，以身体方向协调两侧",
-        "environment": "城市门外、道路清晰延伸",
-        "motion_cue": "两侧力量先不同步，随后合拍前进"
-      },
-      "safety_tags": []
+        "persona": "Charioteer",
+        "count_motif": "two forces, one black and one white, and a single forward axis",
+        "gesture": "steer both sides with the direction of your body, hands off the reins",
+        "environment": "outside the city gates, a road stretching clearly ahead",
+        "motion_cue": "the two forces falling out of step at first, then moving forward in unison"
+      }
     },
     {
       "id": "major-08-strength",
-      "title_zh": "力量",
-      "title_en": "Strength",
       "arcana": "major",
-      "number": 8,
-      "traditional_core": ["勇气", "能量", "宽宏", "行动中的力量"],
-      "modern_core": ["温和的自制", "耐心", "与强烈冲动共处"],
-      "shadow": ["压抑", "逞强", "用强硬掩盖害怕"],
-      "daily_note": "真正的力量未必表现为更用力。今天面对强烈情绪或阻力时，先降低反应速度，再决定怎样行动。",
-      "action": "在一次想立即回应的时刻，先做三次缓慢呼吸，并把第一句话写下后再发送。",
-      "reflection": "如果不需要向任何人展示强大，我会怎样处理这件事？",
+      "traditional_core": [
+        "courage",
+        "energy",
+        "magnanimity",
+        "strength in action"
+      ],
+      "modern_core": [
+        "gentle self-control",
+        "patience",
+        "living alongside strong impulses"
+      ],
+      "shadow": [
+        "suppression",
+        "putting on a brave face",
+        "hiding fear behind hardness"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "驯服者",
-        "count_motif": "狮形能量与无限符号",
-        "gesture": "以开放手掌稳定靠近，不做压制动作",
-        "environment": "明亮平原，危险与安全同时可见",
-        "motion_cue": "强烈能量的呼吸逐渐与角色同步"
-      },
-      "safety_tags": ["emotion-sensitive"]
+        "persona": "Tamer",
+        "count_motif": "lion-shaped energy and an infinity symbol",
+        "gesture": "approach steadily with open palms, never moving to overpower",
+        "environment": "a bright plain where danger and safety are both in view",
+        "motion_cue": "the breathing of a powerful energy gradually falling in sync with yours"
+      }
     },
     {
       "id": "major-09-hermit",
-      "title_zh": "隐者",
-      "title_en": "The Hermit",
       "arcana": "major",
-      "number": 9,
-      "traditional_core": ["审慎", "独处", "内在检视", "隐藏"],
-      "modern_core": ["减少噪声", "独立思考", "只照亮下一步"],
-      "shadow": ["隔绝", "过度谨慎", "用思考拖延参与"],
-      "daily_note": "今天不必同时看清整条路。减少一点外部声音，确认下一步即可；但不要让独处变成无限延期。",
-      "action": "留出二十分钟无输入时间，只处理一个问题，并在结束前写下下一步。",
-      "reflection": "我需要的是安静，还是需要重新与某个人或现实连接？",
+      "traditional_core": [
+        "prudence",
+        "solitude",
+        "inner examination",
+        "concealment"
+      ],
+      "modern_core": [
+        "cutting the noise",
+        "independent thinking",
+        "lighting only the next step"
+      ],
+      "shadow": [
+        "isolation",
+        "excessive caution",
+        "using thinking to put off taking part"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "持灯者",
-        "count_motif": "一盏六芒灯与一根手杖",
-        "gesture": "把灯举到只够照亮脚前的位置",
-        "environment": "高处夜色、远景不完全可见",
-        "motion_cue": "灯光缓慢扫过一步距离后停住"
-      },
-      "safety_tags": ["isolation-sensitive"]
+        "persona": "Lamp Bearer",
+        "count_motif": "a six-pointed-star lantern and a staff",
+        "gesture": "raise the lantern just high enough to light the ground at your feet",
+        "environment": "night on high ground, the distance not fully visible",
+        "motion_cue": "lantern light slowly sweeping one step ahead, then holding still"
+      }
     },
     {
       "id": "major-10-wheel-of-fortune",
-      "title_zh": "命运之轮",
-      "title_en": "Wheel of Fortune",
       "arcana": "major",
-      "number": 10,
-      "traditional_core": ["周期", "变化", "运气", "位置转换"],
-      "modern_core": ["不可控变量", "阶段变化", "调整策略"],
-      "shadow": ["把一切归因于运气", "抗拒周期", "追逐短期波动"],
-      "daily_note": "今天可能有一部分事情不由你控制。与其猜测转折会带来什么，不如区分可调整的动作和必须接受的变量。",
-      "action": "把一个担忧分成“可控制、可影响、只能接受”三类，并只对前两类安排动作。",
-      "reflection": "当条件变化时，我最需要保留的原则是什么？",
+      "traditional_core": [
+        "cycles",
+        "change",
+        "luck",
+        "shifting positions"
+      ],
+      "modern_core": [
+        "uncontrollable variables",
+        "changing phases",
+        "adjusting strategy"
+      ],
+      "shadow": [
+        "blaming everything on luck",
+        "resisting cycles",
+        "chasing short-term swings"
+      ],
       "avatar": {
-        "mode": "witness",
-        "persona": "周期观察者",
-        "count_motif": "一只持续转动的轮与四个固定观察点",
-        "gesture": "站在轮侧，不尝试徒手阻止转动",
-        "environment": "天空与地面之间的机械宇宙",
-        "motion_cue": "轮缓慢转动，角色位置稳定"
-      },
-      "safety_tags": ["avoid-fate-certainty"]
+        "persona": "Watcher of Cycles",
+        "count_motif": "a wheel that keeps turning and four fixed points of observation",
+        "gesture": "stand beside the wheel without trying to stop it by hand",
+        "environment": "a mechanical cosmos between sky and ground",
+        "motion_cue": "the wheel turning slowly while you hold your place"
+      }
     },
     {
       "id": "major-11-justice",
-      "title_zh": "正义",
-      "title_en": "Justice",
       "arcana": "major",
-      "number": 11,
-      "traditional_core": ["公平", "正直", "法律", "后果", "判断"],
-      "modern_core": ["责任", "证据", "一致标准", "修正偏差"],
-      "shadow": ["苛刻", "自我合理化", "选择性标准"],
-      "daily_note": "今天适合检查决定依据是否前后一致。公平并非要求每个人得到相同结果，但需要你说明标准并承担后果。",
-      "action": "为一个决定写下使用的标准，再问自己：如果角色互换，我是否仍认可它？",
-      "reflection": "我忽略了哪一项会改变判断的事实？",
+      "traditional_core": [
+        "fairness",
+        "integrity",
+        "law",
+        "consequences",
+        "judgment"
+      ],
+      "modern_core": [
+        "responsibility",
+        "evidence",
+        "consistent standards",
+        "correcting bias"
+      ],
+      "shadow": [
+        "harshness",
+        "self-justification",
+        "selective standards"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "衡量者",
-        "count_motif": "一把剑与一架天平",
-        "gesture": "先看天平两侧，再把剑垂直放稳",
-        "environment": "对称但不冰冷的审议空间",
-        "motion_cue": "天平从轻微晃动归于稳定"
-      },
-      "safety_tags": ["legal-boundary"]
+        "persona": "Weigher",
+        "count_motif": "a sword and a pair of scales",
+        "gesture": "look at both sides of the scales first, then set the sword upright and steady",
+        "environment": "a symmetrical but not cold place of deliberation",
+        "motion_cue": "the scales settling from a slight sway into balance"
+      }
     },
     {
       "id": "major-12-hanged-man",
-      "title_zh": "倒吊人",
-      "title_en": "The Hanged Man",
       "arcana": "major",
-      "number": 12,
-      "traditional_core": ["暂停", "牺牲", "洞察", "换角度"],
-      "modern_core": ["有意识等待", "重构问题", "暂缓控制"],
-      "shadow": ["无目的停滞", "自我牺牲", "把被动美化成智慧"],
-      "daily_note": "如果一件事越用力越没有进展，今天可以先改变观察角度，而不是继续增加投入。暂停需要有复查时间，才不会变成拖延。",
-      "action": "把当前问题改写成相反的问题，并设定一个明确的重新决定时间。",
-      "reflection": "这段等待正在产生新信息，还是只让我避免做决定？",
+      "traditional_core": [
+        "pause",
+        "sacrifice",
+        "insight",
+        "a change of perspective"
+      ],
+      "modern_core": [
+        "deliberate waiting",
+        "reframing the question",
+        "setting control aside for now"
+      ],
+      "shadow": [
+        "aimless stagnation",
+        "self-sacrifice",
+        "dressing up passivity as wisdom"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "倒置观察者",
-        "count_motif": "T 形支架与头部光环",
-        "gesture": "姿态放松，画面旋转而非模拟痛苦悬吊",
-        "environment": "背景上下关系缓慢改变",
-        "motion_cue": "世界旋转九十度，角色保持平静"
-      },
-      "safety_tags": ["avoid-self-sacrifice-romanticization"]
+        "persona": "Inverted Observer",
+        "count_motif": "a T-shaped frame and a halo around the head",
+        "gesture": "hold a relaxed posture while the scene rotates, rather than acting out a painful suspension",
+        "environment": "a background whose up and down slowly shift",
+        "motion_cue": "the world turning ninety degrees while you stay calm"
+      }
     },
     {
       "id": "major-13-death",
-      "title_zh": "死神",
-      "title_en": "Death",
       "arcana": "major",
-      "number": 13,
-      "traditional_core": ["结束", "消逝", "破坏旧形态", "转变"],
-      "modern_core": ["完成告别", "身份转换", "释放已结束之物"],
-      "shadow": ["拒绝结束", "把变化灾难化", "过早切断"],
-      "daily_note": "这张牌通常讨论结束与转化，而不是现实死亡。今天可以承认一件已经结束的事，并把注意力移向结束后需要清理或重新安排的部分。",
-      "action": "完成一个具体的结束动作：归档、取消、告别、删除或交接其中一项。",
-      "reflection": "我仍在维持什么已经不再运作的形式？",
+      "traditional_core": [
+        "endings",
+        "passing away",
+        "the breaking of old forms",
+        "transformation"
+      ],
+      "modern_core": [
+        "completing a farewell",
+        "shifting identity",
+        "releasing what has already ended"
+      ],
+      "shadow": [
+        "refusing endings",
+        "catastrophizing change",
+        "cutting things off too early"
+      ],
       "avatar": {
-        "mode": "witness",
-        "persona": "转变引路人",
-        "count_motif": "白色旗帜、落日与一扇远方门",
-        "gesture": "穿过场景而非扮演死亡威胁",
-        "environment": "旧景退色、新地平线出现",
-        "motion_cue": "前景碎片落下，远处光线保持"
-      },
-      "safety_tags": ["death-sensitive", "avoid-literal-death-prediction"]
+        "persona": "Guide Through Change",
+        "count_motif": "a white banner, a setting sun and a distant gate",
+        "gesture": "walk through the scene rather than playing a figure of mortal threat",
+        "environment": "an old landscape fading as a new horizon appears",
+        "motion_cue": "fragments falling in the foreground while the distant light holds"
+      }
     },
     {
       "id": "major-14-temperance",
-      "title_zh": "节制",
-      "title_en": "Temperance",
       "arcana": "major",
-      "number": 14,
-      "traditional_core": ["适量", "调和", "管理", "协调"],
-      "modern_core": ["整合", "节奏", "小幅持续调整"],
-      "shadow": ["失衡", "过度折中", "把压抑当平静"],
-      "daily_note": "今天的改进可能来自比例，而不是彻底改变。观察哪两种需求需要同时存在，并通过小幅调整让它们可以共处。",
-      "action": "选择一个过量或不足的习惯，只调整百分之二十，并观察结果。",
-      "reflection": "我需要真正的平衡，还是需要对某一方明确说不？",
+      "traditional_core": [
+        "moderation",
+        "harmony",
+        "stewardship",
+        "coordination"
+      ],
+      "modern_core": [
+        "integration",
+        "rhythm",
+        "small continuous adjustments"
+      ],
+      "shadow": [
+        "imbalance",
+        "excessive compromise",
+        "mistaking suppression for calm"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "调和者",
-        "count_motif": "两个容器与一条连续水流",
-        "gesture": "在两个容器间稳定转移液体",
-        "environment": "一脚在水、一脚在地，远处路径清晰",
-        "motion_cue": "水流不断但速度缓慢，颜色逐渐融合"
-      },
-      "safety_tags": []
+        "persona": "Harmonizer",
+        "count_motif": "two vessels and one continuous stream of water",
+        "gesture": "pour liquid steadily between the two vessels",
+        "environment": "one foot in water and one on land, a clear path in the distance",
+        "motion_cue": "an unbroken but slow stream whose colors gradually blend"
+      }
     },
     {
       "id": "major-15-devil",
-      "title_zh": "恶魔",
-      "title_en": "The Devil",
       "arcana": "major",
-      "number": 15,
-      "traditional_core": ["束缚", "强烈欲望", "力量", "失去选择感"],
-      "modern_core": ["依附", "强迫循环", "看见可松开的锁链"],
-      "shadow": ["羞耻", "否认", "把冲动当命令"],
-      "daily_note": "今天可以观察一个让你觉得“不得不”的循环。欲望本身不是邪恶；关键是你是否仍有停下、选择和求助的空间。",
-      "action": "为一个自动化习惯增加十分钟延迟，并记录触发它的情境。",
-      "reflection": "我说“没有选择”时，真正害怕承担的代价是什么？",
+      "traditional_core": [
+        "bondage",
+        "intense desire",
+        "power",
+        "losing the sense of choice"
+      ],
+      "modern_core": [
+        "attachment",
+        "compulsive loops",
+        "seeing the chains that can be loosened"
+      ],
+      "shadow": [
+        "shame",
+        "denial",
+        "treating impulses as commands"
+      ],
       "avatar": {
-        "mode": "witness",
-        "persona": "影子见证者",
-        "count_motif": "宽松锁链、镜面双影与倒置符号",
-        "gesture": "角色先看见锁链的开口，再看向用户",
-        "environment": "低光地下空间，但出口真实可见",
-        "motion_cue": "影子先于身体移动，锁链保持可松开"
-      },
-      "safety_tags": ["addiction-sensitive", "avoid-moral-condemnation"]
+        "persona": "Witness of Shadows",
+        "count_motif": "loose chains, a mirrored double shadow and an inverted symbol",
+        "gesture": "first notice the opening in the chains, then look toward the user",
+        "environment": "a dim underground space with a real, visible exit",
+        "motion_cue": "the shadow moving before the body while the chains stay loose enough to slip"
+      }
     },
     {
       "id": "major-16-tower",
-      "title_zh": "高塔",
-      "title_en": "The Tower",
       "arcana": "major",
-      "number": 16,
-      "traditional_core": ["突发崩塌", "危机", "旧结构失效", "揭露"],
-      "modern_core": ["事实打破假设", "快速重估", "先处理安全与现实"],
-      "shadow": ["灾难化思维", "拒绝早期信号", "在冲击中仓促扩大损失"],
-      "daily_note": "这张牌不是灾难预告，而是提醒你：某个假设可能经不起现实检查。若今天出现意外，先处理安全和事实，再决定它意味着什么。",
-      "action": "为一个脆弱计划写下最可能失效的环节，以及一个可逆的备用方案。",
-      "reflection": "哪一条我一直依赖的假设，其实从未被验证？",
+      "traditional_core": [
+        "sudden collapse",
+        "crisis",
+        "failing old structures",
+        "revelation"
+      ],
+      "modern_core": [
+        "facts breaking assumptions",
+        "rapid reassessment",
+        "dealing with safety and reality first"
+      ],
+      "shadow": [
+        "catastrophic thinking",
+        "ignoring early warnings",
+        "compounding the damage by rushing in the aftermath"
+      ],
       "avatar": {
-        "mode": "witness",
-        "persona": "废墟观察者",
-        "count_motif": "一道闪电、破裂塔冠与散落结构",
-        "gesture": "站在安全前景回望，不在坠落中表演",
-        "environment": "旧建筑裂开，远处地面保持稳定",
-        "motion_cue": "一次短促裂变后完全静止，尘埃缓慢落下"
-      },
-      "safety_tags": ["crisis-sensitive", "avoid-catastrophe-prediction"]
+        "persona": "Witness of the Ruins",
+        "count_motif": "a bolt of lightning, a shattered tower crown and scattered debris",
+        "gesture": "stand in the safe foreground looking back, never performing inside the fall",
+        "environment": "an old building splitting open while the ground in the distance stays steady",
+        "motion_cue": "one brief rupture, then complete stillness as dust slowly settles"
+      }
     },
     {
       "id": "major-17-star",
-      "title_zh": "星星",
-      "title_en": "The Star",
       "arcana": "major",
-      "number": 17,
-      "traditional_core": ["希望", "前景", "开放", "恢复"],
-      "modern_core": ["修复", "诚实愿望", "重新建立信任"],
-      "shadow": ["空泛乐观", "等待被拯救", "忽略恢复所需时间"],
-      "daily_note": "今天适合做一件能让未来重新变得可信的小事。希望不需要保证结果，它可以先表现为对资源、身体或关系的持续补给。",
-      "action": "为一个长期目标完成一项维护动作，并记录它如何改善明天的条件。",
-      "reflection": "什么具体证据会让我觉得自己正在恢复，而不是只是在期待？",
+      "traditional_core": [
+        "hope",
+        "prospects",
+        "openness",
+        "recovery"
+      ],
+      "modern_core": [
+        "repair",
+        "honest wishes",
+        "rebuilding trust"
+      ],
+      "shadow": [
+        "hollow optimism",
+        "waiting to be rescued",
+        "ignoring the time recovery takes"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "补水者",
-        "count_motif": "一颗主星、七颗小星与双水流",
-        "gesture": "一手向水面、一手向土地持续倾注",
-        "environment": "夜色清澈、土地与水同时被滋养",
-        "motion_cue": "星光呼吸，水流稳定不间断"
-      },
-      "safety_tags": []
+        "persona": "Water Bearer",
+        "count_motif": "one great star, seven small stars and two streams of water",
+        "gesture": "keep pouring, one hand toward the water and one toward the land",
+        "environment": "a clear night where land and water are nourished together",
+        "motion_cue": "starlight breathing while the water flows steadily without pause"
+      }
     },
     {
       "id": "major-18-moon",
-      "title_zh": "月亮",
-      "title_en": "The Moon",
       "arcana": "major",
-      "number": 18,
-      "traditional_core": ["不确定", "隐忧", "错觉", "暗处信息"],
-      "modern_core": ["投射", "模糊信号", "在低能见度下放慢判断"],
-      "shadow": ["恐惧放大", "阴谋化", "把直觉当证据"],
-      "daily_note": "当信息不完整时，大脑会主动补齐故事。今天可以相信自己的不安值得被听见，但要把感受与事实分开验证。",
-      "action": "对一个让你不安的判断，分别写下支持证据、反对证据和仍未知的信息。",
-      "reflection": "我感受到的是危险信号，还是对未知本身的不适？",
+      "traditional_core": [
+        "uncertainty",
+        "hidden worries",
+        "illusion",
+        "information in the dark"
+      ],
+      "modern_core": [
+        "projection",
+        "ambiguous signals",
+        "slowing judgment when visibility is low"
+      ],
+      "shadow": [
+        "amplified fear",
+        "conspiratorial thinking",
+        "treating intuition as evidence"
+      ],
       "avatar": {
-        "mode": "witness",
-        "persona": "夜路观察者",
-        "count_motif": "双塔、双动物、一轮月与水中生物",
-        "gesture": "在两条路径间停步，照看地面而不急行",
-        "environment": "低能见度夜路、水面反射不完全一致",
-        "motion_cue": "倒影与实物轻微错位，路径保持可见"
-      },
-      "safety_tags": ["anxiety-sensitive", "avoid-paranoia-reinforcement"]
+        "persona": "Night-Road Watcher",
+        "count_motif": "twin towers, two animals, a full moon and a creature emerging from the water",
+        "gesture": "stop between the two paths and watch the ground rather than hurrying on",
+        "environment": "a night road with poor visibility, its reflections on the water not quite matching",
+        "motion_cue": "reflections slightly out of step with what they mirror while the path stays visible"
+      }
     },
     {
       "id": "major-19-sun",
-      "title_zh": "太阳",
-      "title_en": "The Sun",
       "arcana": "major",
-      "number": 19,
-      "traditional_core": ["幸福", "满足", "明朗", "活力"],
-      "modern_core": ["清晰", "可见成果", "分享生命力"],
-      "shadow": ["过度暴露", "强迫积极", "高估精力"],
-      "daily_note": "今天适合把一项好消息、成果或真实感受放到光线下。清晰会减少猜测，但不要求你假装所有事情都很好。",
-      "action": "公开确认一个真实进展，并安排一段恢复精力的时间。",
-      "reflection": "什么值得被看见，同时仍需要我保护边界？",
+      "traditional_core": [
+        "happiness",
+        "contentment",
+        "clarity",
+        "vitality"
+      ],
+      "modern_core": [
+        "clarity",
+        "visible results",
+        "sharing vitality"
+      ],
+      "shadow": [
+        "overexposure",
+        "forced positivity",
+        "overestimating your energy"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "明亮见证者",
-        "count_motif": "一轮太阳、四朵向日葵与红色旗帜",
-        "gesture": "正面开放，但保留稳定而非亢奋的表情",
-        "environment": "高亮花园与清楚边界",
-        "motion_cue": "光线逐渐铺开，花朵轻转向光源"
-      },
-      "safety_tags": ["avoid-toxic-positivity"]
+        "persona": "Radiant Witness",
+        "count_motif": "a sun, four sunflowers and a red banner",
+        "gesture": "face forward openly, with a steady rather than overexcited expression",
+        "environment": "a brightly lit garden with clear boundaries",
+        "motion_cue": "light spreading out gradually as the flowers turn gently toward it"
+      }
     },
     {
       "id": "major-20-judgement",
-      "title_zh": "审判",
-      "title_en": "Judgement",
       "arcana": "major",
-      "number": 20,
-      "traditional_core": ["更新", "结果", "召唤", "重新定位"],
-      "modern_core": ["回顾", "回应重要信号", "在新信息下重新选择"],
-      "shadow": ["自我审判", "拖延回应", "只想获得赦免而不修正"],
-      "daily_note": "今天适合回看一个已经积累足够信息的问题，并作出回应。审视过去的目的不是惩罚自己，而是让下一次选择更诚实。",
-      "action": "选一个悬而未决的问题，写下现在与当初相比新增的三项信息，再给出当前决定。",
-      "reflection": "如果不以羞耻推动改变，我愿意回应什么？",
+      "traditional_core": [
+        "renewal",
+        "outcomes",
+        "a calling",
+        "reorientation"
+      ],
+      "modern_core": [
+        "looking back",
+        "responding to an important signal",
+        "choosing again in light of new information"
+      ],
+      "shadow": [
+        "self-judgment",
+        "delaying a response",
+        "seeking absolution without making amends"
+      ],
       "avatar": {
-        "mode": "witness",
-        "persona": "唤醒者",
-        "count_motif": "一声号角、向上打开的群体轮廓",
-        "gesture": "倾听信号后起身，不扮演法官",
-        "environment": "旧容器打开，远方出现新地平线",
-        "motion_cue": "声音以光波扩散，人物逐步抬头"
-      },
-      "safety_tags": ["shame-sensitive"]
+        "persona": "Awakener",
+        "count_motif": "the call of a trumpet and a gathering of figures opening upward",
+        "gesture": "rise after hearing the signal, without playing the judge",
+        "environment": "old vessels opening and a new horizon appearing in the distance",
+        "motion_cue": "sound spreading as waves of light while the figures slowly lift their heads"
+      }
     },
     {
       "id": "major-21-world",
-      "title_zh": "世界",
-      "title_en": "The World",
       "arcana": "major",
-      "number": 21,
-      "traditional_core": ["完成", "成功", "旅程", "位置改变"],
-      "modern_core": ["整合", "承认完成", "进入下一循环"],
-      "shadow": ["不肯收尾", "完成后空虚", "用完美主义推迟发布"],
-      "daily_note": "今天适合承认一件事已经足够完整。完成并不意味着没有缺点，而是它已经可以被交付、庆祝或转入下一阶段。",
-      "action": "为一件接近完成的事写出明确完成标准，并在达到后停止继续润色。",
-      "reflection": "我还在改进它，是因为确有需要，还是因为结束会让我不安？",
+      "traditional_core": [
+        "completion",
+        "success",
+        "journeys",
+        "a change of place"
+      ],
+      "modern_core": [
+        "integration",
+        "acknowledging completion",
+        "entering the next cycle"
+      ],
+      "shadow": [
+        "refusing to wrap up",
+        "emptiness after completion",
+        "using perfectionism to delay a release"
+      ],
       "avatar": {
-        "mode": "embodied-archetype",
-        "persona": "整合者",
-        "count_motif": "椭圆花环与四个稳定见证符号",
-        "gesture": "在花环中心完成一个缓慢闭环动作",
-        "environment": "开放宇宙与完整边框同时存在",
-        "motion_cue": "四角符号依次响应，最后形成闭环"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "wands-ace",
-      "title_zh": "权杖一",
-      "title_en": "Ace of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "ace",
-      "number": 1,
-      "traditional_core": ["创造", "发明", "事业开端", "生命力"],
-      "modern_core": ["火花", "主动开始", "测试热情"],
-      "shadow": ["冲动开坑", "热情来得快去得快", "只兴奋不行动"],
-      "daily_note": "今天可能出现一个值得测试的火花。先让它进入现实，不需要立即把它宣布成长期计划。",
-      "action": "用二十分钟做出最小样品、草图或第一段，而不是继续描述想法。",
-      "reflection": "如果只能试一次，我最想验证这个想法的哪一部分？",
-      "avatar": {
-        "mode": "object-first",
-        "persona": "点火者",
-        "count_motif": "一根正在发芽的权杖",
-        "gesture": "角色以小幅呼吸点亮权杖，人物保持次要",
-        "environment": "开阔地平线与第一束暖光",
-        "motion_cue": "嫩芽与火光短促出现后稳定"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "wands-02",
-      "title_zh": "权杖二",
-      "title_en": "Two of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "two",
-      "number": 2,
-      "traditional_core": ["拥有资源后的远望", "计划", "两种可能", "成就与不满足并存"],
-      "modern_core": ["选择方向", "从安全区规划下一步", "扩大视野"],
-      "shadow": ["只计划不出发", "控制未来", "被选项困住"],
-      "daily_note": "你可能已经站在一个足够稳定的位置，可以决定下一步往哪里扩展。今天先比较两条路径的真实代价，不必同时保留所有可能。",
-      "action": "为两个选项各写一个下一步、一个代价和一个停止条件。",
-      "reflection": "我保留这个选项，是因为它重要，还是因为我害怕关上一扇门？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "点火者",
-        "count_motif": "两根权杖，一根固定、一根握在手中",
-        "gesture": "手持小型地球仪，在两条远路间比较",
-        "environment": "高处城墙、海岸与开放远景",
-        "motion_cue": "两条路径交替变亮，最终都回到中性"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "wands-03",
-      "title_zh": "权杖三",
-      "title_en": "Three of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "three",
-      "number": 3,
-      "traditional_core": ["企业", "扩展", "贸易", "远见", "合作"],
-      "modern_core": ["等待早期投入回响", "拓展", "为规模做准备"],
-      "shadow": ["高估增长", "只看远方", "忽视反馈"],
-      "daily_note": "一项已经开始的事需要你从执行者切换成观察者。今天看清它正在往哪里走，再决定是否扩大投入。",
-      "action": "检查一个已启动项目的真实反馈，并据此决定扩大、保持或收缩。",
-      "reflection": "我看到的是实际信号，还是我希望看到的增长故事？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "点火者",
-        "count_motif": "三根权杖形成观察框",
-        "gesture": "背向镜头看船只与远方，手扶其中一杖",
-        "environment": "海岸高地、远处运输与开放天际",
-        "motion_cue": "远方船只缓慢移动，人物保持稳定"
-      },
-      "safety_tags": ["financial-boundary"]
-    },
-    {
-      "id": "wands-04",
-      "title_zh": "权杖四",
-      "title_en": "Four of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "four",
-      "number": 4,
-      "traditional_core": ["安定", "庆祝", "和谐", "阶段性完成", "归属"],
-      "modern_core": ["确认里程碑", "共享成果", "建立安全基地"],
-      "shadow": ["为了和谐回避问题", "过早庆功", "归属排他"],
-      "daily_note": "今天适合确认一个阶段性完成，并让相关的人知道。庆祝不是终点判断，而是把共同努力变成可见记忆。",
-      "action": "用一条消息、一次短会或一个小仪式确认一项真实进展，并感谢具体贡献。",
-      "reflection": "什么样的庆祝会让参与者真正感到被看见？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "点火者",
-        "count_motif": "四根权杖支撑一条花环",
-        "gesture": "在入口处邀请而不是站上领奖台",
-        "environment": "归家入口、远处建筑与共享空间",
-        "motion_cue": "花环与布带轻动，背景火光稳定"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "wands-05",
-      "title_zh": "权杖五",
-      "title_en": "Five of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "five",
-      "number": 5,
-      "traditional_core": ["竞争", "模拟战斗", "摩擦", "争取资源"],
-      "modern_core": ["观点碰撞", "试炼", "把冲突变成信息"],
-      "shadow": ["无效争吵", "把合作变排名", "为了赢而丢失目标"],
-      "daily_note": "今天的摩擦未必意味着关系失败，它可能暴露目标或规则不清。先确认大家究竟在争什么，再决定是否需要竞争。",
-      "action": "在一次分歧中复述共同目标，并请每个人只说一个最重要的限制。",
-      "reflection": "这场争论是在改善结果，还是只在分配胜负？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "点火者",
-        "count_motif": "五根交错但没有真正击中的权杖",
-        "gesture": "在交错结构中寻找清晰空隙",
-        "environment": "训练场而非战场，地面开放",
-        "motion_cue": "权杖错时交叉，声音轻而非暴力"
-      },
-      "safety_tags": ["conflict-sensitive"]
-    },
-    {
-      "id": "wands-06",
-      "title_zh": "权杖六",
-      "title_en": "Six of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "six",
-      "number": 6,
-      "traditional_core": ["胜利", "认可", "好消息", "希望实现"],
-      "modern_core": ["可见进展", "接受认可", "用影响力回馈团队"],
-      "shadow": ["依赖掌声", "把个人成功夸大", "忽略共同贡献"],
-      "daily_note": "今天可以让成果被看见，也可以坦然接受认可。与此同时，别让掌声成为判断工作是否有价值的唯一标准。",
-      "action": "记录一个具体成果，并公开注明至少一项他人或系统的贡献。",
-      "reflection": "如果没有人立即称赞，我仍会认可这项进展吗？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "点火者",
-        "count_motif": "六根权杖，其中一根带桂冠",
-        "gesture": "接过桂冠后转向身后同行者",
-        "environment": "公共道路与低调欢迎人群",
-        "motion_cue": "桂冠短暂亮起，随后光分散到六杖"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "wands-07",
-      "title_zh": "权杖七",
-      "title_en": "Seven of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "seven",
-      "number": 7,
-      "traditional_core": ["守住位置", "勇气", "竞争", "辩护"],
-      "modern_core": ["边界", "在压力下坚持", "选择值得守的阵地"],
-      "shadow": ["防御过度", "把所有反馈当攻击", "耗尽自己"],
-      "daily_note": "今天可能需要为一个重要立场留出边界。不是每个挑战都值得回应，先选择真正影响核心目标的那一个。",
-      "action": "写下一条你需要守住的底线，以及一件今天可以不回应的事。",
-      "reflection": "我是在保护重要价值，还是在保护不愿改变的自我形象？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "点火者",
-        "count_motif": "一根手持权杖面对下方六根",
-        "gesture": "稳住脚步，以侧身保留退路",
-        "environment": "高低地形清楚，压力来自画外",
-        "motion_cue": "六杖上升后停在安全距离"
-      },
-      "safety_tags": ["conflict-sensitive"]
-    },
-    {
-      "id": "wands-08",
-      "title_zh": "权杖八",
-      "title_en": "Eight of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "eight",
-      "number": 8,
-      "traditional_core": ["速度", "行动中的事物", "消息", "接近目标"],
-      "modern_core": ["动能", "快速沟通", "让流程继续"],
-      "shadow": ["仓促", "信息过载", "没有方向的加速"],
-      "daily_note": "今天适合处理已经进入运动状态的事情。保持沟通简短、方向一致，并在速度造成错误前设置一次检查点。",
-      "action": "把一个正在推进的流程写成三步，并在第二步后设置一次快速确认。",
-      "reflection": "我需要更快，还是需要减少中途改变方向？",
-      "avatar": {
-        "mode": "object-first",
-        "persona": "点火者的远方投影",
-        "count_motif": "八根平行飞行的权杖",
-        "gesture": "人物只以远处侧影确认落点",
-        "environment": "无遮挡天空与明确终点",
-        "motion_cue": "八杖按平行轨迹快速掠过并减速"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "wands-09",
-      "title_zh": "权杖九",
-      "title_en": "Nine of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "nine",
-      "number": 9,
-      "traditional_core": ["抵抗中的力量", "警觉", "延迟", "准备应对"],
-      "modern_core": ["韧性", "疲惫后的边界", "保护最后一段路"],
-      "shadow": ["过度警戒", "独自硬撑", "把过去危险投射到现在"],
-      "daily_note": "你可能已经走了很远，也因此更容易保持戒备。今天既要保护精力，也要确认眼前是否真的还存在同样的威胁。",
-      "action": "识别一个正在消耗你的防御动作，决定保留、降低或向他人求助。",
-      "reflection": "我现在回应的是眼前事实，还是过去经验留下的警报？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "点火者",
-        "count_motif": "身后八杖形成栅栏，手中一杖支撑",
-        "gesture": "身体疲惫但不僵硬，检查边界缺口",
-        "environment": "临时防线与可见休息处",
-        "motion_cue": "呼吸偏重，栅栏保持稳定"
-      },
-      "safety_tags": ["trauma-sensitive"]
-    },
-    {
-      "id": "wands-10",
-      "title_zh": "权杖十",
-      "title_en": "Ten of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "ten",
-      "number": 10,
-      "traditional_core": ["负担", "成功带来的压力", "压迫", "责任过多"],
-      "modern_core": ["过载", "重新分配", "完成前的负荷管理"],
-      "shadow": ["把忙碌当价值", "不肯委托", "承担并不属于自己的责任"],
-      "daily_note": "今天的压力可能来自许多本来合理的责任累积在一起。完成并不要求你亲自搬运全部重量。",
-      "action": "从待办中选一项删除、一项延后、一项委托，并通知相关的人。",
-      "reflection": "哪些责任只有我能承担，哪些只是我习惯不放手？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "点火者",
-        "count_motif": "十根权杖遮住部分视线",
-        "gesture": "停下重新整理重量，而非继续弯腰前行",
-        "environment": "终点建筑已近，但路径被负荷挡住",
-        "motion_cue": "权杖重心缓慢转移，部分落到支架"
-      },
-      "safety_tags": ["burnout-sensitive"]
-    },
-    {
-      "id": "wands-page",
-      "title_zh": "权杖侍从",
-      "title_en": "Page of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "page",
-      "number": null,
-      "traditional_core": ["消息", "热情", "探索", "不稳定的开端"],
-      "modern_core": ["好奇", "试着表达", "学习行动语言"],
-      "shadow": ["三分钟热度", "夸大消息", "害怕显得新手"],
-      "daily_note": "今天允许自己以新手身份靠近一个有趣方向。先提问和试做，不必用过度自信掩盖尚未掌握的部分。",
-      "action": "向一个更有经验的人提出一个具体问题，并完成一次小练习。",
-      "reflection": "如果不需要马上显得有能力，我最想学什么？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "年轻点火者",
-        "count_motif": "一根长出新叶的权杖",
-        "gesture": "观察权杖上的嫩芽并向外宣布发现",
-        "environment": "干燥地貌中出现少量新生",
-        "motion_cue": "嫩芽轻动，角色表情从惊讶转为专注"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "wands-knight",
-      "title_zh": "权杖骑士",
-      "title_en": "Knight of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "knight",
-      "number": null,
-      "traditional_core": ["出发", "快速改变", "远行", "冲动"],
-      "modern_core": ["带着热情推进", "实验", "接受行动的摩擦"],
-      "shadow": ["鲁莽", "突然离开", "追逐刺激"],
-      "daily_note": "今天有行动能量，但速度需要一个目的地。把热情放进短周期实验，比做无法回头的大承诺更合适。",
-      "action": "为想做的事设计一个四十八小时内可结束的实验，并写清退出条件。",
-      "reflection": "我追求的是这个目标，还是行动本身带来的兴奋？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "远行点火者",
-        "count_motif": "一根短权杖与跃起坐骑",
-        "gesture": "向前倾但保留对方向的确认",
-        "environment": "沙地、远山与强风",
-        "motion_cue": "坐骑短促前跃后受控落地"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "wands-queen",
-      "title_zh": "权杖王后",
-      "title_en": "Queen of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "queen",
-      "number": null,
-      "traditional_core": ["温暖", "吸引力", "诚实", "生命力", "事业能力"],
-      "modern_core": ["自信在场", "鼓励他人", "稳定热情"],
-      "shadow": ["嫉妒", "把魅力当控制", "过度承担气氛"],
-      "daily_note": "今天可以更清楚地占据自己的位置，同时让别人也有发挥空间。真正的自信不需要让整个房间围着你转。",
-      "action": "在一次合作中明确表达你的主张，并主动邀请一个不同意见。",
-      "reflection": "我怎样既不缩小自己，也不压过别人？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "成熟点火者",
-        "count_motif": "开花权杖、向日葵与黑猫",
-        "gesture": "身体正向开放，一手稳持权杖",
-        "environment": "暖色王座与干燥但有生命的土地",
-        "motion_cue": "向日葵跟随光线，黑猫保持独立视线"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "wands-king",
-      "title_zh": "权杖国王",
-      "title_en": "King of Wands",
-      "arcana": "minor",
-      "suit": "wands",
-      "rank": "king",
-      "number": null,
-      "traditional_core": ["诚实", "热情", "领导", "事业远见"],
-      "modern_core": ["设定方向", "把能量变成可持续系统", "承担影响"],
-      "shadow": ["独断", "把愿景强加给人", "只启动不维护"],
-      "daily_note": "今天适合把愿景说清楚，并说明为什么值得投入。领导不仅是点火，也包括为他人提供节奏、资源和退出空间。",
-      "action": "把一个目标写成一句方向、两个成功标准和一个你愿意承担的责任。",
-      "reflection": "我的热情正在给别人力量，还是正在替别人做决定？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "领导点火者",
-        "count_motif": "一根开花权杖与狮形纹章",
-        "gesture": "从王座前倾，先指向共同方向再收回手",
-        "environment": "热而稳定的领导空间",
-        "motion_cue": "纹章火光持续而不爆发"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "cups-ace",
-      "title_zh": "圣杯一",
-      "title_en": "Ace of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "ace",
-      "number": 1,
-      "traditional_core": ["情感丰盛", "满足", "滋养", "新的情感容器"],
-      "modern_core": ["情绪开放", "连接", "允许感受流动"],
-      "shadow": ["情绪泛滥", "把新鲜感当深度", "无法接收"],
-      "daily_note": "今天可以为一种真实感受留出容器，不必马上解释或解决。情绪被承认后，才更容易决定它需要表达、行动还是休息。",
-      "action": "用五分钟写下此刻最明显的感受、身体位置和它可能需要的东西。",
-      "reflection": "我是在感受情绪，还是已经开始用故事放大它？",
-      "avatar": {
-        "mode": "object-first",
-        "persona": "倾听者",
-        "count_motif": "一只溢出四股水流的圣杯",
-        "gesture": "人物以水面倒影出现，双手不占据杯体",
-        "environment": "水莲、云层与开放水面",
-        "motion_cue": "水流稳定溢出，倒影随水轻动"
-      },
-      "safety_tags": ["emotion-sensitive"]
-    },
-    {
-      "id": "cups-02",
-      "title_zh": "圣杯二",
-      "title_en": "Two of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "two",
-      "number": 2,
-      "traditional_core": ["相互吸引", "友谊", "联盟", "共鸣"],
-      "modern_core": ["互惠", "诚实交换", "关系中的对等"],
-      "shadow": ["融合过度", "只看默契不谈边界", "单方面投射"],
-      "daily_note": "今天适合进行一次对等交流：既表达自己的需要，也真实听见对方。连接不是猜中彼此，而是让信息可以来回流动。",
-      "action": "向一个重要的人说出一个具体需要，并询问对方此刻的需要，不替对方回答。",
-      "reflection": "这段关系里，什么正在被双方共同选择？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "倾听者",
-        "count_motif": "两只等高圣杯与居中的联结符号",
-        "gesture": "角色向画外另一只手递杯，保持自身边界",
-        "environment": "中性会面空间与对称距离",
-        "motion_cue": "两杯水面产生同步但不相同的波纹"
-      },
-      "safety_tags": ["avoid-third-party-mind-reading"]
-    },
-    {
-      "id": "cups-03",
-      "title_zh": "圣杯三",
-      "title_en": "Three of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "three",
-      "number": 3,
-      "traditional_core": ["欢聚", "完成后的喜悦", "友谊", "疗愈"],
-      "modern_core": ["共同庆祝", "支持网络", "让快乐被分享"],
-      "shadow": ["过度社交", "小圈子排他", "用热闹回避感受"],
-      "daily_note": "今天的支持可能来自同伴，而不是独自想通。分享一项进展或困难，让关系承担一点现实重量。",
-      "action": "联系两位让你感到安全的人，分享一件具体近况，而不是只发礼貌问候。",
-      "reflection": "哪些关系让我更像自己，而不是更努力地表演自己？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "倾听者",
-        "count_motif": "三只举起的圣杯构成圆形",
-        "gesture": "角色举杯，另外两位以剪影或手部进入",
-        "environment": "收获花园与开放圆形空间",
-        "motion_cue": "三杯轻触后分别回到各自位置"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "cups-04",
-      "title_zh": "圣杯四",
-      "title_en": "Four of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "four",
-      "number": 4,
-      "traditional_core": ["倦怠", "不满", "对现有选择失去兴趣", "新机会未被看见"],
-      "modern_core": ["情绪饱和", "重新评估", "恢复感受能力"],
-      "shadow": ["冷漠", "拒绝一切", "期待外界替自己改变"],
-      "daily_note": "如果今天对什么都提不起兴趣，先不要强迫自己立刻热爱新机会。区分你需要休息、需要变化，还是只是已经被输入填满。",
-      "action": "暂停一个小时的非必要输入，然后重新查看一个此前忽略的选项。",
-      "reflection": "我真正不想要的是什么？我只是暂时没有容量的又是什么？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "倾听者",
-        "count_motif": "地面三杯与云中递来的一杯",
-        "gesture": "抱膝坐下，先看身体再看第四杯",
-        "environment": "树荫下的静止空间",
-        "motion_cue": "第四杯缓慢出现，角色不被迫接取"
-      },
-      "safety_tags": ["low-mood-sensitive"]
-    },
-    {
-      "id": "cups-05",
-      "title_zh": "圣杯五",
-      "title_en": "Five of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "five",
-      "number": 5,
-      "traditional_core": ["失去", "失望", "仍有保留", "苦涩"],
-      "modern_core": ["允许哀伤", "看见剩余资源", "不急着积极化"],
-      "shadow": ["只看损失", "否认悲伤", "用剩余事物取消真实失落"],
-      "daily_note": "今天可以承认一件没有如愿的事。看见仍然存在的两只杯子，不是要求你马上振作，而是提醒悲伤与资源可以同时成立。",
-      "action": "写下一项真实损失和两项仍可依靠的资源；不要用后两项否定前一项。",
-      "reflection": "我需要哀悼什么，又愿意在何时转身看向仍然存在的部分？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "倾听者",
-        "count_motif": "前方三只倾倒圣杯、身后两只直立",
-        "gesture": "披风角色先注视倒杯，再缓慢转身",
-        "environment": "河流、桥与可到达的远方建筑",
-        "motion_cue": "洒出的水停止流动，身后两杯保持光点"
-      },
-      "safety_tags": ["grief-sensitive", "avoid-toxic-positivity"]
-    },
-    {
-      "id": "cups-06",
-      "title_zh": "圣杯六",
-      "title_en": "Six of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "six",
-      "number": 6,
-      "traditional_core": ["回忆", "童年", "过去的快乐", "熟悉感"],
-      "modern_core": ["记忆资源", "温柔回看", "把过去带回当下"],
-      "shadow": ["美化过去", "退回旧角色", "用怀旧回避现在"],
-      "daily_note": "一段旧记忆今天可能重新提供温度或线索。允许它被珍惜，同时检查你是否忽略了当时并不完美的部分。",
-      "action": "找回一个曾经帮助过你的习惯或作品，用适合现在的方式重新做一次。",
-      "reflection": "我怀念的是那段时间本身，还是当时的某种需要被满足？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "倾听者",
-        "count_motif": "六只装满白花的圣杯",
-        "gesture": "角色将一杯花递向较小的旧日剪影",
-        "environment": "旧花园与安全庭院",
-        "motion_cue": "记忆画面以低对比叠加后缓慢退回"
-      },
-      "safety_tags": ["trauma-sensitive"]
-    },
-    {
-      "id": "cups-07",
-      "title_zh": "圣杯七",
-      "title_en": "Seven of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "seven",
-      "number": 7,
-      "traditional_core": ["幻想", "许多诱人图像", "选择不实", "短暂愿景"],
-      "modern_core": ["选项过多", "区分想象与承诺", "让愿望接受现实检验"],
-      "shadow": ["逃入幻想", "被表象诱导", "永远不选择"],
-      "daily_note": "今天可能有很多看起来都不错的可能。先让每个选项接受一个现实条件的检验，再决定把时间交给哪一个。",
-      "action": "从所有选项中只保留三个，并为每个写出未来七天内的第一个实际成本。",
-      "reflection": "哪个选项吸引我，是因为它真正重要，还是因为它不需要我现在承担代价？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "倾听者",
-        "count_motif": "七只云中圣杯，各含不同幻象",
-        "gesture": "角色逐一靠近但不触碰，最后回到地面",
-        "environment": "雾中陈列空间与清楚地面标线",
-        "motion_cue": "幻象轮流变亮，接近时显露材质缺口"
-      },
-      "safety_tags": ["avoid-fantasy-as-fact"]
-    },
-    {
-      "id": "cups-08",
-      "title_zh": "圣杯八",
-      "title_en": "Eight of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "eight",
-      "number": 8,
-      "traditional_core": ["离开", "旧投入失去意义", "衰退", "寻找其他方向"],
-      "modern_core": ["有意识退出", "寻找更深意义", "承认沉没成本"],
-      "shadow": ["逃避困难", "未经沟通突然离开", "不断追逐下一件事"],
-      "daily_note": "今天可以检查一项投入是否仍然有意义。离开并不自动勇敢，留下也不自动忠诚；关键是你是否面对了真实原因。",
-      "action": "为一项想退出的承诺写下留下、调整和离开的代价，再选择一个需要沟通的下一步。",
-      "reflection": "我是在走向更重要的东西，还是只是在远离不舒服？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "倾听者",
-        "count_motif": "八只留下空缺的圣杯",
-        "gesture": "披衣角色背向杯阵走向山路",
-        "environment": "月下水岸与向上延伸的路径",
-        "motion_cue": "水面向后退，脚步缓慢但持续"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "cups-09",
-      "title_zh": "圣杯九",
-      "title_en": "Nine of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "nine",
-      "number": 9,
-      "traditional_core": ["满足", "享受", "成功", "愿望达成"],
-      "modern_core": ["承认够了", "享受成果", "满足感与分享"],
-      "shadow": ["自满", "用消费填补感受", "只顾自己的满足"],
-      "daily_note": "今天可以暂停追赶下一件事，确认已经拥有的满足。享受会更完整，如果它不需要否认他人的处境或明天的代价。",
-      "action": "有意识地享受一项已有成果，并写下你愿意如何维护或分享它。",
-      "reflection": "什么是真正的满足，什么只是短暂刺激？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "倾听者",
-        "count_motif": "九杯整齐陈列成弧",
-        "gesture": "角色坐在杯阵前放松，但不封闭双臂",
-        "environment": "宴后安静空间与充足储备",
-        "motion_cue": "杯面依次反光，最终保持柔和"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "cups-10",
-      "title_zh": "圣杯十",
-      "title_en": "Ten of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "ten",
-      "number": 10,
-      "traditional_core": ["心的满足", "家庭与友谊", "共同幸福", "归属"],
-      "modern_core": ["共同安全感", "关系生态", "让幸福可持续"],
-      "shadow": ["理想家庭神话", "为了和谐隐藏差异", "排除不符合模板的人"],
-      "daily_note": "今天适合关注让关系真正安全的日常动作，而不是完美画面。归属来自可以表达差异、修复误解和共享快乐。",
-      "action": "为一个重要关系做一件可观察的维护动作，并说清你为什么在意。",
-      "reflection": "我们共同的幸福里，是否也容得下不同需求和不完美？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "倾听者",
-        "count_motif": "十杯形成彩虹弧线",
-        "gesture": "角色面向一组多样化剪影，共同举手确认",
-        "environment": "家园远景与开放草地",
-        "motion_cue": "十杯从分散汇成弧线，人物保持各自位置"
-      },
-      "safety_tags": ["family-sensitive", "inclusive-relationships"]
-    },
-    {
-      "id": "cups-page",
-      "title_zh": "圣杯侍从",
-      "title_en": "Page of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "page",
-      "number": null,
-      "traditional_core": ["消息", "想象形成", "学习", "反思"],
-      "modern_core": ["情感好奇", "创意意外", "用新语言表达感受"],
-      "shadow": ["情绪幼稚", "把幻想当关系", "害怕认真"],
-      "daily_note": "今天可以对一个意外感受保持好奇，而不是马上评判它是否合理。新的表达方式可能比旧解释更接近真实。",
-      "action": "用图像、比喻或一段语音描述一个难以命名的感受，然后补上一句事实。",
-      "reflection": "这个意外反应正在告诉我什么需要被注意？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "年轻倾听者",
-        "count_motif": "一只圣杯与杯中探出的鱼",
-        "gesture": "惊讶但不后退，认真观察杯中异象",
-        "environment": "平静海岸与轻风",
-        "motion_cue": "鱼短暂出现，角色从惊讶转为好奇"
-      },
-      "safety_tags": ["emotion-sensitive"]
-    },
-    {
-      "id": "cups-knight",
-      "title_zh": "圣杯骑士",
-      "title_en": "Knight of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "knight",
-      "number": null,
-      "traditional_core": ["邀请", "提议", "接近", "想象与浪漫"],
-      "modern_core": ["带着感受行动", "表达愿望", "让理想接受回应"],
-      "shadow": ["过度浪漫化", "承诺超过能力", "用魅力回避事实"],
-      "daily_note": "今天适合表达一个真诚邀请或创意提议，但要让它包含现实信息：你能提供什么、希望对方回应什么。",
-      "action": "发出一个具体邀请，写清时间、范围和对方可以自由拒绝。",
-      "reflection": "我希望建立真实连接，还是希望维持一个美好想象？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "远行倾听者",
-        "count_motif": "一只被平稳托举的圣杯",
-        "gesture": "缓慢前进并把杯保持在可接可拒的距离",
-        "environment": "河流、远山与平缓路径",
-        "motion_cue": "坐骑稳步移动，杯中水面几乎不洒"
-      },
-      "safety_tags": ["consent-sensitive", "avoid-third-party-mind-reading"]
-    },
-    {
-      "id": "cups-queen",
-      "title_zh": "圣杯王后",
-      "title_en": "Queen of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "queen",
-      "number": null,
-      "traditional_core": ["爱与智慧", "感受力", "愿景", "照料"],
-      "modern_core": ["共情", "情绪容纳", "有边界的倾听"],
-      "shadow": ["吸收他人情绪", "拯救倾向", "忽略事实"],
-      "daily_note": "今天可以认真倾听，但不必把所有情绪都背回家。共情包括理解，也包括确认哪些责任属于对方。",
-      "action": "在一次倾听后，用一句话确认理解，再用一句话说明你能提供和不能提供的支持。",
-      "reflection": "我是在陪伴，还是正在接管别人的情绪与选择？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "成熟倾听者",
-        "count_motif": "一只封闭而精细的圣杯",
-        "gesture": "观察杯中内容，双脚保持稳定触地",
-        "environment": "海边石座与变化的潮水",
-        "motion_cue": "潮水靠近但不越过角色边界"
-      },
-      "safety_tags": ["mental-health-boundary"]
-    },
-    {
-      "id": "cups-king",
-      "title_zh": "圣杯国王",
-      "title_en": "King of Cups",
-      "arcana": "minor",
-      "suit": "cups",
-      "rank": "king",
-      "number": null,
-      "traditional_core": ["情绪责任", "公平", "艺术与创造智慧", "沉着"],
-      "modern_core": ["情绪成熟", "在波动中决策", "不否认也不被淹没"],
-      "shadow": ["情感操控", "表面冷静", "用理性压住感受"],
-      "daily_note": "今天的成熟不是没有情绪，而是情绪存在时仍能选择怎样回应。先命名感受，再决定它是否应成为行动依据。",
-      "action": "在一个重要决定前，分别写下感受、事实和责任，再做回应。",
-      "reflection": "我的平静是有容量，还是在让别人无法接近真实的我？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "领导倾听者",
-        "count_motif": "一杯一杖，周围海浪与远船",
-        "gesture": "坐姿稳定，目光同时看见海浪与航线",
-        "environment": "海上王座但结构稳固",
-        "motion_cue": "海面持续波动，杯与身体保持水平"
-      },
-      "safety_tags": ["emotion-sensitive"]
-    },
-    {
-      "id": "swords-ace",
-      "title_zh": "宝剑一",
-      "title_en": "Ace of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "ace",
-      "number": 1,
-      "traditional_core": ["力量", "突破", "胜利", "清楚判断"],
-      "modern_core": ["清晰", "新观点", "用准确语言切开混乱"],
-      "shadow": ["语言伤人", "把观点当事实", "过度简化"],
-      "daily_note": "今天适合把一个模糊问题说得更准确。清晰是一种工具，不是攻击；先定义事实和问题，再决定需要切除什么。",
-      "action": "把一个困扰改写成一句可验证的问题，删掉其中的绝对化词语。",
-      "reflection": "我需要的是更清楚的事实，还是一个让我感觉胜利的论点？",
-      "avatar": {
-        "mode": "object-first",
-        "persona": "辨析者",
-        "count_motif": "一柄戴冠的直立宝剑",
-        "gesture": "人物以剑面反射出现，不直接挥剑",
-        "environment": "高空、远山与清晰水平线",
-        "motion_cue": "云层被一道直线分开后稳定"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "swords-02",
-      "title_zh": "宝剑二",
-      "title_en": "Two of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "two",
-      "number": 2,
-      "traditional_core": ["僵持", "勉强维持的平衡", "选择", "信息受限"],
-      "modern_core": ["暂缓决定", "补齐信息", "承认两难"],
-      "shadow": ["无限拖延", "假装中立", "拒绝看见代价"],
-      "daily_note": "今天的犹豫可能说明两个选择都带来损失。与其逼自己立刻确定，不如先找出真正缺少的那项信息，并设定决定期限。",
-      "action": "写下决定还缺的一个事实、可接受的最坏结果和最终决定时间。",
-      "reflection": "我是在等待信息，还是在等待一个没有代价的选项？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "辨析者",
-        "count_motif": "两柄交叉宝剑与眼部遮带",
-        "gesture": "保持平衡，随后放低一柄剑观察环境",
-        "environment": "夜海、礁石与低月",
-        "motion_cue": "两剑轻微颤动，放下一柄后海面变清楚"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "swords-03",
-      "title_zh": "宝剑三",
-      "title_en": "Three of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "three",
-      "number": 3,
-      "traditional_core": ["分离", "破裂", "悲伤", "令人痛苦的清楚"],
-      "modern_core": ["承认受伤", "让事实与感受同时存在", "停止否认"],
-      "shadow": ["反复刺痛自己", "把痛苦变成身份", "用解释绕开哀伤"],
-      "daily_note": "今天若有失望，不需要立即把它转化成成长故事。先准确承认发生了什么、它让你感到什么，再决定需要沟通还是休息。",
-      "action": "用两句话分别写下事实和感受，不加入对自己或他人的人格判断。",
-      "reflection": "除了找到原因，我还需要怎样照顾这份受伤？",
-      "avatar": {
-        "mode": "object-first",
-        "persona": "辨析者的雨中倒影",
-        "count_motif": "三剑穿过一颗象征性心形",
-        "gesture": "人物仅在雨面反射中呼吸，不替代核心符号",
-        "environment": "云雨背景与高对比红心",
-        "motion_cue": "雨线持续，三剑与心保持静止"
-      },
-      "safety_tags": ["grief-sensitive", "avoid-self-harm-imagery"]
-    },
-    {
-      "id": "swords-04",
-      "title_zh": "宝剑四",
-      "title_en": "Four of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "four",
-      "number": 4,
-      "traditional_core": ["退下", "休息", "独处", "恢复警觉"],
-      "modern_core": ["有计划恢复", "减少刺激", "为思考留白"],
-      "shadow": ["长期撤退", "用休息回避", "身体停下但思维不停"],
-      "daily_note": "今天的有效动作可能是暂停。真正的恢复需要降低输入和决策，不只是把工作换成另一种屏幕。",
-      "action": "安排二十分钟无屏幕、无任务的休息，并在开始前写下恢复后只做的一件事。",
-      "reflection": "什么会让我真正恢复，而不是暂时分心？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "辨析者",
-        "count_motif": "三剑悬墙、一剑平放",
-        "gesture": "平躺或坐姿休息，双手放松",
-        "environment": "安静石室与彩窗柔光",
-        "motion_cue": "光线缓慢移动，宝剑完全静止"
-      },
-      "safety_tags": ["wellbeing-boundary"]
-    },
-    {
-      "id": "swords-05",
-      "title_zh": "宝剑五",
-      "title_en": "Five of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "five",
-      "number": 5,
-      "traditional_core": ["冲突后的损失", "羞辱", "赢得场面", "关系受损"],
-      "modern_core": ["胜利代价", "修复或退出冲突", "重新定义成功"],
-      "shadow": ["不惜代价获胜", "报复", "把妥协当失败"],
-      "daily_note": "今天在争取胜利前，先计算关系、时间和信任的代价。有些争论即使赢了，也会让你离真正目标更远。",
-      "action": "为一场冲突写下你真正想保护的结果，并停止一个只为压过对方的动作。",
-      "reflection": "如果不需要赢过对方，我会怎样解决这个问题？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "辨析者",
-        "count_motif": "手中三剑、地上两剑与离开的人影",
-        "gesture": "看向离去者，再放下一柄多余的剑",
-        "environment": "风暴后的海岸与空旷战场",
-        "motion_cue": "远处人影离开，剑落地声清晰"
-      },
-      "safety_tags": ["conflict-sensitive"]
-    },
-    {
-      "id": "swords-06",
-      "title_zh": "宝剑六",
-      "title_en": "Six of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "six",
-      "number": 6,
-      "traditional_core": ["渡水", "旅程", "离开困难处境", "过渡"],
-      "modern_core": ["渐进转移", "带着经验前行", "允许不完整恢复"],
-      "shadow": ["只换环境不处理问题", "被动漂流", "拒绝告别"],
-      "daily_note": "今天适合把自己从持续消耗的情境移动到更可处理的位置。过渡不要求情绪已经结束，只要求方向比原地更安全。",
-      "action": "为一个困难情境安排一个实际转移动作：换环境、改时间、暂停联系或寻求协助。",
-      "reflection": "我正在走向哪里，而不只是离开什么？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "辨析者",
-        "count_motif": "六剑竖在渡船前部",
-        "gesture": "在船上护住空间，目光看向彼岸",
-        "environment": "一侧水面动荡、一侧逐渐平静",
-        "motion_cue": "船缓慢横渡，水纹由乱变稳"
-      },
-      "safety_tags": ["safety-sensitive"]
-    },
-    {
-      "id": "swords-07",
-      "title_zh": "宝剑七",
-      "title_en": "Seven of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "seven",
-      "number": 7,
-      "traditional_core": ["策略", "秘密行动", "计划可能失败", "试图绕过正面冲突"],
-      "modern_core": ["审视策略", "信息边界", "聪明与诚实的张力"],
-      "shadow": ["欺骗", "逃避责任", "短期聪明造成长期风险"],
-      "daily_note": "今天适合检查你的策略是否只在短期有效。保护隐私与隐瞒关键信息不同，选择前先看它对信任的长期影响。",
-      "action": "找出计划中最依赖别人“不知道”的部分，并决定需要披露、修改还是停止。",
-      "reflection": "如果这个策略被完整看见，我仍会认为它合理吗？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "辨析者",
-        "count_motif": "怀中五剑、地上两剑与远处营地",
-        "gesture": "回头检查遗漏，不以窃取作英雄化表演",
-        "environment": "临时营地与多条撤离路线",
-        "motion_cue": "脚步轻快但两柄留下的剑反射出视线"
-      },
-      "safety_tags": ["privacy-sensitive", "avoid-deception-encouragement"]
-    },
-    {
-      "id": "swords-08",
-      "title_zh": "宝剑八",
-      "title_en": "Eight of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "eight",
-      "number": 8,
-      "traditional_core": ["受限", "暂时束缚", "信息被遮挡", "危机感"],
-      "modern_core": ["感知限制", "寻找可动空间", "先验证约束"],
-      "shadow": ["习得性无助", "自责", "把心理障碍当作唯一原因"],
-      "daily_note": "今天若觉得没有选择，先检查哪些限制是客观存在、哪些可以协商、哪些只是尚未尝试。不要把所有困境都归咎于自己。",
-      "action": "列出三个限制，并为每个标记“事实、可协商、未知”；只对后两类采取一步行动。",
-      "reflection": "在当前限制内，我仍然拥有哪一个最小选择？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "辨析者",
-        "count_motif": "八剑形成不完全封闭的围栏",
-        "gesture": "角色蒙眼但双脚可动，慢慢发现缺口",
-        "environment": "湿地与远处建筑，出口存在但不夸张",
-        "motion_cue": "风吹动遮带，围栏缺口被短暂照亮"
-      },
-      "safety_tags": ["mental-health-boundary", "avoid-victim-blaming"]
-    },
-    {
-      "id": "swords-09",
-      "title_zh": "宝剑九",
-      "title_en": "Nine of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "nine",
-      "number": 9,
-      "traditional_core": ["焦虑", "失眠", "绝望", "担忧放大"],
-      "modern_core": ["反刍", "夜间思维", "把担忧移到可支持的环境"],
-      "shadow": ["孤立承受", "把想法当事实", "羞于求助"],
-      "daily_note": "夜里的念头常比白天更绝对。如果担忧反复出现，先把它写下来并带到有光、有时间或有人支持的环境中处理。",
-      "action": "为一个反复担忧写下最可能、最坏和最可应对的三种情况；若持续影响睡眠或安全，寻求专业支持。",
-      "reflection": "哪一部分是需要行动的问题，哪一部分是疲惫的大脑正在重复警报？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "辨析者",
-        "count_motif": "九剑横列在夜墙上",
-        "gesture": "角色从床上坐起，将一柄象征性思绪写入纸面",
-        "environment": "夜室与一束可开启的晨光",
-        "motion_cue": "剑影随呼吸变浅，晨光不自动解决问题"
-      },
-      "safety_tags": ["anxiety-sensitive", "sleep-sensitive", "crisis-escalation"]
-    },
-    {
-      "id": "swords-10",
-      "title_zh": "宝剑十",
-      "title_en": "Ten of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "ten",
-      "number": 10,
-      "traditional_core": ["痛苦终点", "失败", "结束", "无法继续原状"],
-      "modern_core": ["承认周期结束", "停止追加损失", "从最低点转向恢复"],
-      "shadow": ["灾难化", "认定永远如此", "在结束后继续惩罚自己"],
-      "daily_note": "这张牌不预测现实伤害，它表示某种模式已经无法按原样继续。今天先停止追加损失，再讨论如何重建。",
-      "action": "结束一个明确无效的重复动作，并通知受影响的人你将采用什么替代方案。",
-      "reflection": "什么已经结束，而我仍在通过重复它延长痛苦？",
-      "avatar": {
-        "mode": "witness",
-        "persona": "辨析者",
-        "count_motif": "十剑形成沉重终止线，远处日出",
-        "gesture": "人物站在安全前景，覆盖伤害主体而不表演暴力",
-        "environment": "黑暗地面与清晰晨线并存",
-        "motion_cue": "十剑保持静止，地平线逐渐变亮"
-      },
-      "safety_tags": ["avoid-graphic-violence", "crisis-sensitive", "avoid-literal-death-prediction"]
-    },
-    {
-      "id": "swords-page",
-      "title_zh": "宝剑侍从",
-      "title_en": "Page of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "page",
-      "number": null,
-      "traditional_core": ["警觉", "观察", "检查", "消息与监视"],
-      "modern_core": ["求证", "好奇提问", "学习信息边界"],
-      "shadow": ["窥探", "传播未经确认的信息", "过度戒备"],
-      "daily_note": "今天适合提问和核实，但不要因为消息新鲜就急着传播。好奇心需要与隐私和证据一起工作。",
-      "action": "在转发或下结论前，找到原始来源并确认一项可能改变判断的信息。",
-      "reflection": "我在寻找理解，还是在寻找能支持既有立场的材料？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "年轻辨析者",
-        "count_motif": "一柄双手持握的直立宝剑",
-        "gesture": "环顾多方向后把视线落到一份来源",
-        "environment": "高风丘陵与快速云层",
-        "motion_cue": "云层移动快，人物脚步保持稳定"
-      },
-      "safety_tags": ["privacy-sensitive", "misinformation-sensitive"]
-    },
-    {
-      "id": "swords-knight",
-      "title_zh": "宝剑骑士",
-      "title_en": "Knight of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "knight",
-      "number": null,
-      "traditional_core": ["迅速行动", "勇敢", "对抗", "强烈观点"],
-      "modern_core": ["直接推进", "为观点承担行动", "在速度前校准事实"],
-      "shadow": ["攻击性", "口不择言", "把复杂问题冲成二元对立"],
-      "daily_note": "今天的判断可能很快，但表达速度不必与思考速度相同。先确认你的目标是解决问题，而不是压过对方。",
-      "action": "在发送一段强烈回应前删掉人格判断，只保留事实、影响和请求。",
-      "reflection": "我冲向的是问题本身，还是一个让我可以发泄的目标？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "远行辨析者",
-        "count_motif": "一柄前指宝剑与疾驰坐骑",
-        "gesture": "身体前倾但在最后一刻校准方向",
-        "environment": "强风、破云与弯曲树木",
-        "motion_cue": "快速推进后在交界线前受控减速"
-      },
-      "safety_tags": ["conflict-sensitive"]
-    },
-    {
-      "id": "swords-queen",
-      "title_zh": "宝剑王后",
-      "title_en": "Queen of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "queen",
-      "number": null,
-      "traditional_core": ["经历悲伤后的清醒", "分离", "严肃判断", "独立"],
-      "modern_core": ["辨别力", "诚实边界", "经验形成的清晰"],
-      "shadow": ["尖刻", "把受伤变成永久距离", "只接受理性语言"],
-      "daily_note": "今天可以清楚地说出边界，而不必把清楚变成冷酷。你经历过的事可以帮助判断，但不必替今天的人和事提前定罪。",
-      "action": "用“当……发生时，我需要……”表达一条边界，不解释对方的人格。",
-      "reflection": "我能否既尊重自己的经验，也给新事实一个位置？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "成熟辨析者",
-        "count_motif": "一柄垂直宝剑与伸出的开放手掌",
-        "gesture": "一手持剑，一手邀请事实进入",
-        "environment": "高空石座、远云与单只飞鸟",
-        "motion_cue": "云层划过，剑身保持垂直"
-      },
-      "safety_tags": ["grief-sensitive"]
-    },
-    {
-      "id": "swords-king",
-      "title_zh": "宝剑国王",
-      "title_en": "King of Swords",
-      "arcana": "minor",
-      "suit": "swords",
-      "rank": "king",
-      "number": null,
-      "traditional_core": ["判断权", "法律", "理性权威", "命令"],
-      "modern_core": ["原则性决策", "解释标准", "让权力受约束"],
-      "shadow": ["冷酷权威", "合理化控制", "只重逻辑不重影响"],
-      "daily_note": "今天若需要做决定，先让标准公开、证据可检查、后果有人承担。理性越有权力，越需要说明边界。",
-      "action": "为一个影响他人的决定写出依据、例外和申诉或复查方式。",
-      "reflection": "我使用原则是为了提高公平，还是为了让自己的决定不可质疑？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "领导辨析者",
-        "count_motif": "一柄直立宝剑与对称蝴蝶纹章",
-        "gesture": "正面持剑，先展示书面标准再作决定",
-        "environment": "开放审议场而非封闭法庭",
-        "motion_cue": "背景风持续，文字标准保持清晰"
-      },
-      "safety_tags": ["legal-boundary", "power-sensitive"]
-    },
-    {
-      "id": "pentacles-ace",
-      "title_zh": "星币一",
-      "title_en": "Ace of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "ace",
-      "number": 1,
-      "traditional_core": ["物质机会", "舒适条件", "资源", "可实现的开端"],
-      "modern_core": ["建立基础", "把机会落地", "身体与资源的第一步"],
-      "shadow": ["只看收益", "错把可能当拥有", "忽略维护成本"],
-      "daily_note": "今天适合把一个机会变成可触摸的第一步。先确认它需要多少时间、金钱或体力，再决定怎样开始。",
-      "action": "为一个想法建立最小预算、时间块或实体文件，并完成第一次投入。",
-      "reflection": "这个机会的真实价值是什么，它又需要我长期维护什么？",
-      "avatar": {
-        "mode": "object-first",
-        "persona": "工匠",
-        "count_motif": "一枚被手掌托起的星币",
-        "gesture": "人物以币面浮雕出现，手部检视重量",
-        "environment": "花园入口与通向远山的小路",
-        "motion_cue": "星币缓慢转动后落入稳定基座"
-      },
-      "safety_tags": ["financial-boundary"]
-    },
-    {
-      "id": "pentacles-02",
-      "title_zh": "星币二",
-      "title_en": "Two of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "two",
-      "number": 2,
-      "traditional_core": ["协调", "变化中的平衡", "多项事务", "波动"],
-      "modern_core": ["动态优先级", "容量管理", "让节奏可调整"],
-      "shadow": ["长期杂耍", "把忙乱当能力", "没有缓冲"],
-      "daily_note": "今天的平衡不是让每件事得到相同时间，而是让重要事项在变化中仍有位置。持续杂耍也可能说明系统需要减量。",
-      "action": "把今天的事项分成必须、可移动和可取消三类，并留出一个空白缓冲块。",
-      "reflection": "我是在灵活调整，还是在维持一个本就超出容量的安排？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "工匠",
-        "count_motif": "两枚星币由无限环连接",
-        "gesture": "双手协调两币，脚步随波动调整",
-        "environment": "远处船只随浪起伏，前景地面稳定",
-        "motion_cue": "两币反相摆动，节奏逐渐规律"
-      },
-      "safety_tags": ["burnout-sensitive"]
-    },
-    {
-      "id": "pentacles-03",
-      "title_zh": "星币三",
-      "title_en": "Three of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "three",
-      "number": 3,
-      "traditional_core": ["技艺", "工作", "专业合作", "被认可的能力"],
-      "modern_core": ["共同建造", "反馈", "角色清楚的协作"],
-      "shadow": ["各做各的", "只追求认可", "技能不愿接受反馈"],
-      "daily_note": "今天适合让工作接受具体反馈。好的合作不是所有人做同一件事，而是清楚谁负责设计、执行和判断质量。",
-      "action": "邀请一位相关的人审看一个半成品，并只询问一个明确质量问题。",
-      "reflection": "这项工作最需要哪一种我自己没有的能力？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "工匠",
-        "count_motif": "三枚星币嵌入建筑拱顶",
-        "gesture": "与画外设计者和委托者共同查看图纸",
-        "environment": "未完工的工坊或建筑内部",
-        "motion_cue": "三币依次嵌入，结构线最终对齐"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "pentacles-04",
-      "title_zh": "星币四",
-      "title_en": "Four of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "four",
-      "number": 4,
-      "traditional_core": ["持有", "财产安全", "保护资源", "不愿放手"],
-      "modern_core": ["资源边界", "安全感", "检查控制成本"],
-      "shadow": ["囤积", "过度控制", "因害怕失去而无法流动"],
-      "daily_note": "今天可以保护重要资源，也要检查保护是否已经阻止它发挥作用。安全需要边界，也需要适量流动。",
-      "action": "选一项你紧抓的资源，决定保留、分享、使用或释放其中很小的一部分。",
-      "reflection": "我守住的是实际需要，还是对失去的想象？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "工匠",
-        "count_motif": "头顶一币、怀中一币、脚下两币",
-        "gesture": "先收紧怀抱，再尝试把一枚币放到可用位置",
-        "environment": "城市之外的封闭座位",
-        "motion_cue": "四币起初锁定，一枚随后缓慢松开"
-      },
-      "safety_tags": ["financial-boundary"]
-    },
-    {
-      "id": "pentacles-05",
-      "title_zh": "星币五",
-      "title_en": "Five of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "five",
-      "number": 5,
-      "traditional_core": ["物质困难", "匮乏", "被排除", "困境中的同行"],
-      "modern_core": ["资源压力", "寻求支持", "看见可用入口"],
-      "shadow": ["羞于求助", "匮乏视野", "把困难当个人失败"],
-      "daily_note": "如果今天感到资源不足，不要把它自动解释为个人失败。先确认有哪些正式或非正式支持入口，以及你愿意向谁开口。",
-      "action": "列出一个具体缺口，并联系一个可能提供信息、陪伴或实际帮助的渠道。",
-      "reflection": "我经过了哪些可求助的入口，却因为羞耻或假设而没有看见？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "工匠",
-        "count_motif": "五枚星币位于高处发光窗格",
-        "gesture": "角色在寒风中收拢身体，随后抬头看见入口",
-        "environment": "雪夜街道、明亮但不自动开放的窗",
-        "motion_cue": "雪持续落下，窗光稳定提示方向"
-      },
-      "safety_tags": ["financial-boundary", "poverty-sensitive", "avoid-victim-blaming"]
-    },
-    {
-      "id": "pentacles-06",
-      "title_zh": "星币六",
-      "title_en": "Six of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "six",
-      "number": 6,
-      "traditional_core": ["给予", "礼物", "分配", "当前资源充足"],
-      "modern_core": ["互助", "给予与接收", "资源交换中的权力"],
-      "shadow": ["带条件的慷慨", "依赖", "施予者控制"],
-      "daily_note": "今天可以关注资源怎样在关系中流动。给予前问对方真正需要什么；接受时也不必用羞耻否定自己的需要。",
-      "action": "完成一次具体而有边界的给予或求助，并说清范围、时间和是否需要回报。",
-      "reflection": "这次交换让双方更有能力，还是让一方更难自由选择？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "工匠",
-        "count_motif": "六枚星币与一架天平",
-        "gesture": "一手衡量，一手分配，目光同时看向接受者",
-        "environment": "公共交易空间而非高低王座",
-        "motion_cue": "星币缓慢转移，天平显示权力变化"
-      },
-      "safety_tags": ["financial-boundary", "power-sensitive"]
-    },
-    {
-      "id": "pentacles-07",
-      "title_zh": "星币七",
-      "title_en": "Seven of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "seven",
-      "number": 7,
-      "traditional_core": ["等待收成", "评估投入", "业务与资源焦虑", "耐心"],
-      "modern_core": ["复盘", "长期投入", "决定继续还是调整"],
-      "shadow": ["沉没成本", "急于收成", "一直观察不修正"],
-      "daily_note": "今天适合检查长期投入是否产生了你真正重视的结果。耐心不等于永远继续，同样也不等于因为暂时无果就立即放弃。",
-      "action": "为一个长期项目检查投入、当前信号和下一评估日期，并决定保持、调整或停止。",
-      "reflection": "如果今天才第一次看到这个项目，我还会选择投入吗？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "工匠",
-        "count_motif": "七枚星币生长在一株植被上",
-        "gesture": "扶杖观察成熟度，并记录而非直接采摘",
-        "environment": "工作田地与不同成熟阶段",
-        "motion_cue": "植株缓慢生长，部分果实保持未熟"
-      },
-      "safety_tags": ["financial-boundary"]
-    },
-    {
-      "id": "pentacles-08",
-      "title_zh": "星币八",
-      "title_en": "Eight of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "eight",
-      "number": 8,
-      "traditional_core": ["工作", "工艺", "反复练习", "技能形成"],
-      "modern_core": ["刻意练习", "专注", "通过重复提高质量"],
-      "shadow": ["机械重复", "工作成瘾", "只做熟悉部分"],
-      "daily_note": "今天的进步来自一次可被检查的重复。不要只增加数量，给每一轮练习一个具体的质量标准。",
-      "action": "选择一项技能做三轮短练习，每轮只改进一个可观察细节。",
-      "reflection": "我是在练习薄弱处，还是只在重复自己已经会的部分？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "工匠",
-        "count_motif": "六枚成品竖列、一枚制作中、一枚待处理",
-        "gesture": "专注雕刻当前星币，定期与前一枚比较",
-        "environment": "安静工作台与远处城市",
-        "motion_cue": "敲击保持稳定节奏，每轮有细微改进"
-      },
-      "safety_tags": ["burnout-sensitive"]
-    },
-    {
-      "id": "pentacles-09",
-      "title_zh": "星币九",
-      "title_en": "Nine of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "nine",
-      "number": 9,
-      "traditional_core": ["谨慎", "安全", "完成", "独立的物质成果"],
-      "modern_core": ["自足", "享受长期成果", "有边界的独立"],
-      "shadow": ["把独立变孤立", "用成果证明价值", "不允许自己享受"],
-      "daily_note": "今天可以承认你通过长期选择建立的稳定。独立不是不需要任何人，而是你能更自由地选择怎样连接。",
-      "action": "整理或享用一项自己长期建立的资源，并感谢其中曾帮助过你的人。",
-      "reflection": "我想要的独立，是更多选择，还是完全不向任何人开口？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "工匠",
-        "count_motif": "九枚星币有序分布在成熟葡萄园",
-        "gesture": "角色手托猎鹰，缓慢检视成果",
-        "environment": "有边界的私人园地与远处宅邸",
-        "motion_cue": "叶片轻动，九币按空间层次反光"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "pentacles-10",
-      "title_zh": "星币十",
-      "title_en": "Ten of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "ten",
-      "number": 10,
-      "traditional_core": ["家庭资源", "住所", "档案", "财富与传承"],
-      "modern_core": ["长期系统", "代际影响", "把资源变成可持续环境"],
-      "shadow": ["只维护传统外观", "资源分配不公", "把继承当资格"],
-      "daily_note": "今天适合把目光从一次成果移到它能否被长期使用和传递。真正的传承不仅是拥有，也包括记录、维护和公平进入。",
-      "action": "为一个重要资源补充说明、备份、授权或交接中的一项。",
-      "reflection": "我正在留下一个可被他人使用的系统，还是只留下一个需要他人维护的负担？",
-      "avatar": {
-        "mode": "suit-emissary",
-        "persona": "工匠",
-        "count_motif": "十枚星币形成家谱或建筑生命之树",
-        "gesture": "角色站在多代剪影之间递交一份档案",
-        "environment": "拱门、家园、儿童、老人和动物的共同空间",
-        "motion_cue": "十币沿代际结构依次点亮"
-      },
-      "safety_tags": ["family-sensitive", "financial-boundary", "inclusive-family"]
-    },
-    {
-      "id": "pentacles-page",
-      "title_zh": "星币侍从",
-      "title_en": "Page of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "page",
-      "number": null,
-      "traditional_core": ["学习", "应用", "研究", "管理", "现实消息"],
-      "modern_core": ["从基础学起", "把目标变计划", "认真观察材料"],
-      "shadow": ["只学习不实践", "对结果过早执着", "忽略周围"],
-      "daily_note": "今天适合以学生心态处理现实目标。先掌握一个基础动作，并让学习立刻产生一个小而可见的结果。",
-      "action": "学习一个与当前目标直接相关的基础概念，并马上用它完成一次练习。",
-      "reflection": "我还在准备，是因为基础不足，还是因为实践会暴露不足？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "年轻工匠",
-        "count_motif": "一枚被双手仔细观察的星币",
-        "gesture": "专注研究币面，随后尝试放入实际结构",
-        "environment": "田地、远山与尚未耕作的平面",
-        "motion_cue": "星币细节逐层显现，背景保持安静"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "pentacles-knight",
-      "title_zh": "星币骑士",
-      "title_en": "Knight of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "knight",
-      "number": null,
-      "traditional_core": ["责任", "实用", "可靠服务", "缓慢而持久"],
-      "modern_core": ["一致性", "维护", "按承诺完成"],
-      "shadow": ["停滞", "害怕变化", "把谨慎变拖延"],
-      "daily_note": "今天不需要戏剧性的突破，可靠地完成承诺本身就是进展。但也要确认流程仍服务目标，而不是只因熟悉而重复。",
-      "action": "完成一个已经答应的维护任务，并检查是否有一步可以更简单。",
-      "reflection": "我的稳定正在积累价值，还是只在避免改变？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "远行工匠",
-        "count_motif": "一枚星币与静止重型坐骑",
-        "gesture": "停在田地前检查路线和工具",
-        "environment": "已耕作土地与清楚工作边界",
-        "motion_cue": "坐骑缓慢呼吸，角色完成检查后稳步前行"
-      },
-      "safety_tags": []
-    },
-    {
-      "id": "pentacles-queen",
-      "title_zh": "星币王后",
-      "title_en": "Queen of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "queen",
-      "number": null,
-      "traditional_core": ["安全", "慷慨", "现实照料", "资源丰盛"],
-      "modern_core": ["有边界的照料", "让资源支持生活", "身体化智慧"],
-      "shadow": ["照料过度", "忽略自己", "用物质替代情感回应"],
-      "daily_note": "今天可以让照料变得具体：一顿饭、一个整洁空间、一次资源安排。同时确认照顾别人没有以透支自己为代价。",
-      "action": "完成一项同时改善身体或环境的照料动作，并为自己保留同等时间。",
-      "reflection": "什么样的支持真正增加了长期容量，而不只是让我继续硬撑？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "成熟工匠",
-        "count_motif": "一枚怀中星币、植物与兔形生命符号",
-        "gesture": "检视星币后转向周围真实环境",
-        "environment": "丰盛但可维护的花园",
-        "motion_cue": "植物与动物轻动，星币保持稳定重量"
-      },
-      "safety_tags": ["caregiver-burnout-sensitive"]
-    },
-    {
-      "id": "pentacles-king",
-      "title_zh": "星币国王",
-      "title_en": "King of Pentacles",
-      "arcana": "minor",
-      "suit": "pentacles",
-      "rank": "king",
-      "number": null,
-      "traditional_core": ["现实智慧", "事业成功", "资源管理", "稳定成果"],
-      "modern_core": ["守护资源", "长期决策", "让丰盛承担责任"],
-      "shadow": ["物质主义", "固守利益", "用资源控制他人"],
-      "daily_note": "今天适合从长期维护者的角度看待资源。拥有越多选择，越需要说明怎样使用、保存并避免把成本转嫁给别人。",
-      "action": "检查一项重要资源的长期成本、受益者和风险，并补上一条维护规则。",
-      "reflection": "我的成功正在扩大共同能力，还是只在扩大我的控制范围？",
-      "avatar": {
-        "mode": "court-persona",
-        "persona": "领导工匠",
-        "count_motif": "一枚星币、牛形纹章、葡萄与城堡",
-        "gesture": "从成果中抬头查看更广的责任范围",
-        "environment": "成熟庄园与可见生产系统",
-        "motion_cue": "葡萄藤缓慢生长，星币光泽克制"
-      },
-      "safety_tags": ["financial-boundary", "power-sensitive"]
+        "persona": "Integrator",
+        "count_motif": "an oval wreath and four steady witnessing symbols",
+        "gesture": "complete a slow, closing circular motion at the center of the wreath",
+        "environment": "an open cosmos and a complete frame existing together",
+        "motion_cue": "the four corner symbols responding one by one until they close the circle"
+      }
     }
   ]
 }
