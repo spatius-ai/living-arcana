@@ -2,6 +2,21 @@
 
 An interactive daily tarot experience built with React, Three.js and Spatius AvatarKit. Includes daily cards, three-card spreads, streamed readings, voice input and character speech.
 
+## Demo and avatar access
+
+Try the [hosted demo](https://thearcana.me/).
+
+To use the same tarot characters in your own deployment, request copies for your Spatius account:
+
+1. Register an account in [Spatius Studio](https://app.spatius.ai/).
+2. Email [rowan@spatialwalk.net](mailto:rowan@spatialwalk.net) with the subject **Living Arcana avatar request**. Include the email address you used to register in Studio and request the Living Arcana tarot avatar set. You can also include your GitHub username or project link to help us track the request.
+3. A maintainer will manually copy the tarot avatars into your account and confirm when they are available. This step is not automatic.
+4. Use the Avatar IDs from your own account in `VITE_SPATIUS_AVATAR_MAP`, then configure your own Spatius App ID and server-side API key as described below.
+
+Your deployment uses your own service credentials and account quota. Keep API keys and passwords out of the request email. OpenRouter and ElevenLabs configuration is separate from the avatar copy request.
+
+The repository includes the application code and bundled media. Access to the hosted Spatius avatars is provisioned separately; cloning the repository does not add those avatars to your Studio account.
+
 ## Quick start
 
 Use Node.js 24 and pnpm 10.33.0.
@@ -26,7 +41,7 @@ Only `.env.example` and `.dev.vars.example` are published. Copy the former to `.
 | Transcription fallback | `OPENROUTER_API_KEY`, `OPENROUTER_TRANSCRIBE_MODEL` | — |
 | Speech and realtime transcription | `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_MAP`, model settings | — |
 
-`VITE_` values are public and embedded into the browser build. API keys must stay server-side. The server mints short-lived Spatius session tokens. No production avatar IDs or service accounts are bundled; supply a fallback avatar or a JSON map such as `{"major-00-fool":"YOUR_AVATAR_ID"}`.
+`VITE_` values are public and embedded into the browser build. API keys must stay server-side. The server mints short-lived Spatius session tokens. No production avatar IDs or service accounts are bundled. For the demo's tarot characters, follow the [avatar request steps](#demo-and-avatar-access), then map the Avatar IDs from your account in a JSON object such as `{"major-00-fool":"YOUR_AVATAR_ID"}`. You can also use `VITE_SPATIUS_AVATAR_ID` as a single fallback avatar.
 
 Model defaults are examples; choose model IDs available to your provider account. Without OpenRouter credentials, readings use curated fallback text.
 
